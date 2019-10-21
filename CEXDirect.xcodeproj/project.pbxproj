@@ -330,6 +330,8 @@
 		FD3B6783224E6A94002BE8E0 /* CDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDButton.swift; sourceTree = "<group>"; };
 		FD3B6785224E6ABB002BE8E0 /* CDButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CDButton.xib; sourceTree = "<group>"; };
 		FD3CB6172254D5400085CA7A /* PageTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTitleViewController.swift; sourceTree = "<group>"; };
+		FD4E99A9235DC08800EAE228 /* ConfigurationUAT.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ConfigurationUAT.plist; sourceTree = "<group>"; };
+		FD4E99AA235DC08800EAE228 /* ConfigurationDevelopment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ConfigurationDevelopment.plist; sourceTree = "<group>"; };
 		FD576E98234CAE8D00B6E728 /* DataValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataValidator.swift; sourceTree = "<group>"; };
 		FD599B1822DDE20000BB0CAA /* LocationUnsupportedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationUnsupportedViewController.storyboard; sourceTree = "<group>"; };
 		FD599B1A22DDE21000BB0CAA /* LocationUnsupportedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUnsupportedViewController.swift; sourceTree = "<group>"; };
@@ -601,6 +603,7 @@
 				FDA2BC332253D2D300A0A302 /* PurchasePageTitleCell.swift */,
 				FDE769B0225521B4001830CE /* Coordinator.swift */,
 				FDFE6E462268A62000FF1EE1 /* countries.json */,
+				FD4E99A8235DC08800EAE228 /* Private */,
 			);
 			path = CEXDirect;
 			sourceTree = "<group>";
@@ -679,6 +682,15 @@
 				FD5DD2452357411E00ABDDFC /* Private */,
 			);
 			path = CEXDirectDemo;
+			sourceTree = "<group>";
+		};
+		FD4E99A8235DC08800EAE228 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				FD4E99A9235DC08800EAE228 /* ConfigurationUAT.plist */,
+				FD4E99AA235DC08800EAE228 /* ConfigurationDevelopment.plist */,
+			);
+			path = Private;
 			sourceTree = "<group>";
 		};
 		FD5DD2452357411E00ABDDFC /* Private */ = {
