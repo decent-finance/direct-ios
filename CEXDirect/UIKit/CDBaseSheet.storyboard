@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qkl-3w-Xhs">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-ExtraBold.ttf">
+            <string>OpenSans-Extrabold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Base Sheet Controller-->
+        <scene sceneID="t5H-TU-fb4">
+            <objects>
+                <viewController id="Qkl-3w-Xhs" customClass="CDBaseSheetController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="G5a-SD-N77">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Nt7-IR-2ZS">
+                                <rect key="frame" x="10" y="18" width="355" height="192"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYe-mF-DGY">
+                                        <rect key="frame" x="159" y="0.0" width="37.5" height="22"/>
+                                        <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EPq-uG-xgX">
+                                        <rect key="frame" x="135" y="42" width="85.5" height="70"/>
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="hRh-mx-vcl">
+                                        <rect key="frame" x="0.0" y="132" width="355" height="60"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nTz-PD-yY2" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="172.5" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="hcV-jh-buC"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="style" value="gray"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="CANCEL"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="cancel:" destination="Qkl-3w-Xhs" eventType="touchUpInside" id="eAt-MT-PsN"/>
+                                                </connections>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Zk-qT-gGS" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                <rect key="frame" x="182.5" y="0.0" width="172.5" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="ycH-uy-B8w"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="style" value="blue"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="performAction:" destination="Qkl-3w-Xhs" eventType="touchUpInside" id="cJY-FE-7Xa"/>
+                                                </connections>
+                                            </view>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="nTz-PD-yY2" firstAttribute="width" secondItem="9Zk-qT-gGS" secondAttribute="width" id="qpJ-Kk-rKn"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="hRh-mx-vcl" firstAttribute="leading" secondItem="Nt7-IR-2ZS" secondAttribute="leading" id="juv-px-uTs"/>
+                                    <constraint firstAttribute="trailing" secondItem="hRh-mx-vcl" secondAttribute="trailing" id="xdw-Mu-NMV"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1019607843" green="0.14117647059999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ftI-RB-bC0" firstAttribute="bottom" secondItem="Nt7-IR-2ZS" secondAttribute="bottom" constant="10" id="QlL-3A-JNp"/>
+                            <constraint firstItem="Nt7-IR-2ZS" firstAttribute="leading" secondItem="ftI-RB-bC0" secondAttribute="leading" constant="10" id="UYo-lL-dho"/>
+                            <constraint firstItem="Nt7-IR-2ZS" firstAttribute="top" secondItem="ftI-RB-bC0" secondAttribute="top" constant="18" id="dGa-9a-Jid"/>
+                            <constraint firstItem="Nt7-IR-2ZS" firstAttribute="trailing" secondItem="ftI-RB-bC0" secondAttribute="trailing" constant="-10" id="pbc-3W-4Gz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ftI-RB-bC0"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="220"/>
+                    <connections>
+                        <outlet property="actionButton" destination="9Zk-qT-gGS" id="S0G-2u-v8h"/>
+                        <outlet property="cancelButton" destination="nTz-PD-yY2" id="h8p-tl-QYn"/>
+                        <outlet property="descriptionLabel" destination="EPq-uG-xgX" id="HbI-LQ-y4I"/>
+                        <outlet property="titleLabel" destination="SYe-mF-DGY" id="qKO-Qo-Lhx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZUD-zA-0eF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="44" y="129"/>
+        </scene>
+    </scenes>
+</document>

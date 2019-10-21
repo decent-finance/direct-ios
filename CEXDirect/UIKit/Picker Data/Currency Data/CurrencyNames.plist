@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bch</key>
+	<string>Bitcoin Cash</string>
+	<key>btc</key>
+	<string>Bitcoin</string>
+	<key>btg</key>
+	<string>Bitcoin Gold</string>
+	<key>dash</key>
+	<string>Dash</string>
+	<key>eth</key>
+	<string>Ethereum</string>
+	<key>eur</key>
+	<string>Euro</string>
+	<key>gbp</key>
+	<string>Pound Sterling</string>
+	<key>rub</key>
+	<string>Ruble</string>
+	<key>usd</key>
+	<string>United States Dollar</string>
+	<key>xlm</key>
+	<string>Stellar</string>
+	<key>xrp</key>
+	<string>Ripple</string>
+	<key>zec</key>
+	<string>Zcash</string>
+	<key>qash</key>
+	<string>QASH</string>
+	<key>ltc</key>
+	<string>Litecoin</string>
+	<key>gusd</key>
+	<string>Gemini Dollar</string>
+	<key>omg</key>
+	<string>OmiseGO</string>
+	<key>bsv</key>
+	<string>Bitcoin SV</string>
+	<key>bat</key>
+	<string>Basic Attention Token</string>
+	<key>tusd</key>
+	<string>TrueUSD</string>
+	<key>usdt</key>
+	<string>Tether</string>
+	<key>pax</key>
+	<string>Paxos Standard Token</string>
+</dict>
+</plist>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t54-Gs-TDn">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Confirm Payment View Controller-->
+        <scene sceneID="hC8-oB-tSj">
+            <objects>
+                <viewController id="t54-Gs-TDn" customClass="ConfirmPaymentViewController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="zTS-CR-e64">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="378"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are processing your order..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ez6-rN-wSl">
+                                <rect key="frame" x="71.5" y="44" width="232.5" height="22"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <wkWebView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qnm-mt-1pL">
+                                <rect key="frame" x="0.0" y="106" width="375" height="238"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="314" id="JIP-kh-Gw1"/>
+                                </constraints>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.066666666669999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Qnm-mt-1pL" firstAttribute="leading" secondItem="yea-kn-Gpo" secondAttribute="leading" id="3MU-vY-zkY"/>
+                            <constraint firstItem="Qnm-mt-1pL" firstAttribute="top" secondItem="ez6-rN-wSl" secondAttribute="bottom" constant="40" id="TPU-2n-Kgt"/>
+                            <constraint firstItem="ez6-rN-wSl" firstAttribute="centerX" secondItem="yea-kn-Gpo" secondAttribute="centerX" id="ZXs-BZ-EZ0"/>
+                            <constraint firstItem="Qnm-mt-1pL" firstAttribute="bottom" secondItem="yea-kn-Gpo" secondAttribute="bottom" id="fzV-Id-WxM"/>
+                            <constraint firstItem="ez6-rN-wSl" firstAttribute="top" secondItem="yea-kn-Gpo" secondAttribute="top" id="i2I-U0-BgH"/>
+                            <constraint firstItem="Qnm-mt-1pL" firstAttribute="trailing" secondItem="yea-kn-Gpo" secondAttribute="trailing" id="lHr-Tl-moX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="yea-kn-Gpo"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="378"/>
+                    <connections>
+                        <outlet property="webView" destination="Qnm-mt-1pL" id="NOY-kj-KPz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vvd-OS-qEo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1211" y="-206"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,213 @@
+# Copyright 2019 CEX.​IO Ltd (UK)
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+# Created by Ihor Vovk
+
+default_platform(:ios)
+
+PP_DIR=ENV['HOME'] + "/Library/MobileDevice/Provisioning Profiles/"
+PROJ_FILE="CEXDirect.xcodeproj"
+
+DEVELOPMENT_SCHEME="Release-Development"
+DEVELOPMENT_PROVISIONING_PROFILE="CEXDirect Demo Development Ad Hoc CI"
+DEVELOPMENT_PROVISIONING_FILENAME="CEXDirect_Demo_Development_Ad_Hoc_CI.mobileprovision"
+
+UAT_SCHEME="Release-UAT"
+UAT_PROVISIONING_PROFILE="CEXDirect Demo UAT Ad Hoc CI"
+UAT_PROVISIONING_FILENAME="CEXDirect_Demo_UAT_Ad_Hoc_CI.mobileprovision"
+
+DEPLOYMENT_SCHEME="Release-Production"
+DEPLOYMENT_PROVISIONING_PROFILE="CEXDirect Demo Ad Hoc CI"
+DEPLOYMENT_PROVISIONING_FILENAME="CEXDirect_Demo_Ad_Hoc_CI.mobileprovision"
+
+fastlane_require 'dotenv'
+before_all do
+  Dotenv.overload ENV['APP_CONF'] + '/.env.secret'
+end
+
+platform :ios do
+
+    lane :build do
+        increment_build_number_and_version
+        inject_keys("PLACEMENT_ID", "PLACEMENT_SECRET", "GOOGLE_SERVICE_INFO")
+
+        unlock_keychain_at_path
+        fetch_profiles("com.cexdirect.demo", DEPLOYMENT_PROVISIONING_PROFILE, DEPLOYMENT_PROVISIONING_FILENAME)
+        update_project_provisionings(DEPLOYMENT_PROVISIONING_FILENAME, DEPLOYMENT_SCHEME)
+        code_sign
+
+        clean_cocoapods_cache
+        install_cocoapods
+
+        build_release_app(DEPLOYMENT_SCHEME)
+
+        firebase_upload(
+            app_id: ENV['FIREBASE_APP_ID']
+        )
+    end
+
+    lane :build_uat do
+        increment_build_number_and_version
+        inject_keys("PLACEMENT_ID_UAT", "PLACEMENT_SECRET_UAT", "GOOGLE_SERVICE_INFO_UAT")
+
+        unlock_keychain_at_path
+        fetch_profiles("com.cexdirect.demo-uat", UAT_PROVISIONING_PROFILE, UAT_PROVISIONING_FILENAME)
+        update_project_provisionings(UAT_PROVISIONING_FILENAME, UAT_SCHEME)
+        code_sign
+
+        clean_cocoapods_cache
+        install_cocoapods
+
+        build_release_app(UAT_SCHEME)
+
+        firebase_upload(
+            app_id: ENV['FIREBASE_APP_ID_UAT']
+        )
+    end
+
+    lane :build_dev do
+        increment_build_number_and_version
+        inject_keys("PLACEMENT_ID_DEVELOPMENT", "PLACEMENT_SECRET_DEVELOPMENT", "GOOGLE_SERVICE_INFO_DEVELOPMENT")
+
+        unlock_keychain_at_path
+        fetch_profiles("com.cexdirect.demo-dev", DEVELOPMENT_PROVISIONING_PROFILE, DEVELOPMENT_PROVISIONING_FILENAME)
+        update_project_provisionings(DEVELOPMENT_PROVISIONING_FILENAME, DEVELOPMENT_SCHEME)
+        code_sign
+
+        clean_cocoapods_cache
+        install_cocoapods
+
+        build_release_app(DEVELOPMENT_SCHEME)
+
+        firebase_upload(
+            app_id: ENV['FIREBASE_APP_ID_DEVELOPMENT']
+        )
+    end
+
+    private_lane :crashlytics_upload do |options|
+        crashlytics(
+            api_token: ENV['CRASHLYTICS_API_TOKEN'],
+            build_secret: ENV['CRASHLYTICS_BUILD_SECRET'],
+            emails: nil,
+            groups: 'testers',
+            notes: 'Build at ' + Time.new.strftime('%H:%M:%S %d.%m.%Y'),
+            notifications: false
+        )
+        # upload_symbols_to_crashlytics(binary_path: './/Cex.io/Crashlytics.framework/uploadDSYM')
+    end
+
+    private_lane :firebase_upload do |options|
+        firebase_app_distribution(
+            app: options[:app_id],
+            groups: "qa-team",
+            release_notes: "#{ENV['CI_COMMIT_REF_NAME']}: #{ENV['CI_COMMIT_MESSAGE']}"
+        )
+    end
+
+    error do |lane, exception|
+    end
+
+    def install_cocoapods()
+        cocoapods(
+            podfile: "Podfile",
+            use_bundle_exec: true,
+            try_repo_update_on_error: true
+        )
+    end
+
+    def increment_build_number_and_version()
+        increment_build_number(
+            build_number: ENV['CI_JOB_ID']
+        )
+
+        #increment_version_number(
+        #    xcodeproj: PROJ_FILE,
+        #    version_number: VERSION
+        #)
+    end
+
+    def inject_keys(placement_id_key, placement_secret_key, google_service_info_key)
+        if ENV['PLACEMENT_ID']
+            set_info_plist_value(path: "CEXDirectDemo/Placement.plist", key: "PlacementID", value: ENV[placement_id_key])
+        end
+
+        if ENV['PLACEMENT_SECRET']
+            set_info_plist_value(path: "CEXDirectDemo/Placement.plist", key: "PlacementSecret", value: ENV[placement_secret_key])
+        end
+
+        if ENV['GOOGLE_SERVICE_INFO']
+            File.write("../CEXDirectDemo/GoogleService-Info.plist", ENV[google_service_info_key])
+        end
+    end
+
+    def update_project_provisionings(provisioning_name, build_configuration)
+        update_project_provisioning(
+          xcodeproj: PROJ_FILE,
+          profile: PP_DIR + provisioning_name,
+          target_filter: "^CEXDirectDemo$",
+          build_configuration: build_configuration
+        )
+    end
+
+    def code_sign()
+        automatic_code_signing(
+            path: PROJ_FILE,
+            team_id: ENV['TEAM_ID'],
+            use_automatic_signing: false,
+            code_sign_identity: "iPhone Distribution"
+        )
+    end
+
+    def fetch_profiles(app_identifier, provisioning_name, filename)
+        sigh(
+            adhoc: true,
+            skip_install: true,
+            skip_fetch_profiles: false,
+            skip_certificate_verification: false,
+            ignore_profiles_with_different_name: true,
+            output_path: PP_DIR,
+            app_identifier: app_identifier,
+            team_id: ENV['TEAM_ID'],
+            provisioning_name: provisioning_name,
+            filename: filename,
+            readonly: true,
+            username: "deploy@cex.io"
+        )
+    end
+
+    def unlock_keychain_at_path(path="ios-release")
+        unlock_keychain(
+            path: path,
+            set_default: true,
+            password: ENV['KEYCHAIN_PASSWORD'],
+            add_to_search_list: :replace
+        )
+    end
+
+    def build_release_app(configuration)
+        build_app(
+           # clean: true,
+           export_method: "ad-hoc",
+           workspace: "CEXDirect.xcworkspace",
+           scheme: "CEXDirect",
+           configuration: configuration,
+           export_options: {
+              compileBitcode: false,
+              uploadSymbols: true
+           },
+           xcargs: "GCC_PREPROCESSOR_DEFINITIONS='$GCC_PREPROCESSOR_DEFINITIONS DEBUG=1'",
+           silent: false
+        )
+    end
+end

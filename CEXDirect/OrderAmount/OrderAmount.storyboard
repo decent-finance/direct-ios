@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bxa-18-O2F">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Order Amount View Controller-->
+        <scene sceneID="WbC-Q1-dLR">
+            <objects>
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="bxa-18-O2F" customClass="OrderAmountViewController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aht-rb-oHh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Esr-ZU-5TT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="UWn-q0-DVP">
+                                        <rect key="frame" x="118" y="54" width="139" height="40"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="104" id="Tjd-3i-Xis"/>
+                                    <constraint firstAttribute="bottom" secondItem="UWn-q0-DVP" secondAttribute="bottom" constant="10" id="dkt-5r-2gp"/>
+                                    <constraint firstItem="UWn-q0-DVP" firstAttribute="centerX" secondItem="Esr-ZU-5TT" secondAttribute="centerX" id="n69-RR-C3z"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bO8-9w-uWc">
+                                <rect key="frame" x="0.0" y="104" width="375" height="708"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchase BTC for USD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOs-zs-M16">
+                                        <rect key="frame" x="65" y="40" width="245" height="33"/>
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="67n-yI-g4z">
+                                        <rect key="frame" x="10" y="113" width="355" height="320"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFV-rT-s2f" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
+                                                <color key="backgroundColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="u8D-LB-7gE"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Get - BTC"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="16"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="style" value="gray"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="cryptoButton"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="BMC-0y-7Hg" customClass="CDAmountTextField" customModule="CEXDirect" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="56" width="355" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="cryptoAmountField"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="qgx-WQ-FcU" customClass="CDAmountTextField" customModule="CEXDirect" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="132" width="355" height="60"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
+                                                        <integer key="value" value="2"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="fiatAmountField"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="xAV-9c-o41">
+                                                <rect key="frame" x="0.0" y="208" width="355" height="36"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VtL-FD-pol" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="95" height="36"/>
+                                                        <color key="backgroundColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="36" id="560-H2-aLv"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="2"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="- USD"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                <real key="value" value="16"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="style" value="gray"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="offeredAmountButton1"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6sq-Zd-vnI" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                        <rect key="frame" x="130" y="0.0" width="95" height="36"/>
+                                                        <color key="backgroundColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="36" id="nIj-DI-0XJ"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="2"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="- USD"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="style" value="gray"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                <real key="value" value="16"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="offeredAmountButton2"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrq-eF-K6H" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                        <rect key="frame" x="260" y="0.0" width="95" height="36"/>
+                                                        <color key="backgroundColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="36" id="xBs-8c-dIs"/>
+                                                        </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="2"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="- USD"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="style" value="gray"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                <real key="value" value="16"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="offeredAmountButton3"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </view>
+                                                </subviews>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kk2-8n-McQ" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="260" width="355" height="60"/>
+                                                <color key="backgroundColor" red="0.047058823530000002" green="0.52941176469999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="0eM-gj-Cgf"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="BUY"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="style" value="blue"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <integer key="value" value="4"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="282" translatesAutoresizingMaskIntoConstraints="NO" id="fKb-sl-58u">
+                                        <rect key="frame" x="0.0" y="553" width="375" height="282"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="fKb-sl-58u" secondAttribute="bottom" id="5w9-NX-30j"/>
+                                    <constraint firstItem="67n-yI-g4z" firstAttribute="top" secondItem="WOs-zs-M16" secondAttribute="bottom" constant="40" id="6Je-2o-Pmc"/>
+                                    <constraint firstItem="67n-yI-g4z" firstAttribute="leading" secondItem="bO8-9w-uWc" secondAttribute="leading" constant="10" id="CRH-FF-Sty"/>
+                                    <constraint firstItem="fKb-sl-58u" firstAttribute="top" secondItem="67n-yI-g4z" secondAttribute="bottom" constant="120" id="JIM-dL-hEz"/>
+                                    <constraint firstAttribute="trailing" secondItem="67n-yI-g4z" secondAttribute="trailing" constant="10" id="Mg6-KP-xtt"/>
+                                    <constraint firstItem="WOs-zs-M16" firstAttribute="top" secondItem="bO8-9w-uWc" secondAttribute="top" constant="40" id="ULX-bY-m9l"/>
+                                    <constraint firstItem="fKb-sl-58u" firstAttribute="leading" secondItem="bO8-9w-uWc" secondAttribute="leading" id="bgg-LM-Seu"/>
+                                    <constraint firstAttribute="trailing" secondItem="fKb-sl-58u" secondAttribute="trailing" id="dsI-Jq-fef"/>
+                                    <constraint firstItem="WOs-zs-M16" firstAttribute="centerX" secondItem="bO8-9w-uWc" secondAttribute="centerX" id="hwj-oC-dda"/>
+                                    <constraint firstItem="67n-yI-g4z" firstAttribute="centerX" secondItem="bO8-9w-uWc" secondAttribute="centerX" id="y25-N8-3NA"/>
+                                </constraints>
+                            </scrollView>
+                            <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9A-st-l81">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <connections>
+                                    <segue destination="qu6-of-5dt" kind="embed" identifier="verifyPlacement" id="7qe-l1-Ab6"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.066666666669999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Esr-ZU-5TT" firstAttribute="leading" secondItem="aht-rb-oHh" secondAttribute="leading" id="1ax-uq-aBf"/>
+                            <constraint firstItem="bO8-9w-uWc" firstAttribute="leading" secondItem="aht-rb-oHh" secondAttribute="leading" id="5JY-bI-Roz"/>
+                            <constraint firstItem="c9A-st-l81" firstAttribute="leading" secondItem="4NK-Hc-Nsx" secondAttribute="leading" id="Icc-hN-VUo"/>
+                            <constraint firstItem="bO8-9w-uWc" firstAttribute="trailing" secondItem="aht-rb-oHh" secondAttribute="trailing" id="Ieu-Z0-MoN"/>
+                            <constraint firstItem="bO8-9w-uWc" firstAttribute="bottom" secondItem="aht-rb-oHh" secondAttribute="bottom" id="RaB-hc-ca5"/>
+                            <constraint firstItem="bO8-9w-uWc" firstAttribute="top" secondItem="Esr-ZU-5TT" secondAttribute="bottom" id="SiN-Ib-Rjw"/>
+                            <constraint firstItem="4NK-Hc-Nsx" firstAttribute="trailing" secondItem="c9A-st-l81" secondAttribute="trailing" id="bBe-XD-0ZM"/>
+                            <constraint firstItem="Esr-ZU-5TT" firstAttribute="top" secondItem="aht-rb-oHh" secondAttribute="top" id="cYX-KY-8qa"/>
+                            <constraint firstAttribute="trailing" secondItem="Esr-ZU-5TT" secondAttribute="trailing" id="vZD-kb-r4p"/>
+                            <constraint firstAttribute="top" secondItem="c9A-st-l81" secondAttribute="top" id="xuf-W0-Blb"/>
+                            <constraint firstAttribute="bottom" secondItem="c9A-st-l81" secondAttribute="bottom" id="yht-kT-ROk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="4NK-Hc-Nsx"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="azH-63-xkN"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="0.0" height="0.0"/>
+                    <connections>
+                        <outlet property="buyButton" destination="kk2-8n-McQ" id="aqn-Gl-b2r"/>
+                        <outlet property="cryptoAmountTextField" destination="BMC-0y-7Hg" id="tXq-34-aFG"/>
+                        <outlet property="cryptoButton" destination="lFV-rT-s2f" id="dy9-dB-RpO"/>
+                        <outlet property="fiatAmountTextField" destination="qgx-WQ-FcU" id="Hhi-Lo-bHm"/>
+                        <outlet property="footerView" destination="fKb-sl-58u" id="bGB-bW-ol8"/>
+                        <outlet property="purchaseLabel" destination="WOs-zs-M16" id="cWi-49-Dbl"/>
+                        <outlet property="verifyPlacementContainerView" destination="c9A-st-l81" id="RsU-ne-Z0p"/>
+                        <outletCollection property="fiatPopularAmountButtons" destination="VtL-FD-pol" collectionClass="NSMutableArray" id="13A-Wa-jZc"/>
+                        <outletCollection property="fiatPopularAmountButtons" destination="6sq-Zd-vnI" collectionClass="NSMutableArray" id="FV0-g3-Oh3"/>
+                        <outletCollection property="fiatPopularAmountButtons" destination="mrq-eF-K6H" collectionClass="NSMutableArray" id="uAX-5y-H9C"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kwe-gI-lRb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1274.4000000000001" y="-0.44977511244377816"/>
+        </scene>
+        <!--VerifyPlacementViewController-->
+        <scene sceneID="8P5-wC-0jf">
+            <objects>
+                <viewControllerPlaceholder storyboardName="VerifyPlacementViewController" id="qu6-of-5dt" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oVL-ys-eTM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-595" y="-1"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo" width="139" height="40"/>
+    </resources>
+</document>

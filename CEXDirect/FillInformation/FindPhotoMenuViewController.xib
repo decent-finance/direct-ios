@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-ExtraBold.ttf">
+            <string>OpenSans-Extrabold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FindPhotoMenuViewController" customModule="CEXDirect" customModuleProvider="target">
+            <connections>
+                <outlet property="cameraButton" destination="gk5-ln-3jd" id="k0r-GQ-5Lv"/>
+                <outlet property="cancelButton" destination="C9l-Np-Zdw" id="8KA-lq-3QQ"/>
+                <outlet property="photosButton" destination="aTT-ZS-F6w" id="WXv-gE-87N"/>
+                <outlet property="view" destination="a9Y-Qw-a0d" id="DkX-v2-G8M"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="a9Y-Qw-a0d">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="278"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find a Shot to Upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctp-7X-DY1">
+                    <rect key="frame" x="100" y="0.0" width="175" height="57"/>
+                    <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="16"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9K6-gs-qJA">
+                    <rect key="frame" x="10" y="67" width="355" height="131"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTT-ZS-F6w">
+                            <rect key="frame" x="0.0" y="0.0" width="355" height="65"/>
+                            <accessibility key="accessibilityConfiguration" identifier="photosButton"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="65" id="Vlv-Za-2DU"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="16"/>
+                            <state key="normal" title="Photos">
+                                <color key="titleColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="photosButton"/>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6i-ub-CQX">
+                            <rect key="frame" x="10" y="65" width="335" height="1"/>
+                            <color key="backgroundColor" red="0.88235294119999996" green="0.90980392160000001" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="kjc-Oe-tqh"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gk5-ln-3jd">
+                            <rect key="frame" x="0.0" y="66" width="355" height="65"/>
+                            <accessibility key="accessibilityConfiguration" identifier="cameraButton"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="65" id="1Rj-3X-T51"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="16"/>
+                            <state key="normal" title="Camera">
+                                <color key="titleColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="cameraButton"/>
+                            </userDefinedRuntimeAttributes>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="j6i-ub-CQX" firstAttribute="leading" secondItem="9K6-gs-qJA" secondAttribute="leading" constant="10" id="10A-7S-bMe"/>
+                        <constraint firstItem="gk5-ln-3jd" firstAttribute="leading" secondItem="9K6-gs-qJA" secondAttribute="leading" id="4D4-sG-6Rq"/>
+                        <constraint firstItem="j6i-ub-CQX" firstAttribute="top" secondItem="aTT-ZS-F6w" secondAttribute="bottom" id="D0Z-7L-sHc"/>
+                        <constraint firstItem="aTT-ZS-F6w" firstAttribute="leading" secondItem="9K6-gs-qJA" secondAttribute="leading" id="Lax-qg-2jF"/>
+                        <constraint firstAttribute="bottom" secondItem="gk5-ln-3jd" secondAttribute="bottom" id="MlV-Ja-BL1"/>
+                        <constraint firstItem="gk5-ln-3jd" firstAttribute="top" secondItem="j6i-ub-CQX" secondAttribute="bottom" id="XYu-Kh-wNN"/>
+                        <constraint firstAttribute="trailing" secondItem="gk5-ln-3jd" secondAttribute="trailing" id="hly-ma-Qo5"/>
+                        <constraint firstAttribute="trailing" secondItem="aTT-ZS-F6w" secondAttribute="trailing" id="q6w-3p-hfl"/>
+                        <constraint firstItem="gk5-ln-3jd" firstAttribute="top" secondItem="j6i-ub-CQX" secondAttribute="bottom" id="r6L-pQ-rqF"/>
+                        <constraint firstAttribute="trailing" secondItem="j6i-ub-CQX" secondAttribute="trailing" constant="10" id="s8y-eU-Uwf"/>
+                        <constraint firstItem="aTT-ZS-F6w" firstAttribute="top" secondItem="9K6-gs-qJA" secondAttribute="top" id="tth-Cc-0cl"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9l-Np-Zdw">
+                    <rect key="frame" x="10" y="208" width="355" height="60"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <accessibility key="accessibilityConfiguration" identifier="uploadPhotosCancelButton"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="w0W-9A-EvX"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                    <state key="normal" title="Cancel">
+                        <color key="titleColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="uploadPhotosCancelButton"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="qxj-XF-zOk" firstAttribute="trailing" secondItem="9K6-gs-qJA" secondAttribute="trailing" constant="10" id="574-qC-Xrt"/>
+                <constraint firstItem="Ctp-7X-DY1" firstAttribute="top" secondItem="a9Y-Qw-a0d" secondAttribute="top" id="Ayz-eP-g4E"/>
+                <constraint firstItem="9K6-gs-qJA" firstAttribute="leading" secondItem="qxj-XF-zOk" secondAttribute="leading" constant="10" id="Buw-cl-4jK"/>
+                <constraint firstAttribute="bottom" secondItem="C9l-Np-Zdw" secondAttribute="bottom" constant="10" id="LFl-bo-6rH"/>
+                <constraint firstItem="C9l-Np-Zdw" firstAttribute="leading" secondItem="qxj-XF-zOk" secondAttribute="leading" constant="10" id="RQ4-Pe-bDj"/>
+                <constraint firstItem="9K6-gs-qJA" firstAttribute="top" secondItem="Ctp-7X-DY1" secondAttribute="bottom" constant="10" id="UoK-E9-TCd"/>
+                <constraint firstItem="Ctp-7X-DY1" firstAttribute="centerX" secondItem="qxj-XF-zOk" secondAttribute="centerX" id="Zct-mD-48b"/>
+                <constraint firstItem="C9l-Np-Zdw" firstAttribute="top" secondItem="9K6-gs-qJA" secondAttribute="bottom" constant="10" id="eAd-qP-6BY"/>
+                <constraint firstItem="qxj-XF-zOk" firstAttribute="trailing" secondItem="C9l-Np-Zdw" secondAttribute="trailing" constant="10" id="eMr-SN-IKL"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="qxj-XF-zOk"/>
+            <point key="canvasLocation" x="-199.27536231884059" y="-190.84821428571428"/>
+        </view>
+    </objects>
+</document>

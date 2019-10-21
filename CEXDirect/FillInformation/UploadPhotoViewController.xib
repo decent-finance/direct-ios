@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-ExtraBold.ttf">
+            <string>OpenSans-Extrabold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UploadPhotoViewController" customModule="CEXDirect" customModuleProvider="target">
+            <connections>
+                <outlet property="descriptionLabel" destination="4dD-jQ-wd3" id="WoF-ci-RCw"/>
+                <outlet property="documentBackErrorImageView" destination="jrM-Mn-tpE" id="6ki-qc-2hx"/>
+                <outlet property="documentBackErrorLabel" destination="tL7-ka-JOg" id="aZs-vR-jng"/>
+                <outlet property="documentBackImageView" destination="HM9-af-eAY" id="n0y-8e-xmO"/>
+                <outlet property="documentBackView" destination="9DE-6r-jdF" id="9uU-pm-xlO"/>
+                <outlet property="documentDetailsView" destination="37Z-Hp-4oV" id="g4U-9p-geh"/>
+                <outlet property="documentErrorLabel" destination="MGR-hz-Vl2" id="HJp-wD-YZu"/>
+                <outlet property="documentFrontErrorImageView" destination="Zqa-Rp-6jW" id="21D-Jv-UJv"/>
+                <outlet property="documentFrontTitleLabel" destination="4w9-1w-cu7" id="Rc0-Rt-qyc"/>
+                <outlet property="documentImageView" destination="Bil-cl-hRf" id="IPG-sP-I1o"/>
+                <outlet property="documentTypeErrorLabel" destination="QUw-af-l9G" id="llu-zs-DWg"/>
+                <outlet property="documentView" destination="3sV-58-i2r" id="UPD-4m-pJz"/>
+                <outlet property="driverLicenseButton" destination="Ymc-51-5MF" id="SmA-GS-Pfs"/>
+                <outlet property="idTypeButton" destination="jMU-l3-B6M" id="gfp-38-eWl"/>
+                <outlet property="passportTypeButton" destination="7VE-0v-yaP" id="odu-oK-C0U"/>
+                <outlet property="selfieErrorImageView" destination="kA2-7p-Zbh" id="aJF-B3-aDh"/>
+                <outlet property="selfieErrorLabel" destination="t8i-bJ-0j7" id="h6q-CN-wka"/>
+                <outlet property="selfieImageView" destination="aXD-Kh-kh5" id="wVK-cC-PNz"/>
+                <outlet property="selfieView" destination="zxs-yQ-smc" id="2VV-8f-Wrn"/>
+                <outlet property="uploadDocumentBackButtonView" destination="CHz-lf-zW9" id="Ehr-0P-1QW"/>
+                <outlet property="uploadDocumentButtonView" destination="jTy-Vx-MBh" id="mld-6P-Rno"/>
+                <outlet property="uploadSelfieButtonView" destination="bSi-cG-RdK" id="rrV-JJ-exf"/>
+                <outlet property="uploadedDocumentBackButtonView" destination="OvR-Uy-ikg" id="Kiu-ZM-TrX"/>
+                <outlet property="uploadedDocumentButtonView" destination="xDN-BV-ZSp" id="lfW-W8-V9U"/>
+                <outlet property="uploadedSelfieButtonView" destination="B6G-1P-RI6" id="Q5L-0U-NYa"/>
+                <outlet property="view" destination="EV4-Fi-rxd" id="kcz-K2-Gz9"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="EV4-Fi-rxd">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="1102"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Dqf-26-uWa">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="1102"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rJJ-iN-Iyg">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RuW-tm-Els">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jMU-l3-B6M">
+                                            <rect key="frame" x="0.0" y="0.0" width="118.5" height="60"/>
+                                            <color key="backgroundColor" red="0.074509803920000006" green="0.098039215690000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                            <state key="normal" title="ID Card">
+                                                <color key="titleColor" red="0.97647058819999999" green="0.98431372549999996" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Ymc-51-5MF">
+                                            <rect key="frame" x="128.5" y="0.0" width="118" height="60"/>
+                                            <color key="backgroundColor" red="0.074509803920000006" green="0.098039215690000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                            <state key="normal" title="Drivers License">
+                                                <color key="titleColor" red="0.97647058819999999" green="0.98431372549999996" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7VE-0v-yaP">
+                                            <rect key="frame" x="256.5" y="0.0" width="118.5" height="60"/>
+                                            <color key="backgroundColor" red="0.074509803920000006" green="0.098039215690000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                            <state key="normal" title="Passport">
+                                                <color key="titleColor" red="0.97647058819999999" green="0.98431372549999996" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                                    <color key="value" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                    <real key="value" value="1"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="2"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="60" id="Jcl-c7-A8K"/>
+                                    </constraints>
+                                </stackView>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please select document type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUw-af-l9G">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="ktv-5E-Hha"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="14"/>
+                                    <color key="textColor" red="0.90196078431372551" green="0.31372549019607843" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="37Z-Hp-4oV">
+                            <rect key="frame" x="0.0" y="76" width="375" height="18"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure photo details are clear to read" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="laF-cr-Lga">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="18"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="18" id="uVR-V9-P66"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="13"/>
+                                    <color key="textColor" red="0.98039215686274506" green="0.98431372549019602" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="3sV-58-i2r">
+                            <rect key="frame" x="0.0" y="110" width="375" height="332"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take Picture of your ID (both sides)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4dD-jQ-wd3">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="28"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="28" id="xf8-2h-cql"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6b-0y-rDt">
+                                    <rect key="frame" x="0.0" y="36" width="375" height="200"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="documentBorderError" translatesAutoresizingMaskIntoConstraints="NO" id="Zqa-Rp-6jW">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                        </imageView>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="cnE-Jr-tmw">
+                                            <rect key="frame" x="8" y="8" width="359" height="184"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Front Side" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4w9-1w-cu7">
+                                                    <rect key="frame" x="143" y="0.0" width="73" height="19.5"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="19.5" id="zjL-Qn-qqV"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="id_photo_01_black" translatesAutoresizingMaskIntoConstraints="NO" id="Bil-cl-hRf">
+                                                    <rect key="frame" x="34.5" y="23.5" width="290" height="160.5"/>
+                                                </imageView>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.13333333333333333" green="0.17254901960784313" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="Zqa-Rp-6jW" secondAttribute="trailing" id="2XY-co-pwT"/>
+                                        <constraint firstAttribute="bottom" secondItem="Zqa-Rp-6jW" secondAttribute="bottom" id="33i-ba-WP5"/>
+                                        <constraint firstAttribute="height" constant="200" id="Qs5-8o-uhK"/>
+                                        <constraint firstAttribute="trailing" secondItem="cnE-Jr-tmw" secondAttribute="trailing" constant="8" id="R7B-Le-GG2"/>
+                                        <constraint firstItem="Zqa-Rp-6jW" firstAttribute="leading" secondItem="m6b-0y-rDt" secondAttribute="leading" id="UgD-oc-jdQ"/>
+                                        <constraint firstAttribute="bottom" secondItem="cnE-Jr-tmw" secondAttribute="bottom" constant="8" id="VEA-zz-sco"/>
+                                        <constraint firstItem="Zqa-Rp-6jW" firstAttribute="top" secondItem="m6b-0y-rDt" secondAttribute="top" id="Y4O-hd-tds"/>
+                                        <constraint firstItem="cnE-Jr-tmw" firstAttribute="top" secondItem="m6b-0y-rDt" secondAttribute="top" constant="8" id="fxD-TY-mzH"/>
+                                        <constraint firstItem="cnE-Jr-tmw" firstAttribute="leading" secondItem="m6b-0y-rDt" secondAttribute="leading" constant="8" id="p1V-ct-N57"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Document front side is missing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MGR-hz-Vl2">
+                                    <rect key="frame" x="0.0" y="244" width="375" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="s46-NI-219"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="14"/>
+                                    <color key="textColor" red="0.90196078430000004" green="0.31372549020000001" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="U5b-tV-s2C">
+                                    <rect key="frame" x="0.0" y="272" width="375" height="60"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTy-Vx-MBh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QV2-f7-Tzk" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="uploadPhotoButton1">
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="7i8-ek-eAW"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="UPLOAD PHOTO"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="style" value="blue"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="uploadPhotoButton1"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="uploadDocumentPhoto:" destination="-1" eventType="touchUpInside" id="eQA-lb-H8F"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="QV2-f7-Tzk" secondAttribute="trailing" id="2Ud-mN-lII"/>
+                                                <constraint firstItem="QV2-f7-Tzk" firstAttribute="leading" secondItem="jTy-Vx-MBh" secondAttribute="leading" id="Imi-gg-j7k"/>
+                                                <constraint firstAttribute="bottom" secondItem="QV2-f7-Tzk" secondAttribute="bottom" id="m0v-Qc-Uy6"/>
+                                                <constraint firstItem="QV2-f7-Tzk" firstAttribute="top" secondItem="jTy-Vx-MBh" secondAttribute="top" id="zby-fO-FXC"/>
+                                            </constraints>
+                                        </view>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xDN-BV-ZSp">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bnx-Di-qZL" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                    <rect key="frame" x="87.5" y="0.0" width="200" height="36"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="CEJ-fa-aJR"/>
+                                                        <constraint firstAttribute="width" constant="200" id="QX2-OK-x4i"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="style" value="gray"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Upload Another Photo"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                            <real key="value" value="14"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="uploadDocumentPhoto:" destination="-1" eventType="touchUpInside" id="z46-Q1-RlY"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="bnx-Di-qZL" firstAttribute="centerX" secondItem="xDN-BV-ZSp" secondAttribute="centerX" id="0pi-tR-70q"/>
+                                                <constraint firstAttribute="bottom" secondItem="bnx-Di-qZL" secondAttribute="bottom" id="9A6-rA-H2J"/>
+                                                <constraint firstItem="bnx-Di-qZL" firstAttribute="top" secondItem="xDN-BV-ZSp" secondAttribute="top" id="zP8-Ie-GJV"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9DE-6r-jdF">
+                            <rect key="frame" x="0.0" y="458" width="375" height="296"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u1h-Zz-hbl">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="documentBorderError" translatesAutoresizingMaskIntoConstraints="NO" id="jrM-Mn-tpE">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="id_photo_back_black" translatesAutoresizingMaskIntoConstraints="NO" id="HM9-af-eAY">
+                                            <rect key="frame" x="8" y="32" width="359" height="160"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back Side" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFA-kW-gLw">
+                                            <rect key="frame" x="153" y="8" width="69" height="19.5"/>
+                                            <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="14"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.1333333333" green="0.17254901959999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="lFA-kW-gLw" firstAttribute="centerX" secondItem="u1h-Zz-hbl" secondAttribute="centerX" id="2x9-Jb-l56"/>
+                                        <constraint firstItem="HM9-af-eAY" firstAttribute="leading" secondItem="u1h-Zz-hbl" secondAttribute="leading" constant="8" id="Bn8-9E-170"/>
+                                        <constraint firstItem="jrM-Mn-tpE" firstAttribute="top" secondItem="u1h-Zz-hbl" secondAttribute="top" id="Ef3-Bf-lYE"/>
+                                        <constraint firstItem="jrM-Mn-tpE" firstAttribute="leading" secondItem="u1h-Zz-hbl" secondAttribute="leading" id="Flm-L2-EzV"/>
+                                        <constraint firstAttribute="bottom" secondItem="jrM-Mn-tpE" secondAttribute="bottom" id="NIh-jq-e2Q"/>
+                                        <constraint firstAttribute="bottom" secondItem="HM9-af-eAY" secondAttribute="bottom" constant="8" id="QTL-5t-7Cn"/>
+                                        <constraint firstAttribute="trailing" secondItem="HM9-af-eAY" secondAttribute="trailing" constant="8" id="RwZ-n9-Y3S"/>
+                                        <constraint firstAttribute="trailing" secondItem="jrM-Mn-tpE" secondAttribute="trailing" id="WyI-Pp-GLs"/>
+                                        <constraint firstItem="HM9-af-eAY" firstAttribute="top" secondItem="u1h-Zz-hbl" secondAttribute="top" constant="32" id="arv-lN-ZjT"/>
+                                        <constraint firstAttribute="height" constant="200" id="gTY-C5-PfA"/>
+                                        <constraint firstItem="lFA-kW-gLw" firstAttribute="top" secondItem="u1h-Zz-hbl" secondAttribute="top" constant="8" id="ow0-Fy-XUM"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Document back side is missing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tL7-ka-JOg">
+                                    <rect key="frame" x="0.0" y="208" width="375" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="gv8-SC-sF3"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="14"/>
+                                    <color key="textColor" red="0.90196078430000004" green="0.31372549020000001" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VIE-EL-Gdb">
+                                    <rect key="frame" x="0.0" y="236" width="375" height="60"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CHz-lf-zW9">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xD0-rY-7ec" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="uploadPhotoButton2">
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="bkB-kN-7td"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="UPLOAD PHOTO"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="style" value="blue"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="uploadPhotoButton2"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="uploadDocumentBackPhoto:" destination="-1" eventType="touchUpInside" id="dRq-VM-5jj"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="xD0-rY-7ec" secondAttribute="bottom" id="Ue4-g2-PH6"/>
+                                                <constraint firstItem="xD0-rY-7ec" firstAttribute="top" secondItem="CHz-lf-zW9" secondAttribute="top" id="cjH-Zf-qgg"/>
+                                                <constraint firstAttribute="trailing" secondItem="xD0-rY-7ec" secondAttribute="trailing" id="tco-Vb-tie"/>
+                                                <constraint firstItem="xD0-rY-7ec" firstAttribute="leading" secondItem="CHz-lf-zW9" secondAttribute="leading" id="vnc-kR-1HY"/>
+                                            </constraints>
+                                        </view>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OvR-Uy-ikg">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fox-UT-fJn" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                    <rect key="frame" x="87.5" y="0.0" width="200" height="36"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="36" id="Fex-uU-31h"/>
+                                                        <constraint firstAttribute="width" constant="200" id="sec-ga-U6E"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="style" value="gray"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Upload Another Photo"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                            <real key="value" value="14"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="uploadDocumentBackPhoto:" destination="-1" eventType="touchUpInside" id="ayw-1J-XTr"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="fox-UT-fJn" firstAttribute="centerX" secondItem="OvR-Uy-ikg" secondAttribute="centerX" id="A5h-j9-6YW"/>
+                                                <constraint firstAttribute="bottom" secondItem="fox-UT-fJn" secondAttribute="bottom" id="Ael-6h-gE4"/>
+                                                <constraint firstItem="fox-UT-fJn" firstAttribute="top" secondItem="OvR-Uy-ikg" secondAttribute="top" id="JAW-fj-gQk"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zxs-yQ-smc">
+                            <rect key="frame" x="0.0" y="770" width="375" height="332"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selfie with Your Payment Card" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbW-D5-j9R">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="28"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="28" id="DsW-v2-2zo"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7nE-Dq-ti9">
+                                    <rect key="frame" x="0.0" y="36" width="375" height="200"/>
+                                    <subviews>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="documentBorderError" translatesAutoresizingMaskIntoConstraints="NO" id="kA2-7p-Zbh">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pic_portrait_card_photo_black" translatesAutoresizingMaskIntoConstraints="NO" id="aXD-Kh-kh5">
+                                            <rect key="frame" x="8" y="8" width="359" height="184"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.13333333333333333" green="0.17254901960784313" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="aXD-Kh-kh5" secondAttribute="bottom" constant="8" id="0E2-7K-SMG"/>
+                                        <constraint firstAttribute="trailing" secondItem="aXD-Kh-kh5" secondAttribute="trailing" constant="8" id="7IA-3g-Twh"/>
+                                        <constraint firstItem="aXD-Kh-kh5" firstAttribute="leading" secondItem="7nE-Dq-ti9" secondAttribute="leading" constant="8" id="Hhq-q3-2jw"/>
+                                        <constraint firstItem="aXD-Kh-kh5" firstAttribute="top" secondItem="7nE-Dq-ti9" secondAttribute="top" constant="8" id="ILS-Y1-Efx"/>
+                                        <constraint firstAttribute="height" constant="200" id="Jof-yl-3h7"/>
+                                        <constraint firstAttribute="bottom" secondItem="kA2-7p-Zbh" secondAttribute="bottom" id="TOf-MK-m1I"/>
+                                        <constraint firstAttribute="trailing" secondItem="kA2-7p-Zbh" secondAttribute="trailing" id="UgR-P8-LrT"/>
+                                        <constraint firstItem="kA2-7p-Zbh" firstAttribute="leading" secondItem="7nE-Dq-ti9" secondAttribute="leading" id="lAL-Sw-Iv9"/>
+                                        <constraint firstItem="kA2-7p-Zbh" firstAttribute="top" secondItem="7nE-Dq-ti9" secondAttribute="top" id="mfA-mF-Myb"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="2"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selfie is missing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t8i-bJ-0j7">
+                                    <rect key="frame" x="0.0" y="244" width="375" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="4Zk-E6-vS6"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="14"/>
+                                    <color key="textColor" red="0.90196078430000004" green="0.31372549020000001" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="DC3-5L-oLb">
+                                    <rect key="frame" x="0.0" y="272" width="375" height="60"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSi-cG-RdK">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oGB-xn-XHn" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <accessibility key="accessibilityConfiguration" identifier="uploadPhotoButton3">
+                                                        <bool key="isElement" value="YES"/>
+                                                    </accessibility>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="IdQ-rd-fVI"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="UPLOAD PHOTO"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="style" value="blue"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="uploadPhotoButton3"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <integer key="value" value="4"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="uploadSelfie:" destination="-1" eventType="touchUpInside" id="a5r-O0-IAc"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="oGB-xn-XHn" secondAttribute="trailing" id="8FL-aW-4kM"/>
+                                                <constraint firstItem="oGB-xn-XHn" firstAttribute="leading" secondItem="bSi-cG-RdK" secondAttribute="leading" id="Amq-HP-321"/>
+                                                <constraint firstAttribute="bottom" secondItem="oGB-xn-XHn" secondAttribute="bottom" id="YIe-8d-RLd"/>
+                                                <constraint firstItem="oGB-xn-XHn" firstAttribute="top" secondItem="bSi-cG-RdK" secondAttribute="top" id="gKR-Kc-yvl"/>
+                                            </constraints>
+                                        </view>
+                                        <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B6G-1P-RI6">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="36"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l3j-E2-ajD" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                    <rect key="frame" x="87.5" y="0.0" width="200" height="36"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="200" id="mKY-4g-mRC"/>
+                                                        <constraint firstAttribute="height" constant="36" id="ogs-JG-zAT"/>
+                                                    </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="style" value="gray"/>
+                                                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Upload Another Photo"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                            <real key="value" value="14"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="uploadSelfie:" destination="-1" eventType="touchUpInside" id="dwt-uI-KU5"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="l3j-E2-ajD" firstAttribute="top" secondItem="B6G-1P-RI6" secondAttribute="top" id="GnX-i8-xC4"/>
+                                                <constraint firstItem="l3j-E2-ajD" firstAttribute="centerX" secondItem="B6G-1P-RI6" secondAttribute="centerX" id="ed5-aw-6P7"/>
+                                                <constraint firstAttribute="bottom" secondItem="l3j-E2-ajD" secondAttribute="bottom" id="oxE-TY-MxW"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Dqf-26-uWa" firstAttribute="leading" secondItem="NeU-Hq-76C" secondAttribute="leading" id="082-yf-eqw"/>
+                <constraint firstItem="Dqf-26-uWa" firstAttribute="bottom" secondItem="EV4-Fi-rxd" secondAttribute="bottom" id="1UM-Qw-Ged"/>
+                <constraint firstItem="Dqf-26-uWa" firstAttribute="top" secondItem="EV4-Fi-rxd" secondAttribute="top" id="bMd-ig-93W"/>
+                <constraint firstItem="Dqf-26-uWa" firstAttribute="trailing" secondItem="NeU-Hq-76C" secondAttribute="trailing" id="zeW-pN-nrs"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="NeU-Hq-76C"/>
+            <point key="canvasLocation" x="22.463768115942031" y="88.392857142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="documentBorderError" width="323" height="200"/>
+        <image name="id_photo_01_black" width="290" height="198"/>
+        <image name="id_photo_back_black" width="290" height="198"/>
+        <image name="pic_portrait_card_photo_black" width="290" height="198"/>
+    </resources>
+</document>

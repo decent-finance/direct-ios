@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FooterViewController" customModule="CEXDirect" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="mNx-is-PKe" id="aNm-Sl-M76"/>
+                <outlet property="collectionViewHeight" destination="yW6-SE-GlM" id="Hcj-8v-ARV"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="yearLabel" destination="FkO-eU-KS9" id="m5W-cc-Gye"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="477"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="pc4-ae-9Cj">
+                    <rect key="frame" x="171" y="44" width="72" height="16"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="verified_by_visa" translatesAutoresizingMaskIntoConstraints="NO" id="K94-Xd-xv8">
+                            <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                            <accessibility key="accessibilityConfiguration" identifier="visaIcon">
+                                <bool key="isElement" value="YES"/>
+                            </accessibility>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="visaIcon"/>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mastercard_secure_code" translatesAutoresizingMaskIntoConstraints="NO" id="lNq-RL-x7u">
+                            <rect key="frame" x="28" y="0.0" width="16" height="16"/>
+                            <accessibility key="accessibilityConfiguration" identifier="masterCardIcon">
+                                <bool key="isElement" value="YES"/>
+                            </accessibility>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="masterCardIcon"/>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pci_dss" translatesAutoresizingMaskIntoConstraints="NO" id="KQN-Y0-3U8">
+                            <rect key="frame" x="56" y="0.0" width="16" height="16"/>
+                            <accessibility key="accessibilityConfiguration" identifier="pciDssIcon">
+                                <bool key="isElement" value="YES"/>
+                            </accessibility>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="pciDssIcon"/>
+                            </userDefinedRuntimeAttributes>
+                        </imageView>
+                    </subviews>
+                </stackView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="© 2013-2019 CEX.IO Ltd (UK)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FkO-eU-KS9">
+                    <rect key="frame" x="113.5" y="101" width="187.5" height="64.5"/>
+                    <accessibility key="accessibilityConfiguration" identifier="footerYear">
+                        <bool key="isElement" value="NO"/>
+                    </accessibility>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="footerYear"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="24th Floor One Canada Square, Canary Wharf London E14 5AB, United Kingdom" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWT-GJ-BJo">
+                    <rect key="frame" x="21.5" y="185.5" width="371.5" height="33"/>
+                    <accessibility key="accessibilityConfiguration" identifier="footerAddress">
+                        <bool key="isElement" value="NO"/>
+                    </accessibility>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="footerAddress"/>
+                    </userDefinedRuntimeAttributes>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Have any questions? Contact our" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0jd-yX-wbA">
+                    <rect key="frame" x="102.5" y="284.5" width="209.5" height="16.5"/>
+                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KAW-Nh-Jcm" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                    <rect key="frame" x="147" y="311" width="120" height="36"/>
+                    <color key="backgroundColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <accessibility key="accessibilityConfiguration" identifier="supportBtn"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="ets-qz-qBT"/>
+                        <constraint firstAttribute="width" constant="120" id="sOq-AQ-pfo"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="24/7 Support"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="style" value="gray"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                            <real key="value" value="14"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="supportBtn"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="support:" destination="-1" eventType="touchUpInside" id="gNK-y9-Xrd"/>
+                    </connections>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mNx-is-PKe">
+                    <rect key="frame" x="0.0" y="228.5" width="414" height="36"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="yW6-SE-GlM"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3WN-au-IRL" customClass="CollectionViewCenteredFlowLayout" customModule="CEXDirect" customModuleProvider="target">
+                        <size key="itemSize" width="120" height="36"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="omU-5H-Jsf"/>
+                        <outlet property="delegate" destination="-1" id="hD8-Qf-2Z5"/>
+                    </connections>
+                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2I-T1-YrN" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                    <rect key="frame" x="147" y="387" width="120" height="36"/>
+                    <color key="backgroundColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <accessibility key="accessibilityConfiguration" identifier="exitBtn"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="36" id="L12-el-Cou"/>
+                        <constraint firstAttribute="width" constant="120" id="a9Z-zY-C6p"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Exit"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="style" value="gray"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                            <real key="value" value="14"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <integer key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="exitBtn"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="exit:" destination="-1" eventType="touchUpInside" id="Hth-bZ-uIT"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.050980392156862744" green="0.066666666666666666" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0jd-yX-wbA" secondAttribute="trailing" constant="10" id="0d6-eR-oxQ"/>
+                <constraint firstItem="mNx-is-PKe" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="2aA-N3-ebA"/>
+                <constraint firstItem="FWT-GJ-BJo" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="2h1-c6-AC4"/>
+                <constraint firstItem="FWT-GJ-BJo" firstAttribute="top" secondItem="FkO-eU-KS9" secondAttribute="bottom" constant="20" id="3Co-Ae-aSv"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FkO-eU-KS9" secondAttribute="trailing" constant="10" id="4YL-Ff-kRW"/>
+                <constraint firstItem="FkO-eU-KS9" firstAttribute="top" secondItem="pc4-ae-9Cj" secondAttribute="bottom" constant="41" id="7hh-sn-Rut"/>
+                <constraint firstItem="FkO-eU-KS9" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Dxp-TM-MsE"/>
+                <constraint firstItem="F2I-T1-YrN" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="GCu-jq-Spl"/>
+                <constraint firstItem="0jd-yX-wbA" firstAttribute="top" secondItem="mNx-is-PKe" secondAttribute="bottom" constant="20" id="NA5-el-qGA"/>
+                <constraint firstItem="0jd-yX-wbA" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="RyO-0m-QAg"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="FWT-GJ-BJo" secondAttribute="trailing" constant="10" id="Tg3-cC-O0i"/>
+                <constraint firstItem="pc4-ae-9Cj" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="W6V-Yv-Nii"/>
+                <constraint firstItem="FWT-GJ-BJo" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="YCV-jc-c0r"/>
+                <constraint firstItem="FkO-eU-KS9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="YQt-F1-Qwh"/>
+                <constraint firstItem="KAW-Nh-Jcm" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="eKq-Or-weB"/>
+                <constraint firstItem="0jd-yX-wbA" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="ho9-nE-zyB"/>
+                <constraint firstItem="KAW-Nh-Jcm" firstAttribute="top" secondItem="0jd-yX-wbA" secondAttribute="bottom" constant="10" id="l7c-h6-rTt"/>
+                <constraint firstItem="F2I-T1-YrN" firstAttribute="top" secondItem="KAW-Nh-Jcm" secondAttribute="bottom" constant="40" id="lrJ-ND-Gi4"/>
+                <constraint firstItem="mNx-is-PKe" firstAttribute="top" secondItem="FWT-GJ-BJo" secondAttribute="bottom" constant="10" id="mxl-jA-0Da"/>
+                <constraint firstItem="mNx-is-PKe" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="rod-ve-mvx"/>
+                <constraint firstItem="pc4-ae-9Cj" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="tRC-P0-zr3"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="F2I-T1-YrN" secondAttribute="bottom" constant="20" id="w5i-rd-79I"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="34.782608695652179" y="-48.549107142857139"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="mastercard_secure_code" width="98" height="30"/>
+        <image name="pci_dss" width="77" height="31"/>
+        <image name="verified_by_visa" width="62" height="31"/>
+    </resources>
+</document>

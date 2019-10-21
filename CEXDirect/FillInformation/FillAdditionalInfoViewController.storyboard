@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="N6D-IB-J4m">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Fill Additional Info View Controller-->
+        <scene sceneID="nqU-z4-JEZ">
+            <objects>
+                <viewController id="N6D-IB-J4m" customClass="FillAdditionalInfoViewController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jb3-Mp-c8Y">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="2302"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Verify Payment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZK-6K-cyO">
+                                <rect key="frame" x="10" y="44" width="355" height="27.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4I-ut-U6V">
+                                <rect key="frame" x="10" y="91.5" width="355" height="87.5"/>
+                                <string key="text">Please check whether your personal information below is correct. We have obtained it by scanning your document. You can make corrections below if necessary.</string>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Fill Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6v-XU-mp1">
+                                <rect key="frame" x="10" y="219" width="355" height="29"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Uwx-wH-iBe">
+                                <rect key="frame" x="10" y="264" width="355" height="1904"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KMd-3G-FnW" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="firstName">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="DZm-CT-HYv"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="First Name"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="firstName"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l0K-wq-yMn" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="96" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="lastName">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="VF4-Jk-XwH"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Last Name"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="lastName"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nxb-Pm-4rX" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="192" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="Iao-yh-iO8"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Middle Name"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7EK-er-NFg" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="288" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="wF9-66-Wa5"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Date of Birth"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jOH-x0-cdt" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="384" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="r6M-95-hSL"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Residential Country"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="countryButton"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VqI-2n-GBI" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="480" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="TQo-AX-jXT"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Residential City"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jgt-iz-2Bz" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="576" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="Vbe-T0-fBz"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Residential Street"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="reN-gY-lVF" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="672" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="l6l-lv-Qj7"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Residential Suite"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IlK-qI-rpf" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="768" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="xGo-kb-t4T"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Residential Postcode"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SnZ-cQ-8DW" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="864" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="0TX-dF-tPx"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Residential Postcode UK"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pE8-Uy-JWr" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="960" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="397-oO-00T"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Passport Number"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eXX-jw-rhN" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1056" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="LXk-QP-KeR"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Passport Issue Date"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kws-hd-7Ua" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1152" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="Rgc-Pc-ePT"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Passport Issued by"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9fg-Sd-qmV" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1248" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="XyW-nz-HyX"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Phone Number"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FQe-HC-I5d" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1344" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="mTW-Gr-A0f"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Billing Country"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="countryButton"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="G9W-cR-pHf" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1440" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="2Od-b7-7DY"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Billing State"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fSJ-kE-igy" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1536" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="cBK-Hs-F47"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Billing City"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g0z-s2-I1E" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1632" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="njJ-cO-vBc"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Billing Street"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FHV-uI-CPC" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1728" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="wep-Yt-0vu"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="0.0"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Billing Zip Code"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2jf-U4-P9O" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1824" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="y6g-YG-s7h"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Billing SSN"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
+                                                <integer key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sop-4d-Avi" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                <rect key="frame" x="10" y="2208" width="355" height="60"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.52941176469999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="V8D-jQ-6mk"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="VERIFY"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="style" value="blue"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.066666666669999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Uwx-wH-iBe" firstAttribute="top" secondItem="B6v-XU-mp1" secondAttribute="bottom" constant="16" id="3rl-Vo-qut"/>
+                            <constraint firstItem="a4I-ut-U6V" firstAttribute="top" secondItem="kZK-6K-cyO" secondAttribute="bottom" constant="20" id="9xz-YT-ZHH"/>
+                            <constraint firstItem="Iyi-PU-lOA" firstAttribute="trailing" secondItem="B6v-XU-mp1" secondAttribute="trailing" constant="10" id="C03-eH-nsc"/>
+                            <constraint firstItem="Sop-4d-Avi" firstAttribute="bottom" secondItem="Iyi-PU-lOA" secondAttribute="bottom" id="EIg-SV-V4J"/>
+                            <constraint firstItem="Iyi-PU-lOA" firstAttribute="trailing" secondItem="a4I-ut-U6V" secondAttribute="trailing" constant="10" id="JuK-MK-kMZ"/>
+                            <constraint firstItem="Sop-4d-Avi" firstAttribute="leading" secondItem="Iyi-PU-lOA" secondAttribute="leading" constant="10" id="KLc-xL-6z2"/>
+                            <constraint firstItem="kZK-6K-cyO" firstAttribute="leading" secondItem="Iyi-PU-lOA" secondAttribute="leading" constant="10" id="LY7-Au-CVZ"/>
+                            <constraint firstItem="Sop-4d-Avi" firstAttribute="top" secondItem="Uwx-wH-iBe" secondAttribute="bottom" constant="40" id="N6n-Gp-t67"/>
+                            <constraint firstItem="kZK-6K-cyO" firstAttribute="top" secondItem="Iyi-PU-lOA" secondAttribute="top" id="O0f-JI-eog"/>
+                            <constraint firstItem="Iyi-PU-lOA" firstAttribute="trailing" secondItem="kZK-6K-cyO" secondAttribute="trailing" constant="10" id="VbF-J0-bKM"/>
+                            <constraint firstItem="B6v-XU-mp1" firstAttribute="top" secondItem="a4I-ut-U6V" secondAttribute="bottom" constant="40" id="VeY-FQ-8ot"/>
+                            <constraint firstItem="Iyi-PU-lOA" firstAttribute="trailing" secondItem="Uwx-wH-iBe" secondAttribute="trailing" constant="10" id="a6K-TI-zhT"/>
+                            <constraint firstItem="a4I-ut-U6V" firstAttribute="leading" secondItem="Iyi-PU-lOA" secondAttribute="leading" constant="10" id="dGz-DD-SNR"/>
+                            <constraint firstItem="Uwx-wH-iBe" firstAttribute="leading" secondItem="Iyi-PU-lOA" secondAttribute="leading" constant="10" id="j6a-f0-OvJ"/>
+                            <constraint firstItem="Iyi-PU-lOA" firstAttribute="trailing" secondItem="Sop-4d-Avi" secondAttribute="trailing" constant="10" id="kQA-qz-CNr"/>
+                            <constraint firstItem="B6v-XU-mp1" firstAttribute="leading" secondItem="Iyi-PU-lOA" secondAttribute="leading" constant="10" id="nln-C7-v3C"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Iyi-PU-lOA"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="2302"/>
+                    <connections>
+                        <outlet property="billingCityTextField" destination="fSJ-kE-igy" id="Rlx-FI-dYV"/>
+                        <outlet property="billingCountryTextField" destination="FQe-HC-I5d" id="kmo-MJ-tWq"/>
+                        <outlet property="billingSSNTextField" destination="2jf-U4-P9O" id="emx-LD-hPg"/>
+                        <outlet property="billingStateTextField" destination="G9W-cR-pHf" id="VXb-gS-o0m"/>
+                        <outlet property="billingStreetTextField" destination="g0z-s2-I1E" id="yYc-uR-IKa"/>
+                        <outlet property="billingZipCodeTextField" destination="FHV-uI-CPC" id="Mmy-1W-U3H"/>
+                        <outlet property="dateOfBirthTextField" destination="7EK-er-NFg" id="aIz-NO-wOT"/>
+                        <outlet property="firstNameTextField" destination="KMd-3G-FnW" id="0gb-on-3JF"/>
+                        <outlet property="lastNameTextField" destination="l0K-wq-yMn" id="vY8-rV-0QW"/>
+                        <outlet property="middleNameTextField" destination="nxb-Pm-4rX" id="2MC-ei-Rzh"/>
+                        <outlet property="residentialCityTextField" destination="VqI-2n-GBI" id="v1t-wS-TDk"/>
+                        <outlet property="residentialCountryTextField" destination="jOH-x0-cdt" id="ewV-f2-o3Z"/>
+                        <outlet property="residentialPostcodeTextField" destination="IlK-qI-rpf" id="nSs-co-n8w"/>
+                        <outlet property="residentialPostcodeUKTextField" destination="SnZ-cQ-8DW" id="8qv-bc-GwT"/>
+                        <outlet property="residentialStreetTextField" destination="Jgt-iz-2Bz" id="6fH-To-Lpi"/>
+                        <outlet property="residentialSuiteTextField" destination="reN-gY-lVF" id="U7u-A7-sOz"/>
+                        <outlet property="ruPassportIssueDateTextField" destination="eXX-jw-rhN" id="uSZ-LW-Nnq"/>
+                        <outlet property="ruPassportIssuedByTextField" destination="kws-hd-7Ua" id="eW5-6n-9xn"/>
+                        <outlet property="ruPassportTextField" destination="pE8-Uy-JWr" id="hro-NY-l82"/>
+                        <outlet property="ruPhoneTextField" destination="9fg-Sd-qmV" id="9fd-bw-Ch5"/>
+                        <outlet property="verifyButton" destination="Sop-4d-Avi" id="7mK-Zh-O09"/>
+                        <outletCollection property="additionalInfoControls" destination="KMd-3G-FnW" collectionClass="NSMutableArray" id="gc5-Fg-4DD"/>
+                        <outletCollection property="additionalInfoControls" destination="l0K-wq-yMn" collectionClass="NSMutableArray" id="W0L-hu-tcS"/>
+                        <outletCollection property="additionalInfoControls" destination="nxb-Pm-4rX" collectionClass="NSMutableArray" id="SW5-nb-MxD"/>
+                        <outletCollection property="additionalInfoControls" destination="7EK-er-NFg" collectionClass="NSMutableArray" id="HXV-TC-WNv"/>
+                        <outletCollection property="additionalInfoControls" destination="jOH-x0-cdt" collectionClass="NSMutableArray" id="Whs-bt-7WJ"/>
+                        <outletCollection property="additionalInfoControls" destination="VqI-2n-GBI" collectionClass="NSMutableArray" id="jjN-kR-jKf"/>
+                        <outletCollection property="additionalInfoControls" destination="Jgt-iz-2Bz" collectionClass="NSMutableArray" id="aDz-dv-qSP"/>
+                        <outletCollection property="additionalInfoControls" destination="reN-gY-lVF" collectionClass="NSMutableArray" id="9lP-oA-4Yb"/>
+                        <outletCollection property="additionalInfoControls" destination="IlK-qI-rpf" collectionClass="NSMutableArray" id="YSc-7Q-yhD"/>
+                        <outletCollection property="additionalInfoControls" destination="SnZ-cQ-8DW" collectionClass="NSMutableArray" id="Dbi-Q1-D2Q"/>
+                        <outletCollection property="additionalInfoControls" destination="pE8-Uy-JWr" collectionClass="NSMutableArray" id="KT6-dI-B7o"/>
+                        <outletCollection property="additionalInfoControls" destination="eXX-jw-rhN" collectionClass="NSMutableArray" id="Psm-y1-Vqk"/>
+                        <outletCollection property="additionalInfoControls" destination="kws-hd-7Ua" collectionClass="NSMutableArray" id="6lJ-t8-Z9b"/>
+                        <outletCollection property="additionalInfoControls" destination="9fg-Sd-qmV" collectionClass="NSMutableArray" id="VHU-vX-KKa"/>
+                        <outletCollection property="additionalInfoControls" destination="FQe-HC-I5d" collectionClass="NSMutableArray" id="Qrx-ei-h1e"/>
+                        <outletCollection property="additionalInfoControls" destination="G9W-cR-pHf" collectionClass="NSMutableArray" id="XGM-cN-EaS"/>
+                        <outletCollection property="additionalInfoControls" destination="fSJ-kE-igy" collectionClass="NSMutableArray" id="0RL-ka-eHy"/>
+                        <outletCollection property="additionalInfoControls" destination="g0z-s2-I1E" collectionClass="NSMutableArray" id="Z1g-89-iCr"/>
+                        <outletCollection property="additionalInfoControls" destination="FHV-uI-CPC" collectionClass="NSMutableArray" id="vHL-WK-RRA"/>
+                        <outletCollection property="additionalInfoControls" destination="2jf-U4-P9O" collectionClass="NSMutableArray" id="2AB-v9-LwC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DcW-13-LIG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1778" y="-1460"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,75 @@
+Alamofire (https://github.com/Alamofire/Alamofire):
+Copyright (c) 2014-2018 Alamofire Software Foundation (http://alamofire.org/)
+MIT License (https://github.com/Alamofire/Alamofire/blob/master/LICENSE)
+
+SwiftyJSON (https://github.com/SwiftyJSON/SwiftyJSON):
+Copyright (c) 2017 Ruoyu Fu
+MIT License (https://github.com/SwiftyJSON/SwiftyJSON/blob/master/LICENSE)
+
+CocoaLumberjack (https://github.com/CocoaLumberjack/CocoaLumberjack):
+Copyright (c) 2010-2019, Deusty, LLC
+BSD 3-Clause "New" or "Revised" License (https://github.com/CocoaLumberjack/CocoaLumberjack/blob/master/LICENSE)
+
+ObjectMapper (https://github.com/tristanhimmelman/ObjectMapper):
+Copyright (c) 2014 Hearst
+MIT License (https://github.com/tristanhimmelman/ObjectMapper/blob/master/LICENSE)
+
+AlamofireObjectMapper (https://github.com/tristanhimmelman/AlamofireObjectMapper):
+Copyright (c) 2015 Tristan Himmelman
+MIT License (https://github.com/tristanhimmelman/AlamofireObjectMapper/blob/master/LICENSE)
+
+RxSwift (https://github.com/ReactiveX/RxSwift):
+Copyright (c) 2015 Krunoslav Zaher
+MIT License (https://github.com/ReactiveX/RxSwift/blob/master/LICENSE.md)
+
+This product includes software developed by the "Marcin Krzyzanowski" (http://krzyzanowskim.com/).
+CryptoSwift (https://github.com/krzyzanowskim/CryptoSwift):
+Copyright (C) 2014-2017 Marcin Krzyżanowski <marcin.krzyzanowski@gmail.com>
+License - https://github.com/krzyzanowskim/CryptoSwift/blob/master/LICENSE
+
+ReactorKit (https://github.com/ReactorKit/ReactorKit):
+Copyright (c) 2017 Suyeol Jeon (xoul.kr)
+MIT License (https://github.com/ReactorKit/ReactorKit/blob/master/LICENSE)
+
+Starscream (https://github.com/daltoniam/Starscream):
+Copyright (c) 2014-2016 Dalton Cherry
+Apache License 2.0 (https://github.com/daltoniam/Starscream/blob/master/LICENSE)
+
+BigInt (https://github.com/attaswift/BigInt):
+Copyright (c) 2016-2017 Károly Lőrentey
+MIT License (https://github.com/attaswift/BigInt/blob/master/LICENSE.md)
+
+MarkdownView (https://github.com/keitaoouchi/MarkdownView):
+Copyright (c) 2017 keitaoouchi <keita.oouchi@gmail.com>
+MIT License (https://github.com/keitaoouchi/MarkdownView/blob/master/LICENSE)
+
+SVProgressHUD (https://github.com/SVProgressHUD/SVProgressHUD):
+Copyright (c) 2011-2018 Sam Vermette, Tobias Tiemerding and contributors
+MIT License (https://github.com/SVProgressHUD/SVProgressHUD/blob/master/LICENSE)
+
+Nantes (https://github.com/instacart/Nantes):
+Copyright (c) Instacart
+Apache License 2.0 (https://github.com/instacart/Nantes/blob/master/LICENSE)
+
+Firebase (https://github.com/firebase/firebase-ios-sdk):
+Copyright (c) Google
+Apache License 2.0 (https://github.com/firebase/firebase-ios-sdk/blob/master/LICENSE)
+
+CocoaPods (https://github.com/CocoaPods/CocoaPods):
+Copyright (c) 2011 Eloy Durán <eloy.de.enige@gmail.com>,
+                   Fabio Pelosin <fabiopelosin@gmail.com>,
+                   Samuel Giddins <segiddins@segiddins.me>,
+                   Marius Rackwitz <git@mariusrackwitz.de>,
+                   Kyle Fuller <kyle@fuller.li>,
+                   Boris Bügling <boris@buegling.com>,
+                   Orta Therox <orta.therox@gmail.com>,
+                   Olivier Halligon <olivier@halligon.net>,
+                   Danielle Tomlinson <dan@tomlinson.io>,
+                   Dimitris Koutsogiorgas <dnkoutso@gmail.com>,
+                   Paul Beusterien <paulbeusterien@google.com>, and
+                   Eric Amorde <eric.amorde@gmail.com>
+MIT license (https://github.com/CocoaPods/CocoaPods/blob/master/LICENSE)
+
+Fastlane (https://github.com/fastlane/fastlane):
+Copyright (c) 2015-2019 The Fastlane Authors
+MIT License (https://github.com/fastlane/fastlane/blob/master/LICENSE)

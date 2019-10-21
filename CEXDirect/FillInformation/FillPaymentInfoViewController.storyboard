@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="AzC-gS-oOl">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Fill Payment Info View Controller-->
+        <scene sceneID="Cfi-wm-IN8">
+            <objects>
+                <viewController id="AzC-gS-oOl" customClass="FillPaymentInfoViewController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="jhM-HW-tnP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Document Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mac-6J-EPg">
+                                <rect key="frame" x="10" y="44" width="355" height="27.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="79.5" translatesAutoresizingMaskIntoConstraints="NO" id="G6g-gA-0TY">
+                                <rect key="frame" x="10" y="87.5" width="355" height="79.5"/>
+                                <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your Payment Card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rVZ-4E-qsm">
+                                <rect key="frame" x="10" y="183" width="355" height="27.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7r-QM-avo" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                <rect key="frame" x="10" y="226.5" width="355" height="80"/>
+                                <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="cardNumberField">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="q3p-Ns-e0C"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="icon" value="ic_direct_gray_card_manager"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Card Number"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="cardNumberField"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AjQ-ca-jUc">
+                                <rect key="frame" x="10" y="322.5" width="355" height="60"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gvu-va-XbH" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="170" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="expiryDate">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="750" constant="80" id="W8F-qp-vhn"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="icon" value="ic_direct_gray_calendar"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="Expiry Date"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="expiryDate"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isDatePickerTextField" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bZG-H4-Mi9" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="185" y="0.0" width="170" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="cvvCode">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="750" constant="80" id="uZ8-ac-5BO"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="icon" value="ic_direct_gray_password"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="CVV"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="cvvCode"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="buttonIcon" value="ic_gray_direct_question"/>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isSecureTextEntry" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" red="0.050980392156862744" green="0.066666666666666666" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="gvu-va-XbH" firstAttribute="leading" secondItem="AjQ-ca-jUc" secondAttribute="leading" id="3ej-P0-B1t"/>
+                                    <constraint firstItem="gvu-va-XbH" firstAttribute="top" secondItem="AjQ-ca-jUc" secondAttribute="top" id="RMy-ar-Z8w"/>
+                                    <constraint firstAttribute="trailing" secondItem="bZG-H4-Mi9" secondAttribute="trailing" id="WVn-Ke-0gg"/>
+                                    <constraint firstItem="bZG-H4-Mi9" firstAttribute="leading" secondItem="gvu-va-XbH" secondAttribute="trailing" constant="15" id="eX4-x8-i2o"/>
+                                    <constraint firstAttribute="height" constant="60" id="eXu-Fk-q3n"/>
+                                    <constraint firstItem="bZG-H4-Mi9" firstAttribute="width" secondItem="gvu-va-XbH" secondAttribute="width" id="p1u-hq-IAc"/>
+                                    <constraint firstItem="bZG-H4-Mi9" firstAttribute="top" secondItem="AjQ-ca-jUc" secondAttribute="top" id="vtZ-zL-TxI"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send Crypto To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cg-hM-U9e">
+                                <rect key="frame" x="10" y="422.5" width="355" height="27.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fcU-h6-FMq" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                <rect key="frame" x="10" y="466" width="355" height="80"/>
+                                <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <accessibility key="accessibilityConfiguration" identifier="cryptoAddress">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="6zE-Nh-qa6"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="icon" value="ic_light_wallet"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Wallet"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="cryptoAddress"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="buttonIcon" value="ic_light_qr_code"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="XVY-2g-rgp">
+                                <rect key="frame" x="10" y="586" width="355" height="280"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OVB-LN-rFa" customClass="CDTextField" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="355" height="80"/>
+                                        <color key="backgroundColor" red="0.23921568630000001" green="0.30588235289999999" blue="0.40000000000000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="ssnField">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="80" id="ClU-IC-508"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="SSN"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="icon" value="ic_direct_gray_user"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="ssnField"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y6z-2J-fov" customClass="CDCheckbox" customModule="CEXDirect" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="120" width="355" height="60"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" priority="250" constant="60" id="R0c-uB-Uyk"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="message" value="Agree with Terms of Use, Refund Policy"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L21-98-BUD">
+                                        <rect key="frame" x="0.0" y="220" width="355" height="60"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="nextButton">
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="HLd-IL-qzV"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.066666666669999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fcU-h6-FMq" firstAttribute="leading" secondItem="31P-ZG-MLq" secondAttribute="leading" constant="10" id="7b0-nt-BbJ"/>
+                            <constraint firstItem="AjQ-ca-jUc" firstAttribute="leading" secondItem="31P-ZG-MLq" secondAttribute="leading" constant="10" id="AHg-NA-MAT"/>
+                            <constraint firstItem="C7r-QM-avo" firstAttribute="top" secondItem="rVZ-4E-qsm" secondAttribute="bottom" constant="16" id="Bi8-rU-a6d"/>
+                            <constraint firstItem="31P-ZG-MLq" firstAttribute="trailing" secondItem="7cg-hM-U9e" secondAttribute="trailing" constant="10" id="D0t-2u-Zjq"/>
+                            <constraint firstItem="31P-ZG-MLq" firstAttribute="trailing" secondItem="C7r-QM-avo" secondAttribute="trailing" constant="10" id="DO6-gH-PCv"/>
+                            <constraint firstItem="rVZ-4E-qsm" firstAttribute="leading" secondItem="31P-ZG-MLq" secondAttribute="leading" constant="10" id="Gc1-4X-F1a"/>
+                            <constraint firstItem="AjQ-ca-jUc" firstAttribute="top" secondItem="C7r-QM-avo" secondAttribute="bottom" constant="16" id="I4s-kg-1Rm"/>
+                            <constraint firstItem="C7r-QM-avo" firstAttribute="leading" secondItem="31P-ZG-MLq" secondAttribute="leading" constant="10" id="IEd-h0-ANf"/>
+                            <constraint firstItem="31P-ZG-MLq" firstAttribute="trailing" secondItem="AjQ-ca-jUc" secondAttribute="trailing" constant="10" id="KIH-sI-DsO"/>
+                            <constraint firstItem="Mac-6J-EPg" firstAttribute="top" secondItem="31P-ZG-MLq" secondAttribute="top" id="Ogf-uo-20u"/>
+                            <constraint firstItem="G6g-gA-0TY" firstAttribute="top" secondItem="Mac-6J-EPg" secondAttribute="bottom" constant="16" id="R1q-vP-20B"/>
+                            <constraint firstItem="G6g-gA-0TY" firstAttribute="leading" secondItem="31P-ZG-MLq" secondAttribute="leading" constant="10" id="Rsx-9Z-rUm"/>
+                            <constraint firstItem="31P-ZG-MLq" firstAttribute="trailing" secondItem="Mac-6J-EPg" secondAttribute="trailing" constant="10" id="Toh-ro-GML"/>
+                            <constraint firstItem="31P-ZG-MLq" firstAttribute="trailing" secondItem="fcU-h6-FMq" secondAttribute="trailing" constant="10" id="V7t-IO-0cX"/>
+                            <constraint firstItem="31P-ZG-MLq" firstAttribute="trailing" secondItem="G6g-gA-0TY" secondAttribute="trailing" constant="10" id="YEi-Nb-Q5z"/>
+                            <constraint firstItem="7cg-hM-U9e" firstAttribute="leading" secondItem="31P-ZG-MLq" secondAttribute="leading" constant="10" id="d11-hA-3mf"/>
+                            <constraint firstItem="31P-ZG-MLq" firstAttribute="trailing" secondItem="XVY-2g-rgp" secondAttribute="trailing" constant="10" id="msd-OU-rSK"/>
+                            <constraint firstItem="31P-ZG-MLq" firstAttribute="trailing" secondItem="rVZ-4E-qsm" secondAttribute="trailing" constant="10" id="o1h-3r-d3f"/>
+                            <constraint firstItem="7cg-hM-U9e" firstAttribute="top" secondItem="AjQ-ca-jUc" secondAttribute="bottom" constant="40" id="oE3-1Y-91b"/>
+                            <constraint firstItem="XVY-2g-rgp" firstAttribute="leading" secondItem="31P-ZG-MLq" secondAttribute="leading" constant="10" id="oSi-0d-9at"/>
+                            <constraint firstItem="fcU-h6-FMq" firstAttribute="top" secondItem="7cg-hM-U9e" secondAttribute="bottom" constant="16" id="u8z-Pg-M2k"/>
+                            <constraint firstItem="rVZ-4E-qsm" firstAttribute="top" secondItem="G6g-gA-0TY" secondAttribute="bottom" constant="16" id="uEd-xn-BnB"/>
+                            <constraint firstItem="Mac-6J-EPg" firstAttribute="leading" secondItem="31P-ZG-MLq" secondAttribute="leading" constant="10" id="vr6-tj-Wid"/>
+                            <constraint firstItem="XVY-2g-rgp" firstAttribute="top" secondItem="fcU-h6-FMq" secondAttribute="bottom" constant="40" id="wLS-a7-Ncq"/>
+                            <constraint firstItem="31P-ZG-MLq" firstAttribute="bottom" secondItem="XVY-2g-rgp" secondAttribute="bottom" id="zng-E6-6Rg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="31P-ZG-MLq"/>
+                    </view>
+                    <size key="freeformSize" width="375" height="900"/>
+                    <connections>
+                        <outlet property="agreeCheckbox" destination="y6z-2J-fov" id="W0c-nJ-3uN"/>
+                        <outlet property="cardNumberTextField" destination="C7r-QM-avo" id="yRT-Zl-btT"/>
+                        <outlet property="chooseDocumentTypeLabel" destination="Mac-6J-EPg" id="Yhe-mJ-6B7"/>
+                        <outlet property="cvvTextField" destination="bZG-H4-Mi9" id="gXJ-iA-pFX"/>
+                        <outlet property="documentsView" destination="G6g-gA-0TY" id="kJx-Mu-MUc"/>
+                        <outlet property="expiryDateTextField" destination="gvu-va-XbH" id="XYd-fn-tbc"/>
+                        <outlet property="nextButtonView" destination="L21-98-BUD" id="SX6-dV-Kf1"/>
+                        <outlet property="ssnTextField" destination="OVB-LN-rFa" id="rvg-s0-ZFV"/>
+                        <outlet property="walletTextField" destination="fcU-h6-FMq" id="m2r-7w-YKq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RSh-R7-smv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1074.6376811594205" y="788.83928571428567"/>
+        </scene>
+    </scenes>
+</document>

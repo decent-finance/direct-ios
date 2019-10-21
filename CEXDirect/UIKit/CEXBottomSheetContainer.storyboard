@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vhq-Is-X4K">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Bottom Sheet Container Controller-->
+        <scene sceneID="Btp-g5-Hqy">
+            <objects>
+                <viewController modalPresentationStyle="overFullScreen" id="Vhq-Is-X4K" customClass="CEXBottomSheetContainerController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="vYp-Q3-cla">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IbH-3B-k6l">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <action selector="cancel:" destination="Vhq-Is-X4K" eventType="touchUpInside" id="uFT-q2-htI"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="150" translatesAutoresizingMaskIntoConstraints="NO" id="ECA-UV-Auj">
+                                <rect key="frame" x="0.0" y="517" width="375" height="150"/>
+                                <color key="backgroundColor" red="0.1019607843" green="0.14117647059999999" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.058823529409999999" green="0.078431372550000003" blue="0.1215686275" alpha="0.70168022260273977" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ECA-UV-Auj" firstAttribute="trailing" secondItem="iLz-cR-A6N" secondAttribute="trailing" id="DDb-Ym-m9D"/>
+                            <constraint firstItem="IbH-3B-k6l" firstAttribute="top" secondItem="vYp-Q3-cla" secondAttribute="top" id="IBl-hD-xZv"/>
+                            <constraint firstItem="IbH-3B-k6l" firstAttribute="leading" secondItem="iLz-cR-A6N" secondAttribute="leading" id="TaS-wS-Nd8"/>
+                            <constraint firstItem="iLz-cR-A6N" firstAttribute="bottom" secondItem="IbH-3B-k6l" secondAttribute="bottom" id="Xsg-1I-h2B"/>
+                            <constraint firstAttribute="trailing" secondItem="IbH-3B-k6l" secondAttribute="trailing" id="eLH-T0-IdD"/>
+                            <constraint firstAttribute="bottom" secondItem="ECA-UV-Auj" secondAttribute="bottom" id="hjA-9T-nkK"/>
+                            <constraint firstItem="ECA-UV-Auj" firstAttribute="leading" secondItem="iLz-cR-A6N" secondAttribute="leading" id="zcJ-5r-hcW"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="iLz-cR-A6N"/>
+                    </view>
+                    <connections>
+                        <outlet property="keyboardConstraint" destination="hjA-9T-nkK" id="DRg-T7-PbE"/>
+                        <outlet property="sheetView" destination="ECA-UV-Auj" id="kl1-4E-cam"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WjV-SP-fwh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-79.200000000000003" y="265.81709145427288"/>
+        </scene>
+    </scenes>
+</document>

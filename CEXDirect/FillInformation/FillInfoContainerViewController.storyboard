@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EEg-Bh-y7V">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Fill Info Container View Controller-->
+        <scene sceneID="QN3-M6-KKs">
+            <objects>
+                <viewController id="EEg-Bh-y7V" customClass="FillInfoContainerViewController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jtv-Gs-b8x">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Wqx-TT-EB7">
+                                <rect key="frame" x="10" y="0.0" width="355" height="126"/>
+                            </stackView>
+                            <containerView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="375" placeholderIntrinsicHeight="300" translatesAutoresizingMaskIntoConstraints="NO" id="kOa-UL-YhL">
+                                <rect key="frame" x="0.0" y="166" width="375" height="300"/>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.066666666669999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Wqx-TT-EB7" firstAttribute="leading" secondItem="Q0k-zS-2TH" secondAttribute="leading" constant="10" id="Adx-al-xwc"/>
+                            <constraint firstItem="kOa-UL-YhL" firstAttribute="leading" secondItem="Q0k-zS-2TH" secondAttribute="leading" id="CW0-hH-Bus"/>
+                            <constraint firstItem="Q0k-zS-2TH" firstAttribute="trailing" secondItem="kOa-UL-YhL" secondAttribute="trailing" id="L8t-z2-0FA"/>
+                            <constraint firstItem="kOa-UL-YhL" firstAttribute="bottom" secondItem="Q0k-zS-2TH" secondAttribute="bottom" id="Naj-Ci-GvO"/>
+                            <constraint firstItem="Wqx-TT-EB7" firstAttribute="top" secondItem="jtv-Gs-b8x" secondAttribute="top" id="qEX-JN-a7B"/>
+                            <constraint firstItem="Q0k-zS-2TH" firstAttribute="trailing" secondItem="Wqx-TT-EB7" secondAttribute="trailing" constant="10" id="uct-LF-D4t"/>
+                            <constraint firstItem="kOa-UL-YhL" firstAttribute="top" secondItem="Wqx-TT-EB7" secondAttribute="bottom" constant="40" id="zAI-p5-J5f"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Q0k-zS-2TH"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="500"/>
+                    <connections>
+                        <outlet property="expandableSectionStackView" destination="Wqx-TT-EB7" id="YBm-na-b0H"/>
+                        <outlet property="mainContainerView" destination="kOa-UL-YhL" id="iBP-Qt-j1f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Rf-G7-fmQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1773" y="1120"/>
+        </scene>
+    </scenes>
+</document>
