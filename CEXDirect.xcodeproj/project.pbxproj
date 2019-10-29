@@ -59,8 +59,6 @@
 		594461B8229C3ADA0016AA8E /* CDBaseSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594461B6229C3AD90016AA8E /* CDBaseSheetController.swift */; };
 		5994437A22859D7E00160BE5 /* CDPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5994437122859D7E00160BE5 /* CDPickerTableViewCell.xib */; };
 		5994437B22859D7E00160BE5 /* CDPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5994437222859D7E00160BE5 /* CDPickerViewController.storyboard */; };
-		5994437C22859D7E00160BE5 /* CDPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5994437322859D7E00160BE5 /* CDPickerTableViewCell.swift */; };
-		5994437D22859D7E00160BE5 /* CDPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5994437422859D7E00160BE5 /* CDPickerViewController.swift */; };
 		B3B690DE07B9B625C598E950 /* Pods_CEXDirectDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE0A5D284E6A3A3199C759F /* Pods_CEXDirectDemo.framework */; };
 		DE007A0636BEEC41EC003BCF /* Pods_CEXDirectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543356531B4821BEC72049F1 /* Pods_CEXDirectTests.framework */; };
 		FD0A786F2264BD1900E1C57C /* CEXBottomSheetContainer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD0A786D2264BD1900E1C57C /* CEXBottomSheetContainer.storyboard */; };
@@ -131,6 +129,8 @@
 		FDB9BBCA22CA27E400780A7F /* RuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB9BBC922CA27E400780A7F /* RuleViewController.swift */; };
 		FDB9BBCE22CA297600780A7F /* RuleViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB9BBCD22CA297600780A7F /* RuleViewController.storyboard */; };
 		FDB9BBD422CA32B600780A7F /* RuleViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB9BBCB22CA286D00780A7F /* RuleViewReactor.swift */; };
+		FDCCF1AB236710710003E040 /* CDPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5994437422859D7E00160BE5 /* CDPickerViewController.swift */; };
+		FDCCF1AC236710750003E040 /* CDPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5994437322859D7E00160BE5 /* CDPickerTableViewCell.swift */; };
 		FDD05525223A87270002FC8D /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD05524223A87270002FC8D /* ServiceProvider.swift */; };
 		FDD7DB0422686D070075E4CB /* ConfirmPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A787B2267501D00E1C57C /* ConfirmPaymentViewController.swift */; };
 		FDD7DB0522686D110075E4CB /* ConfirmPaymentViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A787D2267502E00E1C57C /* ConfirmPaymentViewReactor.swift */; };
@@ -1219,6 +1219,7 @@
 			files = (
 				FD0A78822267594300E1C57C /* ConfirmEmailViewController.swift in Sources */,
 				592669C4229D438900F61B1E /* QRScannerViewController.swift in Sources */,
+				FDCCF1AC236710750003E040 /* CDPickerTableViewCell.swift in Sources */,
 				FD0A78842267595400E1C57C /* ConfirmEmailViewReactor.swift in Sources */,
 				FDD7DB0522686D110075E4CB /* ConfirmPaymentViewReactor.swift in Sources */,
 				FDD05525223A87270002FC8D /* ServiceProvider.swift in Sources */,
@@ -1238,7 +1239,6 @@
 				FDB9BBD422CA32B600780A7F /* RuleViewReactor.swift in Sources */,
 				FDFA18AA224D2D840060813B /* FillBaseInfoViewController.swift in Sources */,
 				FDFECB83228B0F8B00CB6E1C /* FillInfoContainerViewController.swift in Sources */,
-				5994437C22859D7E00160BE5 /* CDPickerTableViewCell.swift in Sources */,
 				FD1DF4A822C65C5700BC8398 /* RulesStore.swift in Sources */,
 				FD227F8322941D7A00CA2931 /* SocketManager.swift in Sources */,
 				FD0A787822674EC200E1C57C /* CEXBottomSheetContainerController.swift in Sources */,
@@ -1256,7 +1256,6 @@
 				FD197B262263B27D00C18931 /* OrderStatus.swift in Sources */,
 				59038B0B22CE2DA20008EF9D /* FooterViewController.swift in Sources */,
 				5923719E22CF58D90089D49C /* CollectionViewCenteredFlowLayout.swift in Sources */,
-				5994437D22859D7E00160BE5 /* CDPickerViewController.swift in Sources */,
 				FD18B22B22A937E800BD362E /* CryptoDHKeyPair.swift in Sources */,
 				FD36367E22492D08004F1926 /* PaymentService.swift in Sources */,
 				FDFA18AC224D30410060813B /* FillBaseInfoViewReactor.swift in Sources */,
@@ -1297,6 +1296,7 @@
 				FD1DF4A222C51B1E00BC8398 /* Rule.swift in Sources */,
 				581F2B3B226909A60074B7D6 /* CDCheckbox.swift in Sources */,
 				FD0C20442285E1A500A42019 /* FillAdditionalInfoViewReactor.swift in Sources */,
+				FDCCF1AB236710710003E040 /* CDPickerViewController.swift in Sources */,
 				58DA859B226771E600942295 /* FillPaymentInfoViewController.swift in Sources */,
 				FDF7B7CE2257CACF00C0C3E1 /* CDAmountTextField.swift in Sources */,
 				FD599B1D22DE05EA00BB0CAA /* LocationUnsupportedViewReactor.swift in Sources */,

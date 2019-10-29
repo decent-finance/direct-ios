@@ -29,7 +29,7 @@ extension UIFont {
     // MARK: - Implementation
     
     static private func cd_registerCustomFont(name: String) {
-        guard let url = Bundle(identifier: "io.cex.framework.CEXDirect")?.url(forResource: name, withExtension: "ttf") else { return }
+        guard let url = Bundle(for: CEXDirect.self).url(forResource: name, withExtension: "ttf") else { return }
         
         if let fontDataProvider = CGDataProvider(url: url as CFURL), let font = CGFont(fontDataProvider) {
             CTFontManagerRegisterGraphicsFont(font, nil)

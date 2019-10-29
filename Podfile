@@ -3,7 +3,7 @@ platform :ios, '12.2'
 target 'CEXDirect' do
   use_frameworks!
 
-  pod 'Alamofire', '~> 5.0.0-beta.5'
+  pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'CocoaLumberjack/Swift'
   pod 'ObjectMapper'
@@ -17,8 +17,6 @@ target 'CEXDirect' do
   pod 'MarkdownView'
   pod 'SVProgressHUD'
   pod 'Nantes'
-  pod 'Fabric'
-  pod 'Crashlytics'
 
   target 'CEXDirectTests' do
     inherit! :search_paths
@@ -31,5 +29,7 @@ target 'CEXDirectDemo' do
   use_frameworks!
 
   pod 'Firebase'
+  pod 'Fabric'
+  pod 'Crashlytics'
 
 end

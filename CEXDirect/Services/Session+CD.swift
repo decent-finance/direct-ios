@@ -35,7 +35,7 @@ extension Session {
     }
     
     func cd_requestObject<ResponseType: Mappable>(_ url: URLConvertible, method: Alamofire.HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, keyPath: String? = nil, success: @escaping (ResponseType) -> Void, failure: @escaping (Error) -> Void) {
-        request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).validate().responseObject(keyPath: keyPath) { (response: DataResponse<ResponseType>) in
+        request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).validate().responseObject(keyPath: keyPath) { (response: AFDataResponse<ResponseType>) in
             switch response.result {
             case .success(let result):
                 DDLogInfo("Successfully sent request \(url)")
@@ -48,7 +48,7 @@ extension Session {
     }
     
     func cd_requestArray<ResponseType: Mappable>(_ url: URLConvertible, method: Alamofire.HTTPMethod = .get, parameters: Parameters? = nil, encoding: ParameterEncoding = URLEncoding.default, headers: HTTPHeaders? = nil, keyPath: String? = nil, success: @escaping ([ResponseType]) -> Void, failure: @escaping (Error) -> Void) {
-        request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).validate().responseArray(keyPath: keyPath) { (response: DataResponse<[ResponseType]>) in
+        request(url, method: method, parameters: parameters, encoding: encoding, headers: headers).validate().responseArray(keyPath: keyPath) { (response: AFDataResponse<[ResponseType]>) in
             switch response.result {
             case .success(let result):
                 DDLogInfo("Successfully sent request \(url)")

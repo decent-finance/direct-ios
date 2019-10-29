@@ -24,6 +24,7 @@ class SocketManager {
     init() {
         socket.disableSSLCertValidation = true
         socket.delegate = self
+        socket.pongDelegate = self
     }
     
     func subscribe(event: String, subscriptionMessage: @escaping () -> SocketMessage) -> Observable<SocketMessage> {
@@ -72,6 +73,7 @@ class SocketManager {
     
     private let socketStatusSubject = BehaviorSubject<SocketStatus>(value: .disconnected)
     private let socketMessageSubject = PublishSubject<SocketMessage>()
+    private let socketPongSubject = PublishSubject<Void>()
     
     private lazy var connectedSocket: Observable<Void> = {
         return Observable.create { [weak self] observer -> Disposable in
@@ -79,18 +81,28 @@ class SocketManager {
                 return Disposables.create()
             }
             
-            let connectSocket = Observable<Int>.timer(0, period: 5, scheduler: MainScheduler.instance).subscribe(onNext: { [weak self] _ in
+            let connectSocket = Observable<Int>.timer(.seconds(0), period: .seconds(5), scheduler: MainScheduler.instance).subscribe(onNext: { [weak self] _ in
                 guard let `self` = self else { return }
                 if !self.socket.isConnected {
                     self.socket.connect()
                 }
             })
             
-            let disconnectSocket = Disposables.create { [weak self] in
+            let pingSocket = self.socketStatusSubject.distinctUntilChanged().filter { $0 == .connected }.flatMapLatest { _ -> Observable<Int> in
+                return Observable<Int>.timer(.seconds(0), period: .seconds(30), scheduler: MainScheduler.instance).takeUntil(self.socketStatusSubject.filter { $0 == .disconnected })
+            }.do(onNext: { [weak self] _ in
+                self?.socket.write(ping: Data())
+            }).flatMapLatest { _ -> Observable<Int> in
+                return Observable<Int>.timer(.seconds(1), period: nil, scheduler: MainScheduler.instance).takeUntil(self.socketPongSubject)
+            }.subscribe(onNext: { [weak self] _ in
+                self?.socket.disconnect()
+            })
+            
+            let disconnectSocket = Disposables.create  { [weak self] in
                 self?.socket.disconnect()
             }
             
-            return Disposables.create(connectSocket, disconnectSocket)
+            return Disposables.create(connectSocket, pingSocket, disconnectSocket)
         }.share()
     }()
 }
@@ -115,5 +127,12 @@ extension SocketManager: WebSocketDelegate {
         if let message = SocketMessage(data: data) {
             socketMessageSubject.onNext(message)
         }
+    }
+}
+
+extension SocketManager: WebSocketPongDelegate {
+    
+    func websocketDidReceivePong(socket: WebSocketClient, data: Data?) {
+        socketPongSubject.onNext(())
     }
 }

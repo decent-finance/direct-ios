@@ -18,7 +18,7 @@ import UIKit
 
 public class CEXDirect {
     
-    public init(placementID: String, secret: String, fiatAmount: String?, email: String?, countryCode: String?) {
+    public init(placementID: String, secret: String, fiatAmount: String? = nil, email: String? = nil, countryCode: String? = nil) {
         let serviceProvider = ServiceProvider(placementID: placementID, secret: secret)
         
         var order = Order()

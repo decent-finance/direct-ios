@@ -9,9 +9,17 @@
 
 ## Installation
 
-For the moment you can download and link with the framework manually. Support for CocoaPods and Carthage will be added soon.
+You can use CocoaPods or download and link with the framework manually. Support for Carthage will be added soon.
+
+### CocoaPods
+
+pod 'CEXDirect'
 
 ## Usage
+
+You must receive your placement ID and secret to be able to integrate the framework into your application.
+
+Example of usage:
 
 ```
   let cexDirect = CEXDirect(placementID: "your_placement_id", secret: "your_placement_secret")
@@ -19,6 +27,8 @@ For the moment you can download and link with the framework manually. Support fo
       present(rootViewController, animated: true, completion: nil)
   }  
 ```
+
+You can also find a demo application inside the project. To make it work you should set your placement ID and secret in the Placement.plist file.
 
 ## Dependencies
 
