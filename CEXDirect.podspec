@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "CEXDirect"
-  s.version = "v1.0.0-alpha2"
+  s.version = "1.0.0-alpha2"
   s.summary = "CEX Direct Client Framework"
   s.description = <<-DESC
 Provides easy access to crypto assets by handling all user verification and payment procedures, procurement and delivery, giving you freedom to do what you do best - engage with your users.
@@ -14,7 +14,7 @@ Provides easy access to crypto assets by handling all user verification and paym
   s.ios.deployment_target = "11.4"
   s.swift_version = "5.0"
 
-  s.source = { :git => "https://github.com/decent-finance/direct-ios.git", :tag => s.version }
+  s.source = { :git => "https://github.com/decent-finance/direct-ios.git", :tag => "v#{s.version}" }
   s.source_files = "CEXDirect/**/*.swift"
   s.resources = "CEXDirect/**/*.{storyboard,xib,ttf,bundle,plist,json,xcassets}"
   s.exclude_files = "CEXDirect/Info.plist"
