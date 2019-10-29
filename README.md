@@ -1,6 +1,6 @@
 # CEX Direct Client Framework
 
-![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Maintainability](https://api.codeclimate.com/v1/badges/be66c1125d5c7a64e33b/maintainability)](https://codeclimate.com/github/decent-finance/direct-ios/maintainability) [![Gitter](https://badges.gitter.im/decent-finance/community.svg)](https://gitter.im/decent-finance/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg) ![Pod](https://cocoapod-badges.herokuapp.com/v/CEXDirect/badge.png) ![Platform](https://cocoapod-badges.herokuapp.com/p/CEXDirect/badge.png) [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) [![Maintainability](https://api.codeclimate.com/v1/badges/be66c1125d5c7a64e33b/maintainability)](https://codeclimate.com/github/decent-finance/direct-ios/maintainability) [![Gitter](https://badges.gitter.im/decent-finance/community.svg)](https://gitter.im/decent-finance/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 ## Requirements
 
