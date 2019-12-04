@@ -59,7 +59,7 @@ protocol CDPickerButtonDelegate: class {
     
     @IBInspectable var flipChevronOnTap: Bool = false
     
-    var delegate: CDPickerButtonDelegate?
+    weak var delegate: CDPickerButtonDelegate?
     
     var selection: String? {
         get {

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -66,7 +64,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="118.5" height="60"/>
                                             <color key="backgroundColor" red="0.074509803920000006" green="0.098039215690000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
-                                            <state key="normal" title="ID Card">
+                                            <state key="normal" title="ID card">
                                                 <color key="titleColor" red="0.97647058819999999" green="0.98431372549999996" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
@@ -85,7 +83,7 @@
                                             <rect key="frame" x="128.5" y="0.0" width="118" height="60"/>
                                             <color key="backgroundColor" red="0.074509803920000006" green="0.098039215690000001" blue="0.14901960780000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
-                                            <state key="normal" title="Drivers License">
+                                            <state key="normal" title="Driver License">
                                                 <color key="titleColor" red="0.97647058819999999" green="0.98431372549999996" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                             <userDefinedRuntimeAttributes>
@@ -130,7 +128,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="ktv-5E-Hha"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                     <color key="textColor" red="0.90196078431372551" green="0.31372549019607843" blue="0.41176470588235292" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -209,7 +207,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="s46-NI-219"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                     <color key="textColor" red="0.90196078430000004" green="0.31372549020000001" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -329,7 +327,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="gv8-SC-sF3"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                     <color key="textColor" red="0.90196078430000004" green="0.31372549020000001" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -450,7 +448,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="20" id="4Zk-E6-vS6"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="14"/>
                                     <color key="textColor" red="0.90196078430000004" green="0.31372549020000001" blue="0.41176470590000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>

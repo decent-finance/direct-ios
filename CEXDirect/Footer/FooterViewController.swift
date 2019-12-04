@@ -27,7 +27,9 @@ protocol FooterViewControllerDelegate: class {
 
 class FooterViewController: UIViewController, StoryboardView {
     
+    var isExitHidden = false
     weak var delegate: FooterViewControllerDelegate?
+    
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -35,6 +37,7 @@ class FooterViewController: UIViewController, StoryboardView {
         
         let currentYear = Calendar.current.component(.year, from: Date())
         yearLabel.text = NSLocalizedString(String(format: "© 2013-%i CEX.IO Ltd (UK)", currentYear), comment: "")
+        exitButtonContainerView.isHidden = isExitHidden
         
         collectionView.register(UINib(nibName: FooterCollectionViewCell.classNameAsString(), bundle: Bundle(for: type(of: self))), forCellWithReuseIdentifier: FooterCollectionViewCell.reuseIdentifier())
     }
@@ -53,6 +56,7 @@ class FooterViewController: UIViewController, StoryboardView {
     @IBOutlet private weak var collectionView: UICollectionView!
     @IBOutlet private weak var collectionViewHeight: NSLayoutConstraint!
     @IBOutlet private weak var yearLabel: UILabel!
+    @IBOutlet private weak var exitButtonContainerView: UIView!
     
     private let itemsPerRow: CGFloat = 2
     private let supportEmail = "support@cexdirect.com"

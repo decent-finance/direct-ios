@@ -1,4 +1,4 @@
-platform :ios, '12.2'
+platform :ios, '11.4'
 
 target 'CEXDirect' do
   use_frameworks!
@@ -17,6 +17,7 @@ target 'CEXDirect' do
   pod 'MarkdownView'
   pod 'SVProgressHUD'
   pod 'Nantes'
+  pod 'lottie-ios'
 
   target 'CEXDirectTests' do
     inherit! :search_paths

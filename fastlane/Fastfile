@@ -40,7 +40,7 @@ platform :ios do
 
     lane :build do
         increment_build_number_and_version
-        inject_keys("API_BASE_URL", "WEB_SOCKET_URL", "PLACEMENT_ID", "PLACEMENT_SECRET", "GOOGLE_SERVICE_INFO")
+        inject_keys("API_BASE_URL", "WEB_SOCKET_URL", "DISABLE_CERTIFICATE_EVALUATION", "PLACEMENT_ID", "PLACEMENT_SECRET", "GOOGLE_SERVICE_INFO")
 
         unlock_keychain_at_path
         fetch_profiles("com.cexdirect.demo", DEPLOYMENT_PROVISIONING_PROFILE, DEPLOYMENT_PROVISIONING_FILENAME)
@@ -60,7 +60,7 @@ platform :ios do
 
     lane :build_uat do
         increment_build_number_and_version
-        inject_keys("API_BASE_URL_UAT", "WEB_SOCKET_URL_UAT", "PLACEMENT_ID_UAT", "PLACEMENT_SECRET_UAT", "GOOGLE_SERVICE_INFO_UAT")
+        inject_keys("API_BASE_URL_UAT", "WEB_SOCKET_URL_UAT", "DISABLE_CERTIFICATE_EVALUATION_UAT", "PLACEMENT_ID_UAT", "PLACEMENT_SECRET_UAT", "GOOGLE_SERVICE_INFO_UAT")
 
         unlock_keychain_at_path
         fetch_profiles("com.cexdirect.demo-uat", UAT_PROVISIONING_PROFILE, UAT_PROVISIONING_FILENAME)
@@ -80,7 +80,7 @@ platform :ios do
 
     lane :build_dev do
         increment_build_number_and_version
-        inject_keys("API_BASE_URL_DEVELOPMENT", "WEB_SOCKET_URL_DEVELOPMENT", "PLACEMENT_ID_DEVELOPMENT", "PLACEMENT_SECRET_DEVELOPMENT", "GOOGLE_SERVICE_INFO_DEVELOPMENT")
+        inject_keys("API_BASE_URL_DEVELOPMENT", "WEB_SOCKET_URL_DEVELOPMENT", "DISABLE_CERTIFICATE_EVALUATION_DEVELOPMENT", "PLACEMENT_ID_DEVELOPMENT", "PLACEMENT_SECRET_DEVELOPMENT", "GOOGLE_SERVICE_INFO_DEVELOPMENT")
 
         unlock_keychain_at_path
         fetch_profiles("com.cexdirect.demo-dev", DEVELOPMENT_PROVISIONING_PROFILE, DEVELOPMENT_PROVISIONING_FILENAME)
@@ -140,13 +140,17 @@ platform :ios do
         #)
     end
 
-    def inject_keys(api_base_url_key, web_socket_url_key, placement_id_key, placement_secret_key, google_service_info_key)
+    def inject_keys(api_base_url_key, web_socket_url_key, disable_certificate_evaluation_key, placement_id_key, placement_secret_key, google_service_info_key)
         if ENV[api_base_url_key]
             set_info_plist_value(path: "CEXDirect/Configuration.plist", key: "APIBaseURL", value: ENV[api_base_url_key])
         end
 
         if ENV[web_socket_url_key]
             set_info_plist_value(path: "CEXDirect/Configuration.plist", key: "WebSocketURL", value: ENV[web_socket_url_key])
+        end
+        
+        if ENV[disable_certificate_evaluation_key]
+            set_info_plist_value(path: "CEXDirect/Configuration.plist", key: "DisableCertificateEvaluation", value: ENV[disable_certificate_evaluation_key] == "true")
         end
 
         if ENV[placement_id_key]

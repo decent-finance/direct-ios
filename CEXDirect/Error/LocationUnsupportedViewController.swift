@@ -15,51 +15,18 @@
 //  Created by Ihor Vovk on 7/16/19.
 
 import UIKit
-import ReactorKit
-import RxSwift
-import RxCocoa
 
-class LocationUnsupportedViewController: UIViewController, StoryboardView {
+protocol LocationUnsupportedViewControllerDelegate: class {
+    func locationUnsupportedViewControlleDidTapBack(_ controller: LocationUnsupportedViewController)
+}
+
+class LocationUnsupportedViewController: UIViewController {
     
-    var disposeBag = DisposeBag()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    func bind(reactor: LocationUnsupportedViewReactor) {
-        reactor.state.map { $0.email }
-            .bind(to: emailTextField.rx.text)
-            .disposed(by: disposeBag)
-        
-        reactor.state.map { $0.emailError }.subscribe(onNext: { [unowned self] error in
-            self.emailTextField.error = error
-        }).disposed(by: disposeBag)
-        
-        reactor.state.map { $0.isAgreedToReceiveNotification }
-            .bind(to: agreeCheckbox.rx.isChecked)
-            .disposed(by: disposeBag)
-        
-        reactor.state.map { $0.agreeToReceiveNotificationError }.subscribe(onNext: { [unowned self] error in
-            self.agreeCheckbox.error = error
-        }).disposed(by: disposeBag)
-        
-        emailTextField.rx.text.skip(1).map { Reactor.Action.editEmail($0) }
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
-        
-        agreeCheckbox.rx.isChecked.skip(1).map { Reactor.Action.agreeToReceiveNotification($0) }
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
-        
-        informMeButton.rx.tap.map { Reactor.Action.informMe }
-            .bind(to: reactor.action)
-            .disposed(by: disposeBag)
-    }
+    weak var delegate: LocationUnsupportedViewControllerDelegate?
 
     // MARK: - Implementation
 
-    @IBOutlet private weak var emailTextField: CDTextField!
-    @IBOutlet private weak var agreeCheckbox: CDCheckbox!
-    @IBOutlet private weak var informMeButton: CDButton!
+    @IBAction private func back(_ sender: Any) {
+        delegate?.locationUnsupportedViewControlleDidTapBack(self)
+    }
 }

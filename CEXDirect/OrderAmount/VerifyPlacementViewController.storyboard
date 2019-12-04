@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qbn-al-ELc">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qbn-al-ELc">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -80,7 +78,6 @@
                                     <constraint firstAttribute="trailing" secondItem="BfG-hW-tG1" secondAttribute="trailing" constant="40" id="Yey-qt-QIs"/>
                                     <constraint firstItem="NI0-gT-faR" firstAttribute="centerY" secondItem="lu5-Zb-giH" secondAttribute="centerY" constant="-100" id="jnl-OW-mua"/>
                                     <constraint firstItem="NI0-gT-faR" firstAttribute="centerX" secondItem="lu5-Zb-giH" secondAttribute="centerX" id="u7Z-M4-W4v"/>
-                                    <constraint firstItem="BfG-hW-tG1" firstAttribute="centerX" secondItem="lu5-Zb-giH" secondAttribute="centerX" id="ztZ-fd-utJ"/>
                                 </constraints>
                             </view>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zeB-Dd-h1n" customClass="CDLoadingView" customModule="CEXDirect" customModuleProvider="target">

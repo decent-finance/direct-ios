@@ -131,7 +131,7 @@ extension CDCheckbox {
     func configLabelWithRules(_ rules: [Rule]) -> String {
         return String(rules.reduce(Constant.CDCheckbox.startRuleText) { ( result: String, rule: Rule) -> String in
             return result + "\(rule.name ?? ""), ".capitalized
-            }.dropLast(2))
+        }.dropLast(2))
     }
     
     func addLinkWithRules(_ rules: [Rule]) {

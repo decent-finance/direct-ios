@@ -27,7 +27,7 @@ protocol FillBaseInfoViewControllerDelegate: class {
     var locationNotSupportedSubject: BehaviorSubject<Bool> { get }
     var loadingSubject: BehaviorSubject<Bool> { get }
     
-    func showErrorViewWithReason(errorReason: String?)
+    func showServiceDownError()
 }
 
 class FillBaseInfoViewController: UIViewController, StoryboardView {
@@ -85,8 +85,8 @@ class FillBaseInfoViewController: UIViewController, StoryboardView {
             }
         }).disposed(by: disposeBag)
         
-        reactor.state.map { $0.alert }.filter { $0 != nil }.subscribe(onNext: { [unowned self] alert in
-            self.delegate?.showErrorViewWithReason(errorReason: alert)
+        reactor.state.compactMap { $0.alert }.subscribe(onNext: { [unowned self] alert in
+            self.delegate?.showServiceDownError()
         }).disposed(by: disposeBag)
 
         reactor.state.filter { $0.isFinished }.subscribe(onNext: { [unowned self] _ in
@@ -114,6 +114,7 @@ class FillBaseInfoViewController: UIViewController, StoryboardView {
             .disposed(by: disposeBag)
         
         delegate?.nextTap.takeUntil(reactor.state.filter { $0.isFinished || !$0.isEditable })
+            .throttle(.milliseconds(200), latest: false, scheduler: MainScheduler.instance)
             .map { Reactor.Action.submit }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)

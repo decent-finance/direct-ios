@@ -92,12 +92,9 @@ import RxCocoa
     @IBInspectable var isDatePickerTextField: Bool = false {
         didSet {
             if isDatePickerTextField {
-                let datePicker = UIDatePicker()
-                datePicker.datePickerMode = .date
-                datePicker.addTarget(self, action: #selector(datePickerValueChanged), for: .valueChanged)
-                
-                if let selectedDateString = textView.text, let date = dateFormatter.date(from: selectedDateString) {
-                    datePicker.setDate(date, animated: false)
+                let datePicker = CDMonthYearPickerView()
+                datePicker.onSelect = { [unowned self] selectedDate in
+                    self.delegate?.dateTextFieldSelectedDate?(selectedDate)
                 }
                 
                 let toolbar = UIToolbar();
@@ -218,16 +215,6 @@ import RxCocoa
 
         errorLabel?.text = error
         errorLabel?.isHidden = error == nil || error?.count == 0
-    }
-    
-    private var dateFormatter: DateFormatter {
-        let result = DateFormatter()
-        result.dateFormat = "MM/yy"
-        return result
-    }
-    
-    @objc private func datePickerValueChanged(datePicker: UIDatePicker) {
-        delegate?.dateTextFieldSelectedDate?(datePicker.date)
     }
     
     @objc private func doneDatePicker() {

@@ -23,5 +23,7 @@
         <string>https://api.cexdirect.com/api/v1</string>
         <key>WebSocketURL</key>
         <string>wss://wss.cexdirect.com</string>
+        <key>DisableCertificateEvaluation</key>
+        <false/>
     </dict>
 </plist>

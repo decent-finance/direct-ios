@@ -27,7 +27,7 @@ protocol ConfirmPaymentViewControllerDelegate: class {
 
 class ConfirmPaymentViewController: UIViewController, StoryboardView {
     
-    var delegate: ConfirmPaymentViewControllerDelegate?
+    weak var delegate: ConfirmPaymentViewControllerDelegate?
     
     var disposeBag = DisposeBag()
     
@@ -37,10 +37,8 @@ class ConfirmPaymentViewController: UIViewController, StoryboardView {
     }
     
     func bind(reactor: ConfirmPaymentViewReactor) {
-        reactor.state.map { $0.html }.subscribe(onNext: { [unowned self] html in
-            if let html = html {
-                self.webView.loadHTMLString(html, baseURL: nil)
-            }
+        reactor.state.compactMap { $0.request }.subscribe(onNext: { [unowned self] request in
+            self.webView.load(request)
         }).disposed(by: disposeBag)
     }
     

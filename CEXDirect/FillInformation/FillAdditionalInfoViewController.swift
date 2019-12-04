@@ -54,6 +54,9 @@ class FillAdditionalInfoViewController: UIViewController, StoryboardView {
                 }
             }
             
+            // Workaround for backend issues
+            self.residentialPostcodeTextField.title = NSLocalizedString(state.additionalInfo[Order.AdditionalInfoKey.userResidentialCountry.rawValue]?.value == "US" ? "ZIP Code" : "Postcode", comment: "")
+            
             if let errorField = errorControl {
                 self.delegate?.scrollToErrorField(field: errorField)
                 errorControl = nil
@@ -84,6 +87,7 @@ class FillAdditionalInfoViewController: UIViewController, StoryboardView {
         
         Observable.merge(verifyButton.rx.tap.asObservable(), delegate?.nextTap.asObservable() ?? Observable.empty())
             .takeUntil(reactor.state.filter { $0.isFinished })
+            .throttle(.milliseconds(200), latest: false, scheduler: MainScheduler.instance)
             .map { Reactor.Action.verify }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)

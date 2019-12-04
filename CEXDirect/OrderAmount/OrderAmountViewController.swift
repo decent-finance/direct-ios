@@ -29,7 +29,8 @@ protocol OrderAmountViewControllerDelegate: class {
 
 class OrderAmountViewController: UIViewController, StoryboardView {
     
-    var delegate: OrderAmountViewControllerDelegate?
+    weak var delegate: OrderAmountViewControllerDelegate?
+    var context: AnyObject?
     
     var disposeBag = DisposeBag()
 
@@ -138,7 +139,8 @@ class OrderAmountViewController: UIViewController, StoryboardView {
                 .disposed(by: disposeBag)
         }
         
-        buyButton.rx.tap.map { Reactor.Action.buy }
+        buyButton.rx.tap.throttle(.milliseconds(200), latest: false, scheduler: MainScheduler.instance)
+            .map { Reactor.Action.buy }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
     }
@@ -155,8 +157,8 @@ class OrderAmountViewController: UIViewController, StoryboardView {
     
     private func setUpFooterView() {
         let footerController = FooterViewController.init(nibName: String(describing: FooterViewController.self), bundle: Bundle(for: type(of: self)))
-        self.cd_addChildViewController(footerController, containerView: footerView)
         delegate?.setUpFooterViewController(footerController)
+        self.cd_addChildViewController(footerController, containerView: footerView)
     }
     
     // MARK: - Implementation
@@ -198,12 +200,12 @@ extension OrderAmountViewController : CDAmountTextFieldDelegate {
     
     func textField(_ textField: CDAmountTextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if let currencyPrecision = textField == fiatAmountTextField ? reactor?.currentState.fiatCurrencyPrecision : reactor?.currentState.cryptoCurrencyPrecision {
-            if let text = textField.text, let index = text.firstIndex(of: ".") {
+            if let text = textField.text, let index = text.replaceComma().firstIndex(of: ".") {
                 let distance = text.distance(from: text.startIndex, to: index)
                 return text.count - distance <= currencyPrecision || string.count == 0
             }
             
-            if string.count > 1, let index = string.firstIndex(of: ".")  {
+            if string.count > 1, let index = string.replaceComma().firstIndex(of: ".")  {
                 let distance = string.distance(from: string.startIndex, to: index)
                 if string.count > distance + currencyPrecision + 1 {
                     let index = string.index(string.startIndex, offsetBy: distance + currencyPrecision + 1)
@@ -249,4 +251,3 @@ extension OrderAmountViewController: VerifyPlacementViewControllerDelegate {
         delegate?.orderAmountViewControllerDidTapExit(self)
     }
 }
-

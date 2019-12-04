@@ -39,10 +39,6 @@ class VerifyPlacementViewReactor: Reactor {
     
     let initialState: State
     
-    func mutate(action: Action) -> Observable<Mutation> {
-        return Observable.empty()
-    }
-    
     func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
         let checkPlacementMutation = Observable.concat(.just(.setLoading(true)),
             merchantService.rx.loadPlacementInfo().flatMap { [weak self] placement -> Observable<Mutation> in
@@ -54,9 +50,9 @@ class VerifyPlacementViewReactor: Reactor {
                 
                 let loadCountriesMutation = self.paymentService.rx.loadCountries().do(onNext: { [weak self] countries in
                     self?.countriesStore.countries = countries
-                }).map { _ in Mutation.setCountriesLoaded(true) }.catchErrorJustReturn(.setCountriesLoaded(false))
+                }).map { _ in Mutation.setCountriesLoaded(true) }
                 
-                return .concat(loadRulesObservable, loadCountriesMutation, .just(.setPlacementSupported(true)))
+                return .concat(loadRulesObservable, loadCountriesMutation, .just(.setPlacementSupported(self.merchantService.isPlacementSupported(placement))))
             }.catchErrorJustReturn(.setPlacementSupported(false)),
             .just(.setLoading(false)))
         

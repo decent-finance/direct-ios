@@ -21,9 +21,9 @@ struct CurrencyConversion: Mappable {
     
     var fiat: String?
     var crypto: String?
-    var a: Double?
-    var b: Double?
-    var c: Double?
+    var a: Decimal?
+    var b: Decimal?
+    var c: Decimal?
     var fiatPopularValues: [String]?
     var cryptoPopularValues: [String]?
     
@@ -31,45 +31,53 @@ struct CurrencyConversion: Mappable {
     }
     
     public init?(map: Map){
+        if let mapA = map["a"].currentValue as? NSNumber {
+            a = mapA.decimalValue
+        }
+        
+        if let mapB = map["b"].currentValue as? NSNumber {
+            b = mapB.decimalValue
+        }
+        
+        if let mapC = map["c"].currentValue as? NSNumber {
+            c = mapC.decimalValue
+        }
     }
     
     mutating public func mapping(map: Map) {
         fiat <- map["fiat"]
         crypto <- map["crypto"]
-        a <- map["a"]
-        b <- map["b"]
-        c <- map["c"]
         fiatPopularValues <- map["fiatPopularValues"]
         cryptoPopularValues <- map["cryptoPopularValues"]
     }
     
     func convertToCrypto(fiatAmount: String, precision: Int, roundRule: String?) -> String {
-        guard let a = a, let b = b, let c = c, c != 0, let doubleFiatAmount = Double(fiatAmount) else { return "" }
-        
-        let result = (a * doubleFiatAmount - b) / c
-        
+        guard let a = a, let b = b, let c = c, c != Decimal(0), let decimalFiatAmount = Decimal(string: fiatAmount, locale: Locale.current) else { return "" }
+
+        let result = (a * decimalFiatAmount - b) / c
+
         let formatter = NumberFormatter()
         formatter.roundingMode = roundRule == "trunk" ? .down : .halfUp
         formatter.maximumFractionDigits = precision
         formatter.minimumFractionDigits = precision
         formatter.numberStyle = .decimal
         formatter.usesGroupingSeparator = false
-        
-        return formatter.string(from: NSNumber(floatLiteral: result)) ?? ""
+
+        return formatter.string(from: NSDecimalNumber(decimal: result)) ?? ""
     }
     
     func convertToFiat(cryptoAmount: String, precision: Int, roundRule: String?) -> String {
-        guard let a = a, let b = b, let c = c, a != 0, let doubleCryptoAmount = Double(cryptoAmount) else { return "" }
-        
-        let result = (c * doubleCryptoAmount + b) / a
-        
+        guard let a = a, let b = b, let c = c, a != Decimal(0), let decimalCryptoAmount = Decimal(string: cryptoAmount, locale: Locale.current) else { return "" }
+         
+        let result = (c * decimalCryptoAmount + b) / a
+
         let formatter = NumberFormatter()
         formatter.roundingMode = roundRule == "trunk" ? .down : .halfUp
         formatter.maximumFractionDigits = precision
         formatter.minimumFractionDigits = precision
         formatter.numberStyle = .decimal
         formatter.usesGroupingSeparator = false
-        
-        return formatter.string(from: NSNumber(floatLiteral: result)) ?? ""
+
+        return formatter.string(from: NSDecimalNumber(decimal: result)) ?? ""
     }
 }

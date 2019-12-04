@@ -36,15 +36,33 @@ class MainViewReactor: Reactor {
         case purchaseSuccess
     }
     
+    enum InfoContent {
+        case generalError
+        case serviceDown
+        case verificationRejected
+        case processingRejected
+        case locationNotSupported
+        case verificationInProgress
+        case paymentRefunded
+        
+        var isError: Bool {
+            switch self {
+            case .verificationInProgress, .paymentRefunded:
+                return false
+            default:
+                return true
+            }
+        }
+    }
+    
     enum Action {
         case finish(PageContent)
-        case selectPage(Page)
     }
     
     enum Mutation {
         case setPage(Page)
         case setPageContent(PageContent)
-        case setErrorReason(String?)
+        case setInfoContent(InfoContent?)
         case setLoading(Bool)
     }
     
@@ -54,7 +72,7 @@ class MainViewReactor: Reactor {
         var isNextHidden: Bool
         var cryptoCurrency: String? = nil
         var fiatCurrency: String? = nil
-        var errorReason: String? = nil
+        var infoContent: InfoContent? = nil
         var orderId: String? = nil
         var isLoading = false
     }
@@ -65,8 +83,6 @@ class MainViewReactor: Reactor {
         switch action {
         case let .finish(pageContent):
             return mutateFinish(pageContent: pageContent)
-        case let .selectPage(page):
-            return Observable.just(Mutation.setPage(page))
         }
     }
     
@@ -75,39 +91,44 @@ class MainViewReactor: Reactor {
             self.orderService.rx.subscribeOrderUpdates(order: order)
         }.distinctUntilChanged { $0.status == $1.status }.flatMap { [unowned self] order -> Observable<Mutation> in
             guard let status = order.status else { return .empty() }
+            self.orderStore.update(order: order)
             
             switch status {
-            case .uncompleted:
-                self.orderStore.update(order: order)
-                return .just(.setPageContent(.paymentFillInformation))
-            case .ivsReady:
-                return .concat(.just(.setLoading(true)),
-                    self.orderService.rx.sendCardDataToVerification(order: self.orderStore.order).flatMap { _ in Observable.empty() }.catchErrorJustReturn(.setErrorReason(NSLocalizedString("Verification failed", comment: ""))),
-                    .just(.setLoading(false)))
-            case .pssWaitData:
-                return .just(.setPageContent(.additionalFillInformation))
-            case .pssReady:
-                return .concat(.just(.setLoading(true)),
-                    self.orderService.rx.sendCardDataToProcessing(order: self.orderStore.order).flatMap { _ in Observable.empty() }.catchErrorJustReturn(.setErrorReason(NSLocalizedString("Processing failed", comment: ""))),
-                    .just(.setLoading(false)))
-            case .pss3dsRequired:
-                self.orderStore.update(order: order)
-                return .just(.setPageContent(.paymentConfirmation))
-            case .waitingForConfirmation:
-                return .just(.setPageContent(.emailConfirmation))
-            case .completed:
-                self.orderStore.update(order: order)
-                return .just(.setPageContent(.purchaseSuccess))
-            case .finished:
-                self.orderStore.update(order: order)
+            case .new, .uncompleted:
+                return .concat(.just(.setLoading(false)), .just(.setPageContent(.paymentFillInformation)))
+            case .verificationReady, .ivsReady:
+                return self.orderService.rx.sendCardDataToVerification(order: self.orderStore.order).flatMap { _ in Observable.empty() }.catchErrorJustReturn(.setInfoContent(.serviceDown))
+            case .verificationRejected, .ivsRejected:
+                return .just(.setInfoContent(.verificationRejected))
+            case .verificationFailed, .ivsFailed:
+                return .just(.setInfoContent(.serviceDown))
+            case .processingAcknowledge, .pssWaitData:
+                return .concat(.just(.setLoading(false)), .just(.setPageContent(.additionalFillInformation)))
+            case .processingReady, .pssReady:
+                return self.orderService.rx.sendCardDataToProcessing(order: self.orderStore.order).flatMap { _ in Observable.empty() }.catchErrorJustReturn(.setInfoContent(.serviceDown))
+            case .processingRejected, .pssRejected:
+                return .just(.setInfoContent(.processingRejected))
+            case .processingFailed, .pssFailed:
+                return .just(.setInfoContent(.serviceDown))
+            case .processing3ds, .pss3dsRequired:
+                return .concat(.just(.setLoading(false)), .just(.setPageContent(.paymentConfirmation)))
+            case .refunded:
+                return .concat(.just(.setLoading(false)), .just(.setInfoContent(.paymentRefunded)))
+            case .emailConfirmation, .waitingForConfirmation:
+                return .concat(.just(.setLoading(false)), .just(.setPageContent(.emailConfirmation)))
+            case .cryptoSending, .completed:
+                return .concat(.just(.setLoading(false)), .just(.setPageContent(.purchaseSuccess)))
+            case .cryptoSent, .settled, .finished:
                 return .empty()
+            case .crashed:
+                return .just(.setInfoContent(.serviceDown))
             case .rejected:
-                return .just(.setErrorReason(order.status?.rawValue))
+                return .just(.setInfoContent(.generalError))
             default:
                 return .empty()
             }
         }.takeUntil(.inclusive) { mutation -> Bool in
-            if case .setErrorReason = mutation {
+            if case .setInfoContent(let content) = mutation, content?.isError == true {
                 return true
             } else {
                 return false
@@ -126,8 +147,8 @@ class MainViewReactor: Reactor {
             state.page = page
         case let .setPageContent(pageContent):
             state = reduceSetPageContent(state: state, pageContent: pageContent)
-        case let .setErrorReason(errorString):
-            state.errorReason = errorString
+        case let .setInfoContent(infoContent):
+            state.infoContent = infoContent
             state.isLoading = false
         case let .setLoading(isLoading):
             state.isLoading = isLoading
@@ -141,7 +162,7 @@ class MainViewReactor: Reactor {
         self.orderStore = orderStore
         
         let order = orderStore.order
-        initialState = State(page: .fillInformation, pageContent: .baseFillInformation, isNextHidden: false, cryptoCurrency: order.cryptoCurrency, fiatCurrency: order.fiatCurrency, errorReason: nil, orderId: order.orderID, isLoading: false)
+        initialState = State(page: .fillInformation, pageContent: .baseFillInformation, isNextHidden: false, cryptoCurrency: order.cryptoCurrency, fiatCurrency: order.fiatCurrency, infoContent: nil, orderId: order.orderID, isLoading: false)
         
         orderService.sendBuyEvent(order: orderStore.order)
     }
@@ -153,8 +174,10 @@ class MainViewReactor: Reactor {
     
     private func mutateFinish(pageContent: PageContent) -> Observable<Mutation> {
         switch pageContent {
-        case .paymentFillInformation, .additionalFillInformation:
+        case .baseFillInformation, .additionalFillInformation, .paymentConfirmation, .emailConfirmation:
             return .just(.setLoading(true))
+        case .paymentFillInformation:
+            return .just(.setInfoContent(.verificationInProgress))
         default:
             return .empty()
         }
@@ -163,6 +186,7 @@ class MainViewReactor: Reactor {
     private func reduceSetPageContent(state: State, pageContent: PageContent) -> State {
         var result = state
         result.pageContent = pageContent
+        result.infoContent = nil
         
         switch pageContent {
         case .baseFillInformation, .paymentFillInformation, .additionalFillInformation:

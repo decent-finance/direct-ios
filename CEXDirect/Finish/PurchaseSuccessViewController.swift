@@ -27,7 +27,7 @@ protocol PurchaseSuccessViewControllerDelegate: class {
 
 class PurchaseSuccessViewController: UIViewController, StoryboardView {
     
-    var delegate: PurchaseSuccessViewControllerDelegate?
+    weak var delegate: PurchaseSuccessViewControllerDelegate?
     
     var disposeBag = DisposeBag()
     private let tapGesture = UITapGestureRecognizer()
@@ -78,6 +78,7 @@ class PurchaseSuccessViewController: UIViewController, StoryboardView {
         }).disposed(by: disposeBag)
         
         delegate?.nextTap.takeUntil(reactor.state.filter { $0.isFinished })
+            .throttle(.milliseconds(200), latest: false, scheduler: MainScheduler.instance)
             .map { Reactor.Action.submit }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)

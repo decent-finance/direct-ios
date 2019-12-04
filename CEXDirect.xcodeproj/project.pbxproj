@@ -41,11 +41,11 @@
 		59038B0B22CE2DA20008EF9D /* FooterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59038B0922CE2DA20008EF9D /* FooterViewController.swift */; };
 		59038B0C22CE2DA20008EF9D /* FooterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59038B0A22CE2DA20008EF9D /* FooterViewController.xib */; };
 		59038B0E22CE2DD20008EF9D /* FooterViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59038B0D22CE2DD20008EF9D /* FooterViewReactor.swift */; };
-		591F947822AEB2DA0045ED90 /* ErrorInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591F947622AEB2DA0045ED90 /* ErrorInfoViewController.swift */; };
-		591F947922AEB2DA0045ED90 /* ErrorInfoViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 591F947722AEB2DA0045ED90 /* ErrorInfoViewController.storyboard */; };
+		591F947922AEB2DA0045ED90 /* GeneralErrorViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 591F947722AEB2DA0045ED90 /* GeneralErrorViewController.storyboard */; };
 		5923719A22CF490A0089D49C /* FooterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923719822CF490A0089D49C /* FooterCollectionViewCell.swift */; };
 		5923719B22CF490A0089D49C /* FooterCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5923719922CF490A0089D49C /* FooterCollectionViewCell.xib */; };
 		5923719E22CF58D90089D49C /* CollectionViewCenteredFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5923719D22CF58D90089D49C /* CollectionViewCenteredFlowLayout.swift */; };
+		592539042368767700CD2D4D /* CDProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592539032368767700CD2D4D /* CDProgressView.swift */; };
 		592669C1229D419B00F61B1E /* QRScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592669C0229D419B00F61B1E /* QRScannerView.swift */; };
 		592669C4229D438900F61B1E /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 592669C2229D438900F61B1E /* QRScannerViewController.swift */; };
 		592669D0229D43B100F61B1E /* CountryPicker.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 592669CA229D43B100F61B1E /* CountryPicker.bundle */; };
@@ -55,10 +55,12 @@
 		5928702C228DC19200F05B7E /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5928702B228DC19200F05B7E /* Constant.swift */; };
 		5930950D23042E6E001505D0 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDFA18B4224E2EFE0060813B /* OpenSans-Regular.ttf */; };
 		5930950E23042E71001505D0 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FDFA18B3224E2EFC0060813B /* OpenSans-ExtraBold.ttf */; };
+		593383C42382D31400B5FCCF /* String+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593383C32382D31400B5FCCF /* String+CD.swift */; };
 		594461B7229C3ADA0016AA8E /* CDBaseSheet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 594461B5229C3AD90016AA8E /* CDBaseSheet.storyboard */; };
 		594461B8229C3ADA0016AA8E /* CDBaseSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 594461B6229C3AD90016AA8E /* CDBaseSheetController.swift */; };
 		5994437A22859D7E00160BE5 /* CDPickerTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5994437122859D7E00160BE5 /* CDPickerTableViewCell.xib */; };
 		5994437B22859D7E00160BE5 /* CDPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5994437222859D7E00160BE5 /* CDPickerViewController.storyboard */; };
+		59D58E26237C3AD100439966 /* CDMonthYearPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D58E25237C3AD100439966 /* CDMonthYearPickerView.swift */; };
 		B3B690DE07B9B625C598E950 /* Pods_CEXDirectDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4EE0A5D284E6A3A3199C759F /* Pods_CEXDirectDemo.framework */; };
 		DE007A0636BEEC41EC003BCF /* Pods_CEXDirectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 543356531B4821BEC72049F1 /* Pods_CEXDirectTests.framework */; };
 		FD0A786F2264BD1900E1C57C /* CEXBottomSheetContainer.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD0A786D2264BD1900E1C57C /* CEXBottomSheetContainer.storyboard */; };
@@ -95,6 +97,9 @@
 		FD227F8322941D7A00CA2931 /* SocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD227F8222941D7A00CA2931 /* SocketManager.swift */; };
 		FD23C6BA22F88B6D001F733D /* UIViewController+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 586DD7582266082500B08E23 /* UIViewController+CD.swift */; };
 		FD281B5022A680EB0015E0F3 /* OrderStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD281B4F22A680EB0015E0F3 /* OrderStore.swift */; };
+		FD2D7CA62382C94000D896AD /* ProcessingRejectedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD2D7CA52382C44E00D896AD /* ProcessingRejectedViewController.storyboard */; };
+		FD2D7CA82382F21200D896AD /* VerificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD2D7CA72382F21200D896AD /* VerificationViewController.swift */; };
+		FD2D7CAC2382F2AE00D896AD /* VerificationViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD2D7CAB2382F2AE00D896AD /* VerificationViewController.storyboard */; };
 		FD340B1022524A1F004CC728 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD340B0F22524A1F004CC728 /* MainViewController.swift */; };
 		FD340B1222524BD6004CC728 /* MainViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD340B1122524BD6004CC728 /* MainViewReactor.swift */; };
 		FD36367C22492CF7004F1926 /* MerchantService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD36367B22492CF7004F1926 /* MerchantService.swift */; };
@@ -107,10 +112,14 @@
 		FD3B6784224E6A94002BE8E0 /* CDButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3B6783224E6A94002BE8E0 /* CDButton.swift */; };
 		FD3B6786224E6ABB002BE8E0 /* CDButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD3B6785224E6ABB002BE8E0 /* CDButton.xib */; };
 		FD3CB6182254D5400085CA7A /* PageTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD3CB6172254D5400085CA7A /* PageTitleViewController.swift */; };
+		FD49EBD62379CB1500330133 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD54937223743128009AA2E3 /* OpenSans-Bold.ttf */; };
+		FD4D409B2371A36D00778716 /* ServiceDownViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD4D409A2371A36D00778716 /* ServiceDownViewController.storyboard */; };
+		FD51FD0B239564BB001706C7 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD51FD0A239564BB001706C7 /* Configuration.swift */; };
+		FD54937323743128009AA2E3 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FD54937223743128009AA2E3 /* OpenSans-Bold.ttf */; };
 		FD576E99234CAE8D00B6E728 /* DataValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD576E98234CAE8D00B6E728 /* DataValidator.swift */; };
+		FD58F0502386ABE2009F2790 /* AssetsAnimationImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD58F04F2386ABE2009F2790 /* AssetsAnimationImageProvider.swift */; };
+		FD58F0522386F6BE009F2790 /* LocationUnsupportedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD58F0512386F6BD009F2790 /* LocationUnsupportedViewController.swift */; };
 		FD599B1922DDE20000BB0CAA /* LocationUnsupportedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD599B1822DDE20000BB0CAA /* LocationUnsupportedViewController.storyboard */; };
-		FD599B1B22DDE21000BB0CAA /* LocationUnsupportedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD599B1A22DDE21000BB0CAA /* LocationUnsupportedViewController.swift */; };
-		FD599B1D22DE05EA00BB0CAA /* LocationUnsupportedViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD599B1C22DE05EA00BB0CAA /* LocationUnsupportedViewReactor.swift */; };
 		FD5C992E231D716100DA7ABF /* Country.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C992D231D716100DA7ABF /* Country.swift */; };
 		FD5C9930231D728500DA7ABF /* CountryState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C992F231D728500DA7ABF /* CountryState.swift */; };
 		FD5C9932231D799B00DA7ABF /* CountriesStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD5C9931231D799B00DA7ABF /* CountriesStore.swift */; };
@@ -129,9 +138,13 @@
 		FDB9BBCA22CA27E400780A7F /* RuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB9BBC922CA27E400780A7F /* RuleViewController.swift */; };
 		FDB9BBCE22CA297600780A7F /* RuleViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDB9BBCD22CA297600780A7F /* RuleViewController.storyboard */; };
 		FDB9BBD422CA32B600780A7F /* RuleViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDB9BBCB22CA286D00780A7F /* RuleViewReactor.swift */; };
+		FDBA1CCA238850760052428E /* PaymentRefundedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA1CC9238850760052428E /* PaymentRefundedViewController.swift */; };
+		FDBA1CCC238851230052428E /* PaymentRefundedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDBA1CCB238851230052428E /* PaymentRefundedViewController.storyboard */; };
+		FDBA1CCE238851390052428E /* PaymentRefundedViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDBA1CCD238851390052428E /* PaymentRefundedViewReactor.swift */; };
 		FDCCF1AB236710710003E040 /* CDPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5994437422859D7E00160BE5 /* CDPickerViewController.swift */; };
 		FDCCF1AC236710750003E040 /* CDPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5994437322859D7E00160BE5 /* CDPickerTableViewCell.swift */; };
 		FDD05525223A87270002FC8D /* ServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD05524223A87270002FC8D /* ServiceProvider.swift */; };
+		FDD647EE2371BA18006AC7FD /* BaseErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD647ED2371BA18006AC7FD /* BaseErrorViewController.swift */; };
 		FDD7DB0422686D070075E4CB /* ConfirmPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A787B2267501D00E1C57C /* ConfirmPaymentViewController.swift */; };
 		FDD7DB0522686D110075E4CB /* ConfirmPaymentViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0A787D2267502E00E1C57C /* ConfirmPaymentViewReactor.swift */; };
 		FDD7DB07226870190075E4CB /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDD7DB06226870190075E4CB /* WebKit.framework */; };
@@ -171,6 +184,7 @@
 		FDFECBCE228DA6A000CB6E1C /* EditEmailViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDFECBCD228DA6A000CB6E1C /* EditEmailViewReactor.swift */; };
 		FDFECBD0228DADCE00CB6E1C /* EditEmailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDFECBCF228DADCE00CB6E1C /* EditEmailViewController.storyboard */; };
 		FDFECBD2228DAED300CB6E1C /* ConfirmEmailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDFECBD1228DAED300CB6E1C /* ConfirmEmailViewController.storyboard */; };
+		FDFFE0232372E30500E84627 /* VerificationRejectedViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FDFFE0222372E30400E84627 /* VerificationRejectedViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -240,11 +254,11 @@
 		59038B0922CE2DA20008EF9D /* FooterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterViewController.swift; sourceTree = "<group>"; };
 		59038B0A22CE2DA20008EF9D /* FooterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterViewController.xib; sourceTree = "<group>"; };
 		59038B0D22CE2DD20008EF9D /* FooterViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterViewReactor.swift; sourceTree = "<group>"; };
-		591F947622AEB2DA0045ED90 /* ErrorInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorInfoViewController.swift; sourceTree = "<group>"; };
-		591F947722AEB2DA0045ED90 /* ErrorInfoViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ErrorInfoViewController.storyboard; sourceTree = "<group>"; };
+		591F947722AEB2DA0045ED90 /* GeneralErrorViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = GeneralErrorViewController.storyboard; sourceTree = "<group>"; };
 		5923719822CF490A0089D49C /* FooterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterCollectionViewCell.swift; sourceTree = "<group>"; };
 		5923719922CF490A0089D49C /* FooterCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterCollectionViewCell.xib; sourceTree = "<group>"; };
 		5923719D22CF58D90089D49C /* CollectionViewCenteredFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCenteredFlowLayout.swift; sourceTree = "<group>"; };
+		592539032368767700CD2D4D /* CDProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDProgressView.swift; sourceTree = "<group>"; };
 		592669C0229D419B00F61B1E /* QRScannerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerView.swift; sourceTree = "<group>"; };
 		592669C2229D438900F61B1E /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		592669CA229D43B100F61B1E /* CountryPicker.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = CountryPicker.bundle; sourceTree = "<group>"; };
@@ -252,12 +266,16 @@
 		592669CD229D43B100F61B1E /* CurrencyListDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyListDataSource.swift; sourceTree = "<group>"; };
 		592669D4229D4FBB00F61B1E /* QRScannerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QRScannerViewController.storyboard; sourceTree = "<group>"; };
 		5928702B228DC19200F05B7E /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		593383C32382D31400B5FCCF /* String+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CD.swift"; sourceTree = "<group>"; };
 		594461B5229C3AD90016AA8E /* CDBaseSheet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CDBaseSheet.storyboard; sourceTree = "<group>"; };
 		594461B6229C3AD90016AA8E /* CDBaseSheetController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDBaseSheetController.swift; sourceTree = "<group>"; };
 		5994437122859D7E00160BE5 /* CDPickerTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CDPickerTableViewCell.xib; sourceTree = "<group>"; };
 		5994437222859D7E00160BE5 /* CDPickerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = CDPickerViewController.storyboard; sourceTree = "<group>"; };
 		5994437322859D7E00160BE5 /* CDPickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPickerTableViewCell.swift; sourceTree = "<group>"; };
 		5994437422859D7E00160BE5 /* CDPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDPickerViewController.swift; sourceTree = "<group>"; };
+		59A3645F2361ED2B00588461 /* ConfigurationUAT.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ConfigurationUAT.plist; sourceTree = "<group>"; };
+		59A364602361ED2B00588461 /* ConfigurationDevelopment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ConfigurationDevelopment.plist; sourceTree = "<group>"; };
+		59D58E25237C3AD100439966 /* CDMonthYearPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CDMonthYearPickerView.swift; sourceTree = "<group>"; };
 		62184270D5292B1A94760B33 /* Pods-CEXDirectTests.release-development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CEXDirectTests.release-development.xcconfig"; path = "Pods/Target Support Files/Pods-CEXDirectTests/Pods-CEXDirectTests.release-development.xcconfig"; sourceTree = "<group>"; };
 		81AAA08701C79C6A9AD5CA2E /* Pods-CEXDirectTests.debug-development.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CEXDirectTests.debug-development.xcconfig"; path = "Pods/Target Support Files/Pods-CEXDirectTests/Pods-CEXDirectTests.debug-development.xcconfig"; sourceTree = "<group>"; };
 		8224028659C4AEE22468DBC3 /* Pods-CEXDirectExample.release-production.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CEXDirectExample.release-production.xcconfig"; path = "Pods/Target Support Files/Pods-CEXDirectExample/Pods-CEXDirectExample.release-production.xcconfig"; sourceTree = "<group>"; };
@@ -311,6 +329,9 @@
 		FD227F7E2292FB2B00CA2931 /* SocketMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketMessage.swift; sourceTree = "<group>"; };
 		FD227F8222941D7A00CA2931 /* SocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketManager.swift; sourceTree = "<group>"; };
 		FD281B4F22A680EB0015E0F3 /* OrderStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStore.swift; sourceTree = "<group>"; };
+		FD2D7CA52382C44E00D896AD /* ProcessingRejectedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProcessingRejectedViewController.storyboard; sourceTree = "<group>"; };
+		FD2D7CA72382F21200D896AD /* VerificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationViewController.swift; sourceTree = "<group>"; };
+		FD2D7CAB2382F2AE00D896AD /* VerificationViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerificationViewController.storyboard; sourceTree = "<group>"; };
 		FD340B0F22524A1F004CC728 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		FD340B1122524BD6004CC728 /* MainViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewReactor.swift; sourceTree = "<group>"; };
 		FD36367B22492CF7004F1926 /* MerchantService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MerchantService.swift; sourceTree = "<group>"; };
@@ -330,12 +351,13 @@
 		FD3B6783224E6A94002BE8E0 /* CDButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDButton.swift; sourceTree = "<group>"; };
 		FD3B6785224E6ABB002BE8E0 /* CDButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CDButton.xib; sourceTree = "<group>"; };
 		FD3CB6172254D5400085CA7A /* PageTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTitleViewController.swift; sourceTree = "<group>"; };
-		FD4E99A9235DC08800EAE228 /* ConfigurationUAT.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ConfigurationUAT.plist; sourceTree = "<group>"; };
-		FD4E99AA235DC08800EAE228 /* ConfigurationDevelopment.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ConfigurationDevelopment.plist; sourceTree = "<group>"; };
+		FD4D409A2371A36D00778716 /* ServiceDownViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ServiceDownViewController.storyboard; sourceTree = "<group>"; };
+		FD51FD0A239564BB001706C7 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
+		FD54937223743128009AA2E3 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		FD576E98234CAE8D00B6E728 /* DataValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataValidator.swift; sourceTree = "<group>"; };
+		FD58F04F2386ABE2009F2790 /* AssetsAnimationImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsAnimationImageProvider.swift; sourceTree = "<group>"; };
+		FD58F0512386F6BD009F2790 /* LocationUnsupportedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationUnsupportedViewController.swift; sourceTree = "<group>"; };
 		FD599B1822DDE20000BB0CAA /* LocationUnsupportedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationUnsupportedViewController.storyboard; sourceTree = "<group>"; };
-		FD599B1A22DDE21000BB0CAA /* LocationUnsupportedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUnsupportedViewController.swift; sourceTree = "<group>"; };
-		FD599B1C22DE05EA00BB0CAA /* LocationUnsupportedViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationUnsupportedViewReactor.swift; sourceTree = "<group>"; };
 		FD5C992D231D716100DA7ABF /* Country.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Country.swift; sourceTree = "<group>"; };
 		FD5C992F231D728500DA7ABF /* CountryState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryState.swift; sourceTree = "<group>"; };
 		FD5C9931231D799B00DA7ABF /* CountriesStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesStore.swift; sourceTree = "<group>"; };
@@ -361,7 +383,11 @@
 		FDB9BBC922CA27E400780A7F /* RuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleViewController.swift; sourceTree = "<group>"; };
 		FDB9BBCB22CA286D00780A7F /* RuleViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleViewReactor.swift; sourceTree = "<group>"; };
 		FDB9BBCD22CA297600780A7F /* RuleViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RuleViewController.storyboard; sourceTree = "<group>"; };
+		FDBA1CC9238850760052428E /* PaymentRefundedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRefundedViewController.swift; sourceTree = "<group>"; };
+		FDBA1CCB238851230052428E /* PaymentRefundedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PaymentRefundedViewController.storyboard; sourceTree = "<group>"; };
+		FDBA1CCD238851390052428E /* PaymentRefundedViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentRefundedViewReactor.swift; sourceTree = "<group>"; };
 		FDD05524223A87270002FC8D /* ServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceProvider.swift; sourceTree = "<group>"; };
+		FDD647ED2371BA18006AC7FD /* BaseErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseErrorViewController.swift; sourceTree = "<group>"; };
 		FDD7DB06226870190075E4CB /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		FDE769AE225507C2001830CE /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		FDE769B0225521B4001830CE /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -393,6 +419,7 @@
 		FDFECBCD228DA6A000CB6E1C /* EditEmailViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEmailViewReactor.swift; sourceTree = "<group>"; };
 		FDFECBCF228DADCE00CB6E1C /* EditEmailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = EditEmailViewController.storyboard; sourceTree = "<group>"; };
 		FDFECBD1228DAED300CB6E1C /* ConfirmEmailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ConfirmEmailViewController.storyboard; sourceTree = "<group>"; };
+		FDFFE0222372E30400E84627 /* VerificationRejectedViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = VerificationRejectedViewController.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -486,11 +513,16 @@
 		5928ED3C22AA971C003DABAA /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				591F947722AEB2DA0045ED90 /* ErrorInfoViewController.storyboard */,
-				591F947622AEB2DA0045ED90 /* ErrorInfoViewController.swift */,
+				FDD647ED2371BA18006AC7FD /* BaseErrorViewController.swift */,
+				591F947722AEB2DA0045ED90 /* GeneralErrorViewController.storyboard */,
 				FD599B1822DDE20000BB0CAA /* LocationUnsupportedViewController.storyboard */,
-				FD599B1A22DDE21000BB0CAA /* LocationUnsupportedViewController.swift */,
-				FD599B1C22DE05EA00BB0CAA /* LocationUnsupportedViewReactor.swift */,
+				FD58F0512386F6BD009F2790 /* LocationUnsupportedViewController.swift */,
+				FD4D409A2371A36D00778716 /* ServiceDownViewController.storyboard */,
+				FDFFE0222372E30400E84627 /* VerificationRejectedViewController.storyboard */,
+				FD2D7CA52382C44E00D896AD /* ProcessingRejectedViewController.storyboard */,
+				FDBA1CCB238851230052428E /* PaymentRefundedViewController.storyboard */,
+				FDBA1CC9238850760052428E /* PaymentRefundedViewController.swift */,
+				FDBA1CCD238851390052428E /* PaymentRefundedViewReactor.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -505,6 +537,15 @@
 				5994437422859D7E00160BE5 /* CDPickerViewController.swift */,
 			);
 			path = CDCountryPicker;
+			sourceTree = "<group>";
+		};
+		59A3645E2361ED2B00588461 /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				59A3645F2361ED2B00588461 /* ConfigurationUAT.plist */,
+				59A364602361ED2B00588461 /* ConfigurationDevelopment.plist */,
+			);
+			path = Private;
 			sourceTree = "<group>";
 		};
 		86B9684B5FD9B3358AE3D83D /* Pods */ = {
@@ -603,7 +644,7 @@
 				FDA2BC332253D2D300A0A302 /* PurchasePageTitleCell.swift */,
 				FDE769B0225521B4001830CE /* Coordinator.swift */,
 				FDFE6E462268A62000FF1EE1 /* countries.json */,
-				FD4E99A8235DC08800EAE228 /* Private */,
+				59A3645E2361ED2B00588461 /* Private */,
 			);
 			path = CEXDirect;
 			sourceTree = "<group>";
@@ -649,6 +690,8 @@
 				58DA859F2267881300942295 /* UploadPhotoView.swift */,
 				58DA85A12267882800942295 /* DocumentSelectionView.xib */,
 				58DA859422675B3B00942295 /* PaymentInfoCells */,
+				FD2D7CAB2382F2AE00D896AD /* VerificationViewController.storyboard */,
+				FD2D7CA72382F21200D896AD /* VerificationViewController.swift */,
 			);
 			path = FillInformation;
 			sourceTree = "<group>";
@@ -684,15 +727,6 @@
 			path = CEXDirectDemo;
 			sourceTree = "<group>";
 		};
-		FD4E99A8235DC08800EAE228 /* Private */ = {
-			isa = PBXGroup;
-			children = (
-				FD4E99A9235DC08800EAE228 /* ConfigurationUAT.plist */,
-				FD4E99AA235DC08800EAE228 /* ConfigurationDevelopment.plist */,
-			);
-			path = Private;
-			sourceTree = "<group>";
-		};
 		FD5DD2452357411E00ABDDFC /* Private */ = {
 			isa = PBXGroup;
 			children = (
@@ -724,6 +758,8 @@
 				FD176C18229C551E0096477D /* Array+CD.swift */,
 				5923719D22CF58D90089D49C /* CollectionViewCenteredFlowLayout.swift */,
 				FD576E98234CAE8D00B6E728 /* DataValidator.swift */,
+				593383C32382D31400B5FCCF /* String+CD.swift */,
+				FD51FD0A239564BB001706C7 /* Configuration.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -812,8 +848,11 @@
 				594461B6229C3AD90016AA8E /* CDBaseSheetController.swift */,
 				FD1AC36422CD2164002F7E8B /* CDLoadingView.xib */,
 				FD1AC36622CD218F002F7E8B /* CDLoadingView.swift */,
+				592539032368767700CD2D4D /* CDProgressView.swift */,
+				59D58E25237C3AD100439966 /* CDMonthYearPickerView.swift */,
 				592669D3229D43E100F61B1E /* QRScanner */,
 				5994437022859D7E00160BE5 /* CDCountryPicker */,
+				FD58F04F2386ABE2009F2790 /* AssetsAnimationImageProvider.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -822,6 +861,7 @@
 			isa = PBXGroup;
 			children = (
 				FDFA18B4224E2EFE0060813B /* OpenSans-Regular.ttf */,
+				FD54937223743128009AA2E3 /* OpenSans-Bold.ttf */,
 				FDFA18B3224E2EFC0060813B /* OpenSans-ExtraBold.ttf */,
 			);
 			path = Fonts;
@@ -973,19 +1013,22 @@
 				FDB9BBCE22CA297600780A7F /* RuleViewController.storyboard in Resources */,
 				FD5DD2512357567800ABDDFC /* Configuration.plist in Resources */,
 				58DA85A22267882800942295 /* DocumentSelectionView.xib in Resources */,
+				FDFFE0232372E30500E84627 /* VerificationRejectedViewController.storyboard in Resources */,
 				FDF7B7D02257CAE400C0C3E1 /* CDAmountTextField.xib in Resources */,
 				FDFA1895224CF6360060813B /* Main.storyboard in Resources */,
+				FD4D409B2371A36D00778716 /* ServiceDownViewController.storyboard in Resources */,
 				FDFA18B6224E323A0060813B /* OpenSans-Regular.ttf in Resources */,
 				FD1AC36522CD2164002F7E8B /* CDLoadingView.xib in Resources */,
 				FDFECB8B228B264000CB6E1C /* FillBaseInfoViewController.storyboard in Resources */,
 				FDFECB81228AFF1500CB6E1C /* CDPullDownControl.xib in Resources */,
-				591F947922AEB2DA0045ED90 /* ErrorInfoViewController.storyboard in Resources */,
+				591F947922AEB2DA0045ED90 /* GeneralErrorViewController.storyboard in Resources */,
 				594461B7229C3ADA0016AA8E /* CDBaseSheet.storyboard in Resources */,
 				FDFECB89228B257800CB6E1C /* FillPaymentInfoViewController.storyboard in Resources */,
 				FD599B1922DDE20000BB0CAA /* LocationUnsupportedViewController.storyboard in Resources */,
 				FD760B0222F9D17C0025862E /* Appfile in Resources */,
 				5994437B22859D7E00160BE5 /* CDPickerViewController.storyboard in Resources */,
 				FD998E2F225CA82700441A77 /* Assets.xcassets in Resources */,
+				FD54937323743128009AA2E3 /* OpenSans-Bold.ttf in Resources */,
 				FDFECBD0228DADCE00CB6E1C /* EditEmailViewController.storyboard in Resources */,
 				FD0A786F2264BD1900E1C57C /* CEXBottomSheetContainer.storyboard in Resources */,
 				581F2B3C226909A60074B7D6 /* CDCheckbox.xib in Resources */,
@@ -993,8 +1036,11 @@
 				581F2B372268F4E40074B7D6 /* FindPhotoMenuViewController.xib in Resources */,
 				FD1AC36922CE10C5002F7E8B /* VerifyPlacementViewController.storyboard in Resources */,
 				FDFA18B5224E32370060813B /* OpenSans-ExtraBold.ttf in Resources */,
+				FD2D7CAC2382F2AE00D896AD /* VerificationViewController.storyboard in Resources */,
+				FDBA1CCC238851230052428E /* PaymentRefundedViewController.storyboard in Resources */,
 				FD197B242263934300C18931 /* CDPickerButton.xib in Resources */,
 				59038B0C22CE2DA20008EF9D /* FooterViewController.xib in Resources */,
+				FD2D7CA62382C94000D896AD /* ProcessingRejectedViewController.storyboard in Resources */,
 				5834A7912267A7F500D4F7B8 /* UploadPhotoViewController.xib in Resources */,
 				FDFECB8D228B37AC00CB6E1C /* FillAdditionalInfoViewController.storyboard in Resources */,
 				FD760B0322F9D17C0025862E /* Fastfile in Resources */,
@@ -1022,6 +1068,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FD5DD243235733DA00ABDDFC /* Placement.plist in Resources */,
+				FD49EBD62379CB1500330133 /* OpenSans-Bold.ttf in Resources */,
 				5930950D23042E6E001505D0 /* OpenSans-Regular.ttf in Resources */,
 				FDFA1893224B9FE80060813B /* Main.storyboard in Resources */,
 				FDFA1871224A68E50060813B /* Assets.xcassets in Resources */,
@@ -1221,10 +1268,12 @@
 				592669C4229D438900F61B1E /* QRScannerViewController.swift in Sources */,
 				FDCCF1AC236710750003E040 /* CDPickerTableViewCell.swift in Sources */,
 				FD0A78842267595400E1C57C /* ConfirmEmailViewReactor.swift in Sources */,
+				FDBA1CCE238851390052428E /* PaymentRefundedViewReactor.swift in Sources */,
 				FDD7DB0522686D110075E4CB /* ConfirmPaymentViewReactor.swift in Sources */,
+				FD51FD0B239564BB001706C7 /* Configuration.swift in Sources */,
 				FDD05525223A87270002FC8D /* ServiceProvider.swift in Sources */,
-				FD599B1B22DDE21000BB0CAA /* LocationUnsupportedViewController.swift in Sources */,
 				FDFA18AF224E24660060813B /* CDTextField.swift in Sources */,
+				59D58E26237C3AD100439966 /* CDMonthYearPickerView.swift in Sources */,
 				FDFE6E502268E52E00FF1EE1 /* PurchaseSuccessViewController.swift in Sources */,
 				FD1DF4A422C63F4800BC8398 /* VerifyPlacementViewController.swift in Sources */,
 				FDAF7DC0225DF74C0063362A /* CurrencyConversion.swift in Sources */,
@@ -1233,6 +1282,8 @@
 				FDFA18A4224D1FE30060813B /* OrderAmountViewReactor.swift in Sources */,
 				FDA2BC30225395EF00A0A302 /* UIButton+CD.swift in Sources */,
 				FD576E99234CAE8D00B6E728 /* DataValidator.swift in Sources */,
+				FDBA1CCA238850760052428E /* PaymentRefundedViewController.swift in Sources */,
+				593383C42382D31400B5FCCF /* String+CD.swift in Sources */,
 				FD3B677E224E5EF9002BE8E0 /* UIView+CD.swift in Sources */,
 				58DA85A02267881300942295 /* UploadPhotoView.swift in Sources */,
 				FD227F7F2292FB2B00CA2931 /* SocketMessage.swift in Sources */,
@@ -1244,12 +1295,12 @@
 				FD0A787822674EC200E1C57C /* CEXBottomSheetContainerController.swift in Sources */,
 				FDD7DB0422686D070075E4CB /* ConfirmPaymentViewController.swift in Sources */,
 				FDFE6E4D2268B67D00FF1EE1 /* CDPageControl.swift in Sources */,
+				FD2D7CA82382F21200D896AD /* VerificationViewController.swift in Sources */,
 				586DD7592266082500B08E23 /* UIViewController+CD.swift in Sources */,
 				FD197B222263932C00C18931 /* CDPickerButton.swift in Sources */,
 				592669D2229D43B100F61B1E /* CurrencyListDataSource.swift in Sources */,
 				594461B8229C3ADA0016AA8E /* CDBaseSheetController.swift in Sources */,
 				FD0A787922674ED200E1C57C /* UIViewController+CEX.swift in Sources */,
-				591F947822AEB2DA0045ED90 /* ErrorInfoViewController.swift in Sources */,
 				FDE769B1225521B4001830CE /* Coordinator.swift in Sources */,
 				59038B0E22CE2DD20008EF9D /* FooterViewReactor.swift in Sources */,
 				FD340B1222524BD6004CC728 /* MainViewReactor.swift in Sources */,
@@ -1261,6 +1312,7 @@
 				FDFA18AC224D30410060813B /* FillBaseInfoViewReactor.swift in Sources */,
 				58DA859822675B3B00942295 /* DocumentTypeCell.swift in Sources */,
 				FDA2BC322253A91D00A0A302 /* CEXDirect.swift in Sources */,
+				FDD647EE2371BA18006AC7FD /* BaseErrorViewController.swift in Sources */,
 				FDFECBCC228DA66400CB6E1C /* EditEmailViewController.swift in Sources */,
 				FD0C20422285E18F00A42019 /* FillAdditionalInfoViewController.swift in Sources */,
 				FD0A78772267378200E1C57C /* UIFont+CD.swift in Sources */,
@@ -1272,6 +1324,8 @@
 				FD176C19229C551E0096477D /* Array+CD.swift in Sources */,
 				FDFECBCE228DA6A000CB6E1C /* EditEmailViewReactor.swift in Sources */,
 				FD340B1022524A1F004CC728 /* MainViewController.swift in Sources */,
+				592539042368767700CD2D4D /* CDProgressView.swift in Sources */,
+				FD58F0522386F6BE009F2790 /* LocationUnsupportedViewController.swift in Sources */,
 				FD36367C22492CF7004F1926 /* MerchantService.swift in Sources */,
 				FDFECB7F228AFEE700CB6E1C /* CDPullDownControl.swift in Sources */,
 				FD281B5022A680EB0015E0F3 /* OrderStore.swift in Sources */,
@@ -1299,7 +1353,7 @@
 				FDCCF1AB236710710003E040 /* CDPickerViewController.swift in Sources */,
 				58DA859B226771E600942295 /* FillPaymentInfoViewController.swift in Sources */,
 				FDF7B7CE2257CACF00C0C3E1 /* CDAmountTextField.swift in Sources */,
-				FD599B1D22DE05EA00BB0CAA /* LocationUnsupportedViewReactor.swift in Sources */,
+				FD58F0502386ABE2009F2790 /* AssetsAnimationImageProvider.swift in Sources */,
 				FDB9BBCA22CA27E400780A7F /* RuleViewController.swift in Sources */,
 				FDE769AF225507C2001830CE /* Order.swift in Sources */,
 				FD18B22F22A937F900BD362E /* Crypto.swift in Sources */,
@@ -1404,6 +1458,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1468,6 +1523,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1634,6 +1690,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1789,6 +1846,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1994,6 +2052,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -2149,6 +2208,7 @@
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;

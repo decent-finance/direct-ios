@@ -28,8 +28,13 @@ protocol MainViewControllerDelegate: class {
     func setUpConfirmPaymentViewController(delegate: ConfirmPaymentViewControllerDelegate) -> ConfirmPaymentViewController
     func setUpConfirmEmailViewController(delegate: ConfirmEmailViewControllerDelegate) -> ConfirmEmailViewController
     func setUpPurchaseSuccessViewController(delegate: PurchaseSuccessViewControllerDelegate) -> PurchaseSuccessViewController
-    func setUpErrorInformationViewControler(delegate: ErrorInfoViewControllerDelegate) -> ErrorInfoViewController
-    func setUpLocationNotSupportedViewController() -> LocationUnsupportedViewController
+    func setUpGeneralErrorViewControler(delegate: BaseErrorViewControllerDelegate) -> BaseErrorViewController
+    func setUpServiceDownViewControler(delegate: BaseErrorViewControllerDelegate) -> BaseErrorViewController
+    func setUpVerificationRejectedViewControler(delegate: BaseErrorViewControllerDelegate) -> BaseErrorViewController
+    func setUpProcessingRejectedViewControler(delegate: BaseErrorViewControllerDelegate) -> BaseErrorViewController
+    func setUpVerificationViewControler() -> VerificationViewController
+    func setUpPaymentRefundedViewController(delegate: BaseErrorViewControllerDelegate) -> PaymentRefundedViewController
+    func setUpLocationUnsupportedViewController(delegate: LocationUnsupportedViewControllerDelegate) -> LocationUnsupportedViewController
     func editTapped(_ mainViewController: MainViewController)
     func сonfirmEmailViewControllerDidTapEditEmail(_ controller: ConfirmEmailViewController, mainViewController: MainViewController)
     func didTapRule(mainViewController: MainViewController, didTapRule rule: String)
@@ -37,8 +42,10 @@ protocol MainViewControllerDelegate: class {
 }
 
 class MainViewController: UIViewController, StoryboardView, FillBaseInfoViewControllerDelegate, FillPaymentInfoViewControllerDelegate, FillAdditionalInfoViewControllerDelegate, ConfirmPaymentViewControllerDelegate, ConfirmEmailViewControllerDelegate, EditEmailViewControllerDelegate, PurchaseSuccessViewControllerDelegate {
-
-    var delegate: MainViewControllerDelegate?
+    
+    weak var delegate: MainViewControllerDelegate?
+    var context: AnyObject?
+    
     var disposeBag = DisposeBag()
     
     var nextEnabled: RxCocoa.Binder<Bool> {
@@ -54,7 +61,8 @@ class MainViewController: UIViewController, StoryboardView, FillBaseInfoViewCont
     let loadingSubject = BehaviorSubject<Bool>(value: false)
     
     func scrollToErrorField(field: UIView) {
-        self.scrollView.layoutIfNeeded()
+        scrollView.layoutIfNeeded()
+        
         var fieldRect = field.convert(field.bounds, to: self.scrollView)
         let buttonRect = nextButton.convert(nextButton.bounds, to: self.scrollView)
         let correctRect = fieldRect.origin.y + buttonRect.height
@@ -63,15 +71,16 @@ class MainViewController: UIViewController, StoryboardView, FillBaseInfoViewCont
         } else {
             fieldRect.origin.y -= 20
         }
-        self.scrollView.scrollRectToVisible(fieldRect, animated: true)
+        
+        scrollView.scrollRectToVisible(fieldRect, animated: true)
     }
     
     func didTapRule(didTapRule rule: String) {
         delegate?.didTapRule(mainViewController: self, didTapRule: rule)
     }
     
-    func showErrorViewWithReason(errorReason: String?) {
-        self.showErrorInfoViewWithReason(reason: errorReason)
+    func showServiceDownError() {
+        showInfo(content: .serviceDown)
     }
     
     override func viewDidLoad() {
@@ -82,7 +91,7 @@ class MainViewController: UIViewController, StoryboardView, FillBaseInfoViewCont
         navigationItem.titleView = imageView
         
         setUpFooterView()
-        self.hideKeyboardWhenTappedAround()
+        hideKeyboardWhenTappedAround()
         orderIdLabel.addGestureRecognizer(tapGesture)
     }
     
@@ -103,8 +112,13 @@ class MainViewController: UIViewController, StoryboardView, FillBaseInfoViewCont
             .bind(to: orderIdLabel.rx.isHidden )
             .disposed(by: disposeBag)
         
-        reactor.state.map {$0.errorReason }.filter { $0 != nil }.subscribe(onNext: { [unowned self] errorReason in
-            self.showErrorInfoViewWithReason(reason: errorReason)
+        reactor.state.map {$0.infoContent }.subscribe(onNext: { [unowned self] infoContent in
+            if let infoContent = infoContent {
+                self.loadingView.isHidden = true
+                self.showInfo(content: infoContent)
+            } else {
+                self.hideInfo()
+            }
         }).disposed(by: disposeBag)
         
         reactor.state.map { $0.pageContent }.distinctUntilChanged().subscribe(onNext: { [unowned self] pageContent in
@@ -166,8 +180,9 @@ class MainViewController: UIViewController, StoryboardView, FillBaseInfoViewCont
             self.pageTitleCollectionView.scrollToItem(at: IndexPath(row: page.rawValue, section: 0), at: [.centeredHorizontally], animated: false)
         }).disposed(by: disposeBag)
         
-        submitionFinishedSubject.flatMap { () -> Observable<Reactor.Action> in
+        submitionFinishedSubject.flatMap { [unowned self] () -> Observable<Reactor.Action> in
             guard let currentPageContentViewController = self.currentPageContentViewController else { return Observable.empty() }
+            
             if currentPageContentViewController.isKind(of: FillBaseInfoViewController.self)  {
                 return Observable.just(Reactor.Action.finish(.baseFillInformation))
             } else if let containerController = currentPageContentViewController as? FillInfoContainerViewController, containerController.mainViewController.isKind(of: FillPaymentInfoViewController.self)  {
@@ -186,23 +201,15 @@ class MainViewController: UIViewController, StoryboardView, FillBaseInfoViewCont
             }
         }.bind(to: reactor.action).disposed(by: disposeBag)
         
-        locationNotSupportedSubject.filter { $0 }.subscribe(onNext: { [unowned self] errorReason in
-            if let contentVC = self.delegate?.setUpLocationNotSupportedViewController() {
-                self.cd_addChildViewController(contentVC, containerView: self.errorInfoView)
-                
-                self.buyLabel.isHidden = true
-                self.contentView.isHidden = true
-                self.errorInfoView.isHidden = false
-                self.nextButton.isHidden = true
-                if let logoImageLeftConstraint = self.logoImageLeftConstraint {
-                    logoImageLeftConstraint.isActive = false
-                }
-            }
+        locationNotSupportedSubject.filter { $0 }.subscribe(onNext: { [unowned self] _ in
+            self.showInfo(content: Reactor.InfoContent.locationNotSupported)
+            self.buyLabel.isHidden = true
+            self.logoImageLeftConstraint?.isActive = false
         }).disposed(by: disposeBag)
         
-        Observable.merge(reactor.state.map { $0.isLoading }, loadingSubject).flatMapLatest { isLoading -> Observable<Bool> in
-            return isLoading ? Observable.just(isLoading).delay(0.2, scheduler: MainScheduler.instance) : .just(isLoading)
-        }.map { !$0 }
+        Observable.combineLatest(reactor.state.map { $0.isLoading }, loadingSubject).map { (isLoading, loadingSubject) -> Bool in
+            return isLoading == false && loadingSubject == false
+        }.map { $0 }
             .bind(to: loadingView.rx.isHidden)
             .disposed(by: disposeBag)
     }
@@ -213,8 +220,8 @@ class MainViewController: UIViewController, StoryboardView, FillBaseInfoViewCont
     
     private func setUpFooterView() {
         let footerController = FooterViewController.init(nibName: String(describing: FooterViewController.self), bundle: Bundle(for: type(of: self)))
-        self.cd_addChildViewController(footerController, containerView: footerView)
         delegate?.setUpFooterViewController(footerController)
+        cd_addChildViewController(footerController, containerView: footerView)
     }
     
     // MARK: - Implementation
@@ -227,38 +234,63 @@ class MainViewController: UIViewController, StoryboardView, FillBaseInfoViewCont
     @IBOutlet private weak var scrollView: UIScrollView!
     @IBOutlet private weak var purchaseLabel: UILabel!
     @IBOutlet private weak var stackView: UIStackView!
-    @IBOutlet private weak var errorInfoView: UIView!
+    @IBOutlet private weak var infoView: UIView!
     @IBOutlet private weak var contentView: UIView!
     @IBOutlet private weak var loadingView: CDLoadingView!
     @IBOutlet private weak var orderIdLabel: UILabel!
     @IBOutlet private weak var buyLabel: UILabel!
     @IBOutlet private weak var footerView: UIView!
-    @IBOutlet private weak var logoImageLeftConstraint: NSLayoutConstraint!
+    @IBOutlet private var logoImageLeftConstraint: NSLayoutConstraint!
     
     private var currentPageContentViewController: UIViewController?
     private let tapGesture = UITapGestureRecognizer()
     private var shouldHideEditButton = false {
         didSet {
-            self.pageTitleCollectionView.reloadItems(at: [IndexPath(item: 0, section: 0)])
+            pageTitleCollectionView.reloadItems(at: [IndexPath(item: 0, section: 0)])
         }
     }
     
-    private func showErrorInfoViewWithReason(reason text: String?) {
-        let errorInfoViewControllerArray = self.children.filter({$0 is ErrorInfoViewController})
-        if let errorInfoViewController = errorInfoViewControllerArray.first {
-            self.cd_removeChildViewController(errorInfoViewController)
+    private func showInfo(content: MainViewReactor.InfoContent) {
+        hideInfo()
+        
+        var infoViewController: UIViewController?
+        
+        switch content {
+        case .generalError:
+            infoViewController = delegate?.setUpGeneralErrorViewControler(delegate: self)
+        case .serviceDown:
+            infoViewController = delegate?.setUpServiceDownViewControler(delegate: self)
+        case .verificationRejected:
+            infoViewController = delegate?.setUpVerificationRejectedViewControler(delegate: self)
+        case .processingRejected:
+            infoViewController = delegate?.setUpProcessingRejectedViewControler(delegate: self)
+        case .locationNotSupported:
+            infoViewController = delegate?.setUpLocationUnsupportedViewController(delegate: self)
+        case .verificationInProgress:
+            infoViewController = delegate?.setUpVerificationViewControler()
+        case .paymentRefunded:
+            infoViewController = delegate?.setUpPaymentRefundedViewController(delegate: self)
         }
         
-        if let contentVC = self.delegate?.setUpErrorInformationViewControler(delegate: self) {
-            contentVC.reasonErrorText = text
-            self.cd_addChildViewController(contentVC, containerView: self.errorInfoView)
+        if let infoViewController = infoViewController {
+            cd_addChildViewController(infoViewController, containerView: infoView)
             
-            self.contentView.isHidden = true
-            self.errorInfoView.isHidden = false
-            self.nextButton.isHidden = true
+            contentView.isHidden = true
+            infoView.isHidden = false
+            nextButton.isHidden = true
             
-            self.scrollView.setContentOffset(CGPoint.zero, animated: false)
+            scrollView.setContentOffset(CGPoint.zero, animated: false)
         }
+    }
+    
+    private func hideInfo() {
+        for viewController in children.filter({ $0 is BaseErrorViewController || $0 is VerificationViewController }) {
+            self.cd_removeChildViewController(viewController)
+        }
+        
+        contentView.isHidden = false
+        infoView.isHidden = true
+        nextButton.isHidden = false
     }
     
     private func showPageContentViewController(_ contentViewController: UIViewController) {
@@ -350,10 +382,19 @@ extension MainViewController {
     }
 }
 
-extension MainViewController: ErrorInfoViewControllerDelegate {
+extension MainViewController: BaseErrorViewControllerDelegate {
     
-    func errorInformationViewControllerDidTapButton(_ controller: ErrorInfoViewController) {
+    func errorViewControllerDidTapButton(_ controller: BaseErrorViewController) {
         controller.removeFromParent()
-        self.delegate?.editTapped(self)
+        delegate?.editTapped(self)
+    }
+}
+
+extension MainViewController: LocationUnsupportedViewControllerDelegate {
+    
+    func locationUnsupportedViewControlleDidTapBack(_ controller: LocationUnsupportedViewController) {
+        hideInfo()
+        buyLabel.isHidden = false
+        logoImageLeftConstraint?.isActive = true
     }
 }

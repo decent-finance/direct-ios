@@ -96,6 +96,9 @@ class FillAdditionalInfoViewReactor: Reactor {
         additionalInfo?[Order.AdditionalInfoKey.billingCounty.rawValue]?.isEditable = false
         additionalInfo?[Order.AdditionalInfoKey.billingState.rawValue]?.value = orderStore.order.state
         additionalInfo?[Order.AdditionalInfoKey.billingState.rawValue]?.isEditable = false
+        if additionalInfo?[Order.AdditionalInfoKey.userResidentialAptSuite.rawValue]?.value == nil {
+            additionalInfo?[Order.AdditionalInfoKey.userResidentialAptSuite.rawValue]?.value = "-"
+        }
         
         initialState = State(additionalInfo: additionalInfo ?? [:], validationErrors: [:], alert: nil, isFinished: false, isLoading: false)
     }
@@ -118,7 +121,7 @@ class FillAdditionalInfoViewReactor: Reactor {
             return pair.value.isRequired && (pair.value.value == nil || pair.value.value?.isEmpty == true)
         }.reduce(into: [:]) { (result: inout [String: String], pair) in
             let additionalInfoKey = Order.AdditionalInfoKey(rawValue: pair.key)
-            result[pair.key] = additionalInfoKey?.errorMessage
+            result[pair.key] = additionalInfoKey?.errorMessage(country: order.country)
         }
         
         if let errors = errors, errors.count > 0 {

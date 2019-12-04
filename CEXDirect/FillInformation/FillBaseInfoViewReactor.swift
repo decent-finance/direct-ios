@@ -88,6 +88,7 @@ class FillBaseInfoViewReactor: Reactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
         state.alert = nil
+        state.locationNotSupported = false
         
         switch mutation {
         case let .setEmail(email):
@@ -150,7 +151,7 @@ class FillBaseInfoViewReactor: Reactor {
         return .concat(.just(.setLoading(true)),
             orderService.rx.createOrder(order: order).do(onNext: { [weak self] order in
                 self?.orderStore.order = order
-            }).map { _ in Mutation.setFinished }.catchError({ error -> Observable<Mutation> in
+            }).map { order in Mutation.setFinished }.catchError({ [weak self] error -> Observable<Mutation> in
                 if case ServiceError.locationNotSupported = error {
                     return .just(.setLocationNotSupported)
                 } else {
@@ -191,6 +192,7 @@ class FillBaseInfoViewReactor: Reactor {
             result.isStateAvailable = true
         } else {
             result.stateName = nil
+            result.stateCode = nil
             result.isStateAvailable = false
         }
         let countryState = result.countries.filter { (countryState) -> Bool in

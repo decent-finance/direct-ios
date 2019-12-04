@@ -22,19 +22,19 @@ import CryptoSwift
 
 public class OrderService: BaseService {
     
-    init(session: Session, socketManager: SocketManager, placementID: String, secret: String) {
+    init(session: Session, socketManager: SocketManager, placementID: String, secret: String, configuration: Configuration) {
         self.session = session
         self.socketManager = socketManager
         self.placementID = placementID
         self.secret = secret
         
-        super.init()
+        super.init(configuration: configuration)
     }
 
     func createOrder(order: Order, success: @escaping (Order) -> Void, failure: @escaping (Error) -> Void) {
         var parameters: Parameters?
-        if let sourceURI = sourceURI, let email = order.email, let country = order.country, let fiatAmount = order.fiatAmount, let fiatCurrency = order.fiatCurrency, let cryptoAmount = order.cryptoAmount, let cryptoCurrency = order.cryptoCurrency {
-            var data: Parameters = ["sourceUri": "https://cex.io", "userEmail": email, "country": country, "fiat": ["amount": fiatAmount, "currency": fiatCurrency], "crypto": ["amount": cryptoAmount, "currency": cryptoCurrency], "skipVerify": false]
+        if let sourceURI = sourceURI, let email = order.email, let country = order.country, let fiatAmount = order.fiatAmount?.replaceComma(), let fiatCurrency = order.fiatCurrency, let cryptoAmount = order.cryptoAmount?.replaceComma(), let cryptoCurrency = order.cryptoCurrency {
+            var data: Parameters = ["sourceUri": sourceURI, "userEmail": email, "country": country, "fiat": ["amount": fiatAmount, "currency": fiatCurrency], "crypto": ["amount": cryptoAmount, "currency": cryptoCurrency], "skipVerify": false]
             if let state = order.state {
                 data["state"] = state
             }
@@ -152,10 +152,9 @@ public class OrderService: BaseService {
         }, failure: failure)
     }
     
-    func loadPaymentConfirmationHTML(order: Order, success: @escaping (String) -> Void, failure: @escaping (Error) -> Void) {
-        guard let url = order.paymentConfirmationURL, let templateBody = order.paymentConfirmationBody else {
-            failure(ServiceError.incorrectParameters)
-            return
+    func composePaymentConfirmationRequest(order: Order) -> URLRequest? {
+        guard let urlString = order.paymentConfirmationURL, let url = URL(string: urlString), let templateBody = order.paymentConfirmationBody else {
+            return nil
         }
         
         var body = templateBody
@@ -163,20 +162,10 @@ public class OrderService: BaseService {
             body["TermUrl"] = baseURL.appendingPathComponent("3ds-check/\(orderID)/tx/\(txID)").absoluteString
         }
         
-        session.request(url, method: .post, parameters: body, encoding: URLEncoding.default).validate().response { response in
-            if let error = response.error {
-                DDLogError("Failed to load payment confirmation HTML")
-                failure(error)
-            } else {
-                if let htmlData = response.data, let html = String(data: htmlData, encoding: .utf8) {
-                    DDLogInfo("Successfully loaded payment confirmation HTML")
-                    success(html)
-                } else {
-                    DDLogError("Failed to parse loaded payment confirmation HTML")
-                    failure(ServiceError.incorrectResponseData)
-                }
-            }
-        }
+        var result = URLRequest(url: url)
+        result.httpMethod = HTTPMethod.post.rawValue
+        
+        return try? URLEncoding.default.encode(result, with: body)
     }
     
     func checkConfirmationCode(code: String, order: Order, success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
@@ -219,12 +208,12 @@ public class OrderService: BaseService {
         if let sourceURI = sourceURI {
             let nonce = self.nonce
             
-            var data: [String: Any] = ["sourceUri": "https://cex.io"]
-            if let fiatAmount = order.fiatAmount, let fiatCurrency = order.fiatCurrency {
+            var data: [String: Any] = ["sourceUri": sourceURI]
+            if let fiatAmount = order.fiatAmount?.replaceComma(), let fiatCurrency = order.fiatCurrency {
                 data["fiat"] = ["amount": fiatAmount, "currency": fiatCurrency]
             }
             
-            if let cryptoAmount = order.cryptoAmount, let cryptoCurrency = order.cryptoCurrency {
+            if let cryptoAmount = order.cryptoAmount?.replaceComma(), let cryptoCurrency = order.cryptoCurrency {
                 data["crypto"] = ["amount": cryptoAmount, "currency": cryptoCurrency]
             }
             
@@ -240,9 +229,9 @@ public class OrderService: BaseService {
     
     func sendBuyEvent(order: Order, success: (() -> Void)? = nil, failure: ((Error) -> Void)? = nil) {
         var parameters: Parameters?
-        if let sourceURI = sourceURI, let fiatAmount = order.fiatAmount, let fiatCurrency = order.fiatCurrency, let cryptoAmount = order.cryptoAmount, let cryptoCurrency = order.cryptoCurrency {
+        if let sourceURI = sourceURI, let fiatAmount = order.fiatAmount?.replaceComma(), let fiatCurrency = order.fiatCurrency, let cryptoAmount = order.cryptoAmount?.replaceComma(), let cryptoCurrency = order.cryptoCurrency {
             let nonce = self.nonce
-            parameters = [serviceDataKey: serviceData(nonce: nonce), dataKey: ["sourceUri": "https://cex.io", "fiat": ["amount": fiatAmount, "currency": fiatCurrency], "crypto": ["amount": cryptoAmount, "currency": cryptoCurrency]]]
+            parameters = [serviceDataKey: serviceData(nonce: nonce), dataKey: ["sourceUri": sourceURI, "fiat": ["amount": fiatAmount, "currency": fiatCurrency], "crypto": ["amount": cryptoAmount, "currency": cryptoCurrency]]]
         }
         
         session.cd_request(baseURL.appendingPathComponent("buy"), method: .put, parameters: parameters, encoding: JSONEncoding.default, success: { _ in
@@ -401,19 +390,6 @@ extension Reactive where Base : OrderService {
         return Observable.create { observable in
             self.base.sendCardDataToProcessing(order: order, success: {
                 observable.onNext(())
-                observable.onCompleted()
-            }, failure: { error in
-                observable.onError(error)
-            })
-            
-            return Disposables.create()
-        }
-    }
-    
-    func loadPaymentConfirmationHTML(order: Order) -> Observable<String> {
-        return Observable.create { observable in
-            self.base.loadPaymentConfirmationHTML(order: order, success: { html in
-                observable.onNext(html)
                 observable.onCompleted()
             }, failure: { error in
                 observable.onError(error)

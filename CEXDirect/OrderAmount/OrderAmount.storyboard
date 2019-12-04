@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bxa-18-O2F">
-    <device id="retina5_9" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="bxa-18-O2F">
+    <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,16 +16,15 @@
         <!--Order Amount View Controller-->
         <scene sceneID="WbC-Q1-dLR">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" id="bxa-18-O2F" customClass="OrderAmountViewController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" modalPresentationStyle="fullScreen" id="bxa-18-O2F" customClass="OrderAmountViewController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aht-rb-oHh">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Esr-ZU-5TT">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="104"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="UWn-q0-DVP">
-                                        <rect key="frame" x="118" y="54" width="139" height="40"/>
+                                        <rect key="frame" x="-69.666666666666671" y="54" width="139.33333333333334" height="40"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -37,19 +34,19 @@
                                     <constraint firstItem="UWn-q0-DVP" firstAttribute="centerX" secondItem="Esr-ZU-5TT" secondAttribute="centerX" id="n69-RR-C3z"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bO8-9w-uWc">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bO8-9w-uWc">
                                 <rect key="frame" x="0.0" y="104" width="375" height="708"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchase BTC for USD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WOs-zs-M16">
-                                        <rect key="frame" x="65" y="40" width="245" height="33"/>
+                                        <rect key="frame" x="-122.66666666666667" y="40" width="245.33333333333334" height="33"/>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="67n-yI-g4z">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="67n-yI-g4z">
                                         <rect key="frame" x="10" y="113" width="355" height="320"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lFV-rT-s2f" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lFV-rT-s2f" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="40"/>
                                                 <color key="backgroundColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -67,7 +64,7 @@
                                                     <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="cryptoButton"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="BMC-0y-7Hg" customClass="CDAmountTextField" customModule="CEXDirect" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="BMC-0y-7Hg" customClass="CDAmountTextField" customModule="CEXDirect" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="56" width="355" height="60"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
@@ -75,12 +72,12 @@
                                                         <real key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
-                                                        <integer key="value" value="2"/>
+                                                        <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="cryptoAmountField"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="qgx-WQ-FcU" customClass="CDAmountTextField" customModule="CEXDirect" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="60" translatesAutoresizingMaskIntoConstraints="NO" id="qgx-WQ-FcU" customClass="CDAmountTextField" customModule="CEXDirect" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="132" width="355" height="60"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
@@ -88,15 +85,15 @@
                                                         <real key="value" value="2"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
-                                                        <integer key="value" value="2"/>
+                                                        <integer key="value" value="8"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="fiatAmountField"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="xAV-9c-o41">
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="xAV-9c-o41">
                                                 <rect key="frame" x="0.0" y="208" width="355" height="36"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VtL-FD-pol" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VtL-FD-pol" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="95" height="36"/>
                                                         <color key="backgroundColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -114,7 +111,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="offeredAmountButton1"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6sq-Zd-vnI" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6sq-Zd-vnI" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
                                                         <rect key="frame" x="130" y="0.0" width="95" height="36"/>
                                                         <color key="backgroundColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -132,7 +129,7 @@
                                                             <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifier" value="offeredAmountButton2"/>
                                                         </userDefinedRuntimeAttributes>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mrq-eF-K6H" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mrq-eF-K6H" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
                                                         <rect key="frame" x="260" y="0.0" width="95" height="36"/>
                                                         <color key="backgroundColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
@@ -152,7 +149,7 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kk2-8n-McQ" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kk2-8n-McQ" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="260" width="355" height="60"/>
                                                 <color key="backgroundColor" red="0.047058823530000002" green="0.52941176469999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -171,7 +168,7 @@
                                             </view>
                                         </subviews>
                                     </stackView>
-                                    <view contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="282" translatesAutoresizingMaskIntoConstraints="NO" id="fKb-sl-58u">
+                                    <view contentMode="scaleToFill" ambiguous="YES" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="282" translatesAutoresizingMaskIntoConstraints="NO" id="fKb-sl-58u">
                                         <rect key="frame" x="0.0" y="553" width="375" height="282"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
@@ -190,7 +187,6 @@
                                 </constraints>
                             </scrollView>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c9A-st-l81">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <connections>
                                     <segue destination="qu6-of-5dt" kind="embed" identifier="verifyPlacement" id="7qe-l1-Ab6"/>
                                 </connections>

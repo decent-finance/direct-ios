@@ -34,12 +34,14 @@ class Coordinator {
         let result = UIStoryboard(name: "OrderAmount", bundle: Bundle(for: type(of: self))).instantiateInitialViewController() as? OrderAmountViewController
         result?.reactor = OrderAmountViewReactor(serviceProvider: serviceProvider, orderStore: orderStore)
         result?.delegate = self
+        result?.context = self
         
         return result
     }()
     
     func setUpFooterViewController(_ controller: FooterViewController) {
         controller.reactor = FooterViewReactor(ruleStore: rulesStore)
+        controller.isExitHidden = (rootViewController?.presentingViewController == nil)
         controller.delegate = self
     }
 }
@@ -121,16 +123,49 @@ extension Coordinator: MainViewControllerDelegate {
         return result
     }
     
-    func setUpErrorInformationViewControler(delegate: ErrorInfoViewControllerDelegate) -> ErrorInfoViewController {
-        let result = ErrorInfoViewController.cd_instantiateFromStoryboard()
+    func setUpGeneralErrorViewControler(delegate: BaseErrorViewControllerDelegate) -> BaseErrorViewController {
+        let result = BaseErrorViewController.cd_instantiateFromStoryboard(name: "GeneralErrorViewController")
         result.delegate = delegate
         
         return result
     }
     
-    func setUpLocationNotSupportedViewController() -> LocationUnsupportedViewController {
+    func setUpServiceDownViewControler(delegate: BaseErrorViewControllerDelegate) -> BaseErrorViewController {
+        let result = BaseErrorViewController.cd_instantiateFromStoryboard(name: "ServiceDownViewController")
+        result.delegate = delegate
+        
+        return result
+    }
+    
+    func setUpVerificationRejectedViewControler(delegate: BaseErrorViewControllerDelegate) -> BaseErrorViewController {
+        let result = BaseErrorViewController.cd_instantiateFromStoryboard(name: "VerificationRejectedViewController")
+        result.delegate = delegate
+        
+        return result
+    }
+    
+    func setUpProcessingRejectedViewControler(delegate: BaseErrorViewControllerDelegate) -> BaseErrorViewController {
+        let result = BaseErrorViewController.cd_instantiateFromStoryboard(name: "ProcessingRejectedViewController")
+        result.delegate = delegate
+        
+        return result
+    }
+    
+    func setUpVerificationViewControler() -> VerificationViewController {
+        return VerificationViewController.cd_instantiateFromStoryboard()
+    }
+    
+    func setUpPaymentRefundedViewController(delegate: BaseErrorViewControllerDelegate) -> PaymentRefundedViewController {
+        let result = PaymentRefundedViewController.cd_instantiateFromStoryboard()
+        result.reactor = PaymentRefundedViewReactor(orderStore: orderStore)
+        result.delegate = delegate
+        
+        return result
+    }
+    
+    func setUpLocationUnsupportedViewController(delegate: LocationUnsupportedViewControllerDelegate) -> LocationUnsupportedViewController {
         let result = LocationUnsupportedViewController.cd_instantiateFromStoryboard()
-        result.reactor = LocationUnsupportedViewReactor(orderStore: orderStore)
+        result.delegate = delegate
         
         return result
     }

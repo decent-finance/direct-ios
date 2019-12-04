@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9DU-Ih-3FG">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Base Error View Controller-->
+        <scene sceneID="y9B-E1-x4E">
+            <objects>
+                <viewController id="9DU-Ih-3FG" customClass="BaseErrorViewController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="YoG-E2-hoy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="514"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" insetsLayoutMarginsFromSafeArea="NO" text="Service is experiencing technical difficulties" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cc1-aF-fSf">
+                                <rect key="frame" x="10" y="40" width="394" height="65.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="service_down" translatesAutoresizingMaskIntoConstraints="NO" id="cYD-La-yiU">
+                                <rect key="frame" x="93.5" y="139.5" width="227" height="188"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="188" id="fAW-YH-EcF"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We expect this to be resolved shortly. Payment will be refunded, if your card has been charged." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hcr-nH-Wdr">
+                                <rect key="frame" x="26" y="353.5" width="362" height="61.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.49019607840000001" green="0.57647058819999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K9S-T5-Zjq" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                <rect key="frame" x="10" y="454" width="394" height="60"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.52941176469999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ev3-J8-Gix"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="style" value="blue"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="TRY AGAIN!"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tryAgainButtonHandler:" destination="9DU-Ih-3FG" eventType="touchUpInside" id="Udp-QP-fbD"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392156862744" green="0.066666666666666666" blue="0.10196078431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="RzX-sC-Vm4" firstAttribute="trailing" secondItem="K9S-T5-Zjq" secondAttribute="trailing" constant="10" id="3jU-Fk-gEv"/>
+                            <constraint firstItem="cYD-La-yiU" firstAttribute="centerX" secondItem="RzX-sC-Vm4" secondAttribute="centerX" id="CVE-cR-rlP"/>
+                            <constraint firstItem="hcr-nH-Wdr" firstAttribute="leading" secondItem="RzX-sC-Vm4" secondAttribute="leading" constant="26" id="Ddh-p9-czo"/>
+                            <constraint firstItem="Cc1-aF-fSf" firstAttribute="leading" secondItem="YoG-E2-hoy" secondAttribute="leading" constant="10" id="H7a-hp-PXN"/>
+                            <constraint firstItem="RzX-sC-Vm4" firstAttribute="bottom" secondItem="K9S-T5-Zjq" secondAttribute="bottom" id="Jj6-Ac-11l"/>
+                            <constraint firstItem="cYD-La-yiU" firstAttribute="top" secondItem="Cc1-aF-fSf" secondAttribute="bottom" constant="34" id="TjH-MA-l3F"/>
+                            <constraint firstItem="K9S-T5-Zjq" firstAttribute="leading" secondItem="RzX-sC-Vm4" secondAttribute="leading" constant="10" id="YPA-mK-lzw"/>
+                            <constraint firstItem="hcr-nH-Wdr" firstAttribute="top" secondItem="cYD-La-yiU" secondAttribute="bottom" constant="26" id="df0-Be-IwU"/>
+                            <constraint firstAttribute="trailing" secondItem="Cc1-aF-fSf" secondAttribute="trailing" constant="10" id="djs-Nc-hfV"/>
+                            <constraint firstItem="RzX-sC-Vm4" firstAttribute="trailing" secondItem="hcr-nH-Wdr" secondAttribute="trailing" constant="26" id="fDR-MI-ME6"/>
+                            <constraint firstItem="K9S-T5-Zjq" firstAttribute="top" secondItem="hcr-nH-Wdr" secondAttribute="bottom" constant="39" id="jNg-0W-liG"/>
+                            <constraint firstItem="Cc1-aF-fSf" firstAttribute="top" secondItem="YoG-E2-hoy" secondAttribute="top" constant="40" id="wZh-R1-QSm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="RzX-sC-Vm4"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="514"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="g98-px-g2H" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="292.75362318840581" y="-138.61607142857142"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="service_down" width="227" height="188"/>
+    </resources>
+</document>

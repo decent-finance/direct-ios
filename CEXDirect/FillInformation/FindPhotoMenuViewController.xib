@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,17 +26,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="a9Y-Qw-a0d">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="278"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="221"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find a Shot to Upload" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ctp-7X-DY1">
-                    <rect key="frame" x="100" y="0.0" width="175" height="57"/>
-                    <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="16"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9K6-gs-qJA">
-                    <rect key="frame" x="10" y="67" width="355" height="131"/>
+                    <rect key="frame" x="10" y="10" width="355" height="131"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aTT-ZS-F6w">
                             <rect key="frame" x="0.0" y="0.0" width="355" height="65"/>
@@ -97,7 +89,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C9l-Np-Zdw">
-                    <rect key="frame" x="10" y="208" width="355" height="60"/>
+                    <rect key="frame" x="10" y="151" width="355" height="60"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <accessibility key="accessibilityConfiguration" identifier="uploadPhotosCancelButton"/>
                     <constraints>
@@ -118,12 +110,10 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="qxj-XF-zOk" firstAttribute="trailing" secondItem="9K6-gs-qJA" secondAttribute="trailing" constant="10" id="574-qC-Xrt"/>
-                <constraint firstItem="Ctp-7X-DY1" firstAttribute="top" secondItem="a9Y-Qw-a0d" secondAttribute="top" id="Ayz-eP-g4E"/>
                 <constraint firstItem="9K6-gs-qJA" firstAttribute="leading" secondItem="qxj-XF-zOk" secondAttribute="leading" constant="10" id="Buw-cl-4jK"/>
                 <constraint firstAttribute="bottom" secondItem="C9l-Np-Zdw" secondAttribute="bottom" constant="10" id="LFl-bo-6rH"/>
                 <constraint firstItem="C9l-Np-Zdw" firstAttribute="leading" secondItem="qxj-XF-zOk" secondAttribute="leading" constant="10" id="RQ4-Pe-bDj"/>
-                <constraint firstItem="9K6-gs-qJA" firstAttribute="top" secondItem="Ctp-7X-DY1" secondAttribute="bottom" constant="10" id="UoK-E9-TCd"/>
-                <constraint firstItem="Ctp-7X-DY1" firstAttribute="centerX" secondItem="qxj-XF-zOk" secondAttribute="centerX" id="Zct-mD-48b"/>
+                <constraint firstItem="9K6-gs-qJA" firstAttribute="top" secondItem="a9Y-Qw-a0d" secondAttribute="top" constant="10" id="aUF-mp-441"/>
                 <constraint firstItem="C9l-Np-Zdw" firstAttribute="top" secondItem="9K6-gs-qJA" secondAttribute="bottom" constant="10" id="eAd-qP-6BY"/>
                 <constraint firstItem="qxj-XF-zOk" firstAttribute="trailing" secondItem="C9l-Np-Zdw" secondAttribute="trailing" constant="10" id="eMr-SN-IKL"/>
             </constraints>

@@ -29,9 +29,10 @@ import RxSwift
         return apiBaseURL.appendingPathComponent("merchant")
     }
     
-    init(session: Session, placementID: String) {
+    init(session: Session, placementID: String, configuration: Configuration) {
         self.session = session
         self.placementID = placementID
+        super.init(configuration: configuration)
     }
     
     func loadPlacementInfo(success: @escaping (Placement) -> Void, failure: @escaping (Error) -> Void) {
@@ -44,6 +45,14 @@ import RxSwift
     
     func loadCurrencyPrecisions(success: @escaping ([CurrencyPrecision]) -> Void, failure: @escaping (Error) -> Void) {
         session.cd_requestArray(baseURL.appendingPathComponent("precisions/\(placementID)"), keyPath: "data.precisions", success: success, failure: failure)
+    }
+    
+    func isPlacementSupported(_ placement: Placement) -> Bool {
+        if let sourceURI = self.sourceURI {
+            return placement.placementURIs.contains(sourceURI) || placement.placementURIs.contains(".*")
+        } else {
+            return false
+        }
     }
     
 //    func checkURL(success: @escaping () -> Void, failure: @escaping (Error) -> Void) {

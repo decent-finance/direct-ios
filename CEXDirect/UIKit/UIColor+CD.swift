@@ -48,4 +48,7 @@ import UIKit
     
     class var cd_gray20Transparent: UIColor { return UIColor(hex: 0x1D2B40, alpha: 0.3) }
     class var cd_whiteTransparent: UIColor { return UIColor(hex: 0xFFFFFF, alpha: 0.5) }
+    
+    class var cd_circleColor: UIColor { return UIColor(hex: 0xDEE0E2) }
+    class var cd_circleFillColor: UIColor { return UIColor(hex: 0x4DD8DF) }
 }

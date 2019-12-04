@@ -30,7 +30,7 @@ protocol ConfirmEmailViewControllerDelegate: class {
 
 class ConfirmEmailViewController: UIViewController, StoryboardView {
     
-    var delegate: ConfirmEmailViewControllerDelegate?
+    weak var delegate: ConfirmEmailViewControllerDelegate?
     
     var disposeBag = DisposeBag()
     
@@ -112,11 +112,13 @@ class ConfirmEmailViewController: UIViewController, StoryboardView {
 
         Observable.merge(submitButton.rx.tap.asObservable(), delegate?.nextTap.asObservable() ?? Observable.empty())
             .takeUntil(reactor.state.filter { $0.isFinished })
+            .throttle(.milliseconds(200), latest: false, scheduler: MainScheduler.instance)
             .map { Reactor.Action.submit }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
         resendCodeButton.rx.tap.map { Reactor.Action.resendCode }
+            .throttle(.milliseconds(200), latest: false, scheduler: MainScheduler.instance)
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         

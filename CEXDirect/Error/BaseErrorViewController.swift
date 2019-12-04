@@ -12,28 +12,21 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-//  Created by Alex Kovalenko on 6/7/19.
+//  Created by Ihor Vovk on 11/5/19.
 
 import UIKit
 
-protocol ErrorInfoViewControllerDelegate: class {
-    func errorInformationViewControllerDidTapButton(_ controller: ErrorInfoViewController)
+protocol BaseErrorViewControllerDelegate: class {
+    func errorViewControllerDidTapButton(_ controller: BaseErrorViewController)
 }
 
-class ErrorInfoViewController: UIViewController {
+class BaseErrorViewController: UIViewController {
     
-    @IBOutlet private weak var reasonErrorLabel: UILabel!
+    weak var delegate: BaseErrorViewControllerDelegate?
     
-    weak var delegate: ErrorInfoViewControllerDelegate?
-    var reasonErrorText: String?
+    // MARK: - Implementation
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        reasonErrorLabel.text = reasonErrorText
-    }
-    
-    @IBAction func tryAgainButtonHandler(_ sender: Any) {
-        delegate?.errorInformationViewControllerDidTapButton(self)
+    @IBAction private func tryAgainButtonHandler(_ sender: Any) {
+        delegate?.errorViewControllerDidTapButton(self)
     }
 }

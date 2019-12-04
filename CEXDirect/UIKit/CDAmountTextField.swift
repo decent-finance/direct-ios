@@ -131,7 +131,7 @@ extension CDAmountTextField: UITextFieldDelegate {
             return false
         }
         
-        return string.rangeOfCharacter(from: CharacterSet.decimalDigits.union(CharacterSet(charactersIn: ".")).inverted) == nil
+        return string.rangeOfCharacter(from: CharacterSet.decimalDigits.union(CharacterSet(charactersIn: ".,")).inverted) == nil
     }
 }
 

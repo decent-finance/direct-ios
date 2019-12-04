@@ -34,15 +34,16 @@ public class BaseService: NSObject {
     }
     
     var sourceURI: String? {
-        return Bundle.main.bundleIdentifier
+        if let bundleIdentifier = Bundle.main.bundleIdentifier {
+            return "ios://" + bundleIdentifier
+        } else {
+            return nil
+        }
     }
     
-    let apiBaseURL: URL = {
-        if let configurationPath = Bundle(for: BaseService.self).path(forResource: "Configuration", ofType: "plist"), let configuration = NSDictionary(contentsOfFile: configurationPath), let apiBaseURL = configuration["APIBaseURL"] as? String {
-            return URL(string: apiBaseURL)!
-        } else {
-            DDLogError("Failed to find API base URL")
-            return URL(string: "https://apple.com")!
-        }
-    }()
+    let apiBaseURL: URL
+    
+    init(configuration: Configuration) {
+        apiBaseURL = configuration.apiBaseURL
+    }
 }

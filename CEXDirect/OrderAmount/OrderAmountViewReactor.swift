@@ -219,7 +219,7 @@ class OrderAmountViewReactor: Reactor {
         result.cryptoAmount = amount
         if let amount = amount, let precision = currencyPrecision.visiblePrecision {
             result.fiatAmount = currencyConversion.convertToFiat(cryptoAmount: amount, precision: precision, roundRule: currencyPrecision.visibleRoundRule)
-            if let cryptoAmount = result.cryptoAmount, let cryptoAmountDecimal = Decimal(string: cryptoAmount), cryptoAmountDecimal == 0 {
+            if let cryptoAmount = result.cryptoAmount, let cryptoAmountDecimal = Decimal(string: cryptoAmount, locale: Locale.current), cryptoAmountDecimal == 0 {
                 result.fiatAmount = "0"
             }
         } else {
@@ -244,7 +244,7 @@ class OrderAmountViewReactor: Reactor {
         result.fiatAmount = amount
         if let amount = amount, let precision = currencyPrecision.visiblePrecision {
             result.cryptoAmount = currencyConversion.convertToCrypto(fiatAmount: amount, precision: precision, roundRule: currencyPrecision.visibleRoundRule)
-            if let cryptoAmount = result.cryptoAmount, let cryptoAmountDecimal = Decimal(string: cryptoAmount), cryptoAmountDecimal < 0 {
+            if let cryptoAmount = result.cryptoAmount, let cryptoAmountDecimal = Decimal(string: cryptoAmount, locale: Locale.current), cryptoAmountDecimal < 0 {
                 result.cryptoAmount = "0"
             }
         } else {
@@ -302,7 +302,7 @@ class OrderAmountViewReactor: Reactor {
         
         var result = state
         
-        if let cryptoAmountDecimal = Decimal(string: cryptoAmount), let fiatAmountDecimal = Decimal(string: fiatAmount) {
+        if let cryptoAmountDecimal = Decimal(string: cryptoAmount, locale: Locale.current), let fiatAmountDecimal = Decimal(string: fiatAmount, locale: Locale.current) {
             if cryptoAmountDecimal < cryptoMinLimitDecimal {
                 result.cryptoError = String(format: NSLocalizedString("Minimal sale volume is %@", comment: ""), cryptoMinLimit)
             } else if cryptoMaxLimitDecimal > 0, cryptoAmountDecimal > cryptoMaxLimitDecimal {

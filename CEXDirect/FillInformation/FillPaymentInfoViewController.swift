@@ -28,7 +28,7 @@ protocol FillPaymentInfoViewControllerDelegate: class {
     
     func scrollToErrorField(field: UIView)
     func didTapRule(didTapRule rule: String)
-    func showErrorViewWithReason(errorReason: String?)
+    func showServiceDownError()
 }
 
 class FillPaymentInfoViewController: UIViewController, StoryboardView {
@@ -117,8 +117,8 @@ class FillPaymentInfoViewController: UIViewController, StoryboardView {
             self.nextButtonView.isHidden = !isEditable
         }).disposed(by: disposeBag)
         
-        reactor.state.map { $0.alert }.filter { $0 != nil }.subscribe(onNext: { [unowned self] alert in
-            self.delegate?.showErrorViewWithReason(errorReason: alert)
+        reactor.state.compactMap { $0.alert }.subscribe(onNext: { [unowned self] alert in
+            self.delegate?.showServiceDownError()
         }).disposed(by: disposeBag)
         
         reactor.state.map { $0.validationErrors }.subscribe(onNext: { [unowned self] validationErrors in
@@ -201,6 +201,7 @@ class FillPaymentInfoViewController: UIViewController, StoryboardView {
             .disposed(by: disposeBag)
         
         delegate?.nextTap.asObservable().takeUntil(reactor.state.filter { $0.isFinished || !$0.isEditable })
+            .throttle(.milliseconds(200), latest: false, scheduler: MainScheduler.instance)
             .map { Reactor.Action.submit }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
@@ -213,6 +214,7 @@ class FillPaymentInfoViewController: UIViewController, StoryboardView {
         
         if let uploadPhotoViewController = uploadPhotoViewController {
             delegate?.nextTap.asObservable().takeUntil(reactor.state.filter { $0.isFinished || !$0.isEditable })
+                .throttle(.milliseconds(200), latest: false, scheduler: MainScheduler.instance)
                 .bind(to: uploadPhotoViewController.checkAllImagesUploadedSubject)
                 .disposed(by: disposeBag)
         }

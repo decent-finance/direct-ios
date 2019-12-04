@@ -30,7 +30,21 @@ import UIKit
     
     // MARK: - Implementation
     
+    @IBOutlet weak var progressView: CDProgressView!
+    
     private func setUp() {
         cd_loadContentFromNib()
+    }
+    
+    override var isHidden: Bool {
+        didSet {
+            if progressView != nil {
+                if isHidden {
+                    progressView.stopAnimation()
+                } else {
+                    progressView.startAnimation()
+                }
+            }
+        }
     }
 }

@@ -18,17 +18,6 @@ import Foundation
 import Alamofire
 import CocoaLumberjack
 
-class CDServerTrustPolicyManager: ServerTrustManager {
-    
-    override func serverTrustEvaluator(forHost host: String) -> ServerTrustEvaluating? {
-        if let trustEvaluating = try? super.serverTrustEvaluator(forHost: host) {
-            return trustEvaluating
-        } else {
-            return DisabledEvaluator()
-        }
-    }
-}
-
 @objc public class ServiceProvider: NSObject {
     
     let merchantService: MerchantService
@@ -36,29 +25,21 @@ class CDServerTrustPolicyManager: ServerTrustManager {
     let orderService: OrderService
     
     @objc public init(placementID: String, secret: String) {
-        session = Session(configuration: URLSessionConfiguration.default, serverTrustManager: CDServerTrustPolicyManager(evaluators: ["cexd-service-dev.dev.kube": DisabledEvaluator()]))
-        socketManager = SocketManager()
+        let configuration = Configuration()
         
-        merchantService = MerchantService(session: session, placementID: placementID)
-        paymentService = PaymentService(session: session, socketManager: socketManager, placementID: placementID)
-        orderService = OrderService(session: session, socketManager: socketManager, placementID: placementID, secret: secret)
+        var hostEvaluators: [String: ServerTrustEvaluating] = [:]
+        if let apiBaseURLHost = configuration.apiBaseURL.host {
+            hostEvaluators[apiBaseURLHost] = configuration.disableCertificateEvaluation ? DisabledEvaluator() : DefaultTrustEvaluator()
+        }
+        
+        session = Session(configuration: URLSessionConfiguration.default, serverTrustManager: ServerTrustManager(evaluators: hostEvaluators))
+        socketManager = SocketManager(configuration: configuration)
+        
+        merchantService = MerchantService(session: session, placementID: placementID, configuration: configuration)
+        paymentService = PaymentService(session: session, socketManager: socketManager, placementID: placementID, configuration: configuration)
+        orderService = OrderService(session: session, socketManager: socketManager, placementID: placementID, secret: secret, configuration: configuration)
         
         super.init()
-        
-//        sessionManager.delegate.sessionDidReceiveChallenge = { [weak self] session, challenge in
-//            var disposition: URLSession.AuthChallengeDisposition = .useCredential
-//            var credential: URLCredential? = nil
-//            
-//            if let serverTrust = challenge.protectionSpace.serverTrust, challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust {
-//                credential = URLCredential(trust: serverTrust)
-//            } else if challenge.previousFailureCount > 0 {
-//                disposition = .cancelAuthenticationChallenge
-//            } else {
-//                credential = self?.sessionManager.session.configuration.urlCredentialStorage?.defaultCredential(for: challenge.protectionSpace)
-//            }
-//            
-//            return (disposition, credential)
-//        }
     }
     
     // MARK: - Private Data

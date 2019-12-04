@@ -24,42 +24,16 @@ class ConfirmPaymentViewReactor: Reactor {
     }
     
     enum Mutation {
-        case setHTML(String)
     }
     
     struct State {
-        var html: String?
+        var request: URLRequest?
     }
     
     let initialState: State
     
-    func mutate(action: Action) -> Observable<Mutation> {
-        return Observable.empty()
-    }
-    
-    func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
-        let loadPaymentConfirmationHTMLObservable = orderService.rx.loadPaymentConfirmationHTML(order: orderStore.order).map { Mutation.setHTML($0) }
-        return .merge(mutation, loadPaymentConfirmationHTMLObservable)
-    }
-    
-    func reduce(state: State, mutation: Mutation) -> State {
-        var state = state
-        switch mutation {
-        case .setHTML(let html):
-            state.html = html
-        }
-        
-        return state
-    }
-    
     init(serviceProvider: ServiceProvider, orderStore: OrderStore) {
-        initialState = State()
-        orderService = serviceProvider.orderService
-        self.orderStore = orderStore
+        let request = serviceProvider.orderService.composePaymentConfirmationRequest(order: orderStore.order)
+        initialState = State(request: request)
     }
-    
-    // MARK: - Implementation
-    
-    private let orderService: OrderService
-    private let orderStore: OrderStore
 }

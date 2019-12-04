@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="M0S-q3-4hW">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Payment Refunded View Controller-->
+        <scene sceneID="Yt1-S7-qo5">
+            <objects>
+                <viewController id="M0S-q3-4hW" customClass="PaymentRefundedViewController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bmI-j0-Bgz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="616"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your payment is refunded" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x1l-a9-p7t">
+                                <rect key="frame" x="10" y="40" width="394" height="33"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="24"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unfortunately, we cannot complete your purchase due to technical difficulties with crypto service." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Plz-ym-kGC">
+                                <rect key="frame" x="10" y="93" width="394" height="65.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" red="0.49019607840000001" green="0.57647058819999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AGB-41-6NA">
+                                <rect key="frame" x="10" y="218.5" width="394" height="208"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Refund payment details:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4g-7C-hCc">
+                                        <rect key="frame" x="10" y="78" width="374" height="27.5"/>
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="jRz-6l-1uL">
+                                        <rect key="frame" x="16" y="127.5" width="362" height="52"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNi-86-blq">
+                                                <rect key="frame" x="0.0" y="0.0" width="362" height="22"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Returned Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AE-o4-3Mk">
+                                                        <rect key="frame" x="0.0" y="0.0" width="138" height="22"/>
+                                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="-" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1dh-4E-3je">
+                                                        <rect key="frame" x="138" y="0.0" width="224" height="22"/>
+                                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SP8-07-DDI">
+                                                <rect key="frame" x="0.0" y="30" width="362" height="22"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aoo-dd-KD5">
+                                                        <rect key="frame" x="0.0" y="0.0" width="39.5" height="22"/>
+                                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="-" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xg2-dQ-ulu">
+                                                        <rect key="frame" x="39.5" y="0.0" width="322.5" height="22"/>
+                                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.2156862745" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="jRz-6l-1uL" firstAttribute="top" secondItem="Z4g-7C-hCc" secondAttribute="bottom" constant="22" id="BZ8-Zv-mSz"/>
+                                    <constraint firstAttribute="trailing" secondItem="Z4g-7C-hCc" secondAttribute="trailing" constant="10" id="CRc-Gs-Eoy"/>
+                                    <constraint firstAttribute="trailing" secondItem="jRz-6l-1uL" secondAttribute="trailing" constant="16" id="F0z-pT-rwM"/>
+                                    <constraint firstItem="Z4g-7C-hCc" firstAttribute="top" secondItem="AGB-41-6NA" secondAttribute="top" constant="78" id="GrL-H1-Pqf"/>
+                                    <constraint firstItem="jRz-6l-1uL" firstAttribute="leading" secondItem="AGB-41-6NA" secondAttribute="leading" constant="16" id="KEh-QE-kye"/>
+                                    <constraint firstItem="Z4g-7C-hCc" firstAttribute="leading" secondItem="AGB-41-6NA" secondAttribute="leading" constant="10" id="UDL-RZ-YBH"/>
+                                    <constraint firstAttribute="height" constant="208" id="nXM-iE-12h"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0Y9-2E-luG">
+                                <rect key="frame" x="159" y="170.5" width="96" height="96"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="96" id="Ako-72-esK"/>
+                                    <constraint firstAttribute="height" constant="96" id="VA1-yF-nrf"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your payment is fully redunded, however processing may take up to 5 working days. We are sorry for the inconvenience." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Io-vZ-XIo">
+                                <rect key="frame" x="10" y="458.5" width="394" height="65.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" red="0.49019607840000001" green="0.57647058819999997" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usn-Mv-F9m" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                <rect key="frame" x="10" y="556" width="394" height="60"/>
+                                <color key="backgroundColor" red="0.047058823530000002" green="0.52941176469999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="7l5-4O-xMa"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="60" id="dRv-ga-L3E"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="OK"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="style" value="bluw"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tryAgainButtonHandler:" destination="M0S-q3-4hW" eventType="touchUpInside" id="TN2-Qs-PTe"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.066666666669999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="8Io-vZ-XIo" firstAttribute="leading" secondItem="idp-Cp-9b7" secondAttribute="leading" constant="10" id="7d3-Vz-hJh"/>
+                            <constraint firstItem="AGB-41-6NA" firstAttribute="leading" secondItem="idp-Cp-9b7" secondAttribute="leading" constant="10" id="9XP-YU-SvF"/>
+                            <constraint firstItem="Plz-ym-kGC" firstAttribute="leading" secondItem="idp-Cp-9b7" secondAttribute="leading" constant="10" id="Aog-1c-Nno"/>
+                            <constraint firstItem="x1l-a9-p7t" firstAttribute="top" secondItem="bmI-j0-Bgz" secondAttribute="top" constant="40" id="D5d-ux-Pku"/>
+                            <constraint firstItem="usn-Mv-F9m" firstAttribute="top" secondItem="8Io-vZ-XIo" secondAttribute="bottom" constant="32" id="EAb-jH-IYe"/>
+                            <constraint firstItem="idp-Cp-9b7" firstAttribute="trailing" secondItem="x1l-a9-p7t" secondAttribute="trailing" constant="10" id="QaB-7N-Mr6"/>
+                            <constraint firstItem="usn-Mv-F9m" firstAttribute="leading" secondItem="idp-Cp-9b7" secondAttribute="leading" constant="10" id="TbB-lg-BXu"/>
+                            <constraint firstItem="x1l-a9-p7t" firstAttribute="leading" secondItem="idp-Cp-9b7" secondAttribute="leading" constant="10" id="Waw-6P-7Cm"/>
+                            <constraint firstItem="Plz-ym-kGC" firstAttribute="top" secondItem="x1l-a9-p7t" secondAttribute="bottom" constant="20" id="Wzo-Ga-mTh"/>
+                            <constraint firstItem="idp-Cp-9b7" firstAttribute="trailing" secondItem="8Io-vZ-XIo" secondAttribute="trailing" constant="10" id="Z5o-FM-42t"/>
+                            <constraint firstItem="0Y9-2E-luG" firstAttribute="centerX" secondItem="idp-Cp-9b7" secondAttribute="centerX" id="cku-SF-ge3"/>
+                            <constraint firstItem="AGB-41-6NA" firstAttribute="top" secondItem="Plz-ym-kGC" secondAttribute="bottom" constant="60" id="eg4-LC-JfL"/>
+                            <constraint firstItem="usn-Mv-F9m" firstAttribute="bottom" secondItem="idp-Cp-9b7" secondAttribute="bottom" id="fgH-aU-QUZ"/>
+                            <constraint firstItem="0Y9-2E-luG" firstAttribute="top" secondItem="AGB-41-6NA" secondAttribute="top" constant="-48" id="iEz-Sp-O3C"/>
+                            <constraint firstItem="8Io-vZ-XIo" firstAttribute="top" secondItem="AGB-41-6NA" secondAttribute="bottom" constant="32" id="jZz-IF-1sg"/>
+                            <constraint firstItem="idp-Cp-9b7" firstAttribute="trailing" secondItem="AGB-41-6NA" secondAttribute="trailing" constant="10" id="t3b-XC-SLL"/>
+                            <constraint firstItem="idp-Cp-9b7" firstAttribute="trailing" secondItem="Plz-ym-kGC" secondAttribute="trailing" constant="10" id="xwZ-A2-jYk"/>
+                            <constraint firstItem="idp-Cp-9b7" firstAttribute="trailing" secondItem="usn-Mv-F9m" secondAttribute="trailing" constant="10" id="zde-h5-qq5"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="idp-Cp-9b7"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="616"/>
+                    <connections>
+                        <outlet property="cardLabel" destination="Xg2-dQ-ulu" id="RbI-dx-lsS"/>
+                        <outlet property="currencyImageView" destination="0Y9-2E-luG" id="gnx-ap-r4K"/>
+                        <outlet property="returnedAmountLabel" destination="1dh-4E-3je" id="LX9-hj-LO1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1sD-pA-Cdb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="118.84057971014494" y="156.69642857142856"/>
+        </scene>
+    </scenes>
+</document>

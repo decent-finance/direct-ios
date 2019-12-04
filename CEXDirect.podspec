@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "CEXDirect"
-  s.version = "1.0.0-alpha2"
+  s.version = "1.0.0-alpha3"
   s.summary = "CEX Direct Client Framework"
   s.description = <<-DESC
 Provides easy access to crypto assets by handling all user verification and payment procedures, procurement and delivery, giving you freedom to do what you do best - engage with your users.
@@ -12,7 +12,7 @@ Provides easy access to crypto assets by handling all user verification and paym
 
   s.platform = :ios
   s.ios.deployment_target = "11.4"
-  s.swift_version = "5.0"
+  s.swift_versions = ["5.0", "5.1"]
 
   s.source = { :git => "https://github.com/decent-finance/direct-ios.git", :tag => "v#{s.version}" }
   s.source_files = "CEXDirect/**/*.swift"
@@ -21,7 +21,7 @@ Provides easy access to crypto assets by handling all user verification and paym
 
   s.frameworks = "WebKit"
 
-  s.dependency "Alamofire", "~> 5.0.0-beta.5"
+  s.dependency "Alamofire"
   s.dependency "SwiftyJSON"
   s.dependency "CocoaLumberjack/Swift"
   s.dependency "ObjectMapper"
@@ -35,4 +35,5 @@ Provides easy access to crypto assets by handling all user verification and paym
   s.dependency "MarkdownView"
   s.dependency "SVProgressHUD"
   s.dependency "Nantes"
+  s.dependency "lottie-ios"
 end

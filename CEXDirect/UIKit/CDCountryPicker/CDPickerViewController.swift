@@ -235,7 +235,10 @@ class CDPickerViewController: UIViewController, UITableViewDataSource, UITableVi
             searchResults = cdPickerArray.filter{predicate.evaluate(with: ($0))}
         }
 
-        searchResults = searchResults.sorted{$0["name"]! < $1["name"]!}
+        if isCountryPicker {
+            searchResults = searchResults.sorted{$0["name"]! < $1["name"]!}
+        }
+        
         self.tableView.reloadData()
     }
 

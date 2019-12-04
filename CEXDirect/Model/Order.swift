@@ -25,10 +25,14 @@ public struct Order: Mappable {
         case uncompleted = "uncomplited"
         case ivsReady = "ivs-ready"
         case ivsPending = "ivs-pending"
+        case ivsFailed = "ivs-failed"
+        case ivsRejected = "ivs-rejected"
         case ivsSuccess = "ivs-success"
         case pssWaitData = "pss-waitdata"
         case pssReady = "pss-ready"
         case pssPending = "pss-pending"
+        case pssFailed = "pss-failed"
+        case pssRejected = "pss-rejected"
         case pss3dsRequired = "pss-3ds-required"
         case pss3dsPending = "pss-3ds-pending"
         case pssSuccess = "pss-success"
@@ -36,6 +40,28 @@ public struct Order: Mappable {
         case completed
         case finished
         case rejected
+        
+        case new = "new"
+        case verificationReady = "verification-ready"
+        case verificationInProgress = "verification-in-progress"
+        case verificationSuccess = "verification-success"
+        case verificationRejected = "verification-rejected"
+        case verificationFailed = "verification-failed"
+        case processingAcknowledge = "processing-acknowledge"
+        case processingReady = "processing-ready"
+        case processingInProgress = "processing-in-progress"
+        case processing3ds = "processing-3ds"
+        case processing3dsPending = "processing-3ds-pending"
+        case processingSuccess = "processing-success"
+        case processingRejected = "processing-rejected"
+        case processingFailed = "processing-failed"
+        case refundInProgress = "refund-in-progress"
+        case refunded = "refunded"
+        case emailConfirmation = "email-confirmation"
+        case cryptoSending = "crypto-sending"
+        case cryptoSent = "crypto-sent"
+        case settled = "settled"
+        case crashed = "crashed"
     }
     
     enum AdditionalInfoKey: String, CaseIterable {
@@ -45,6 +71,7 @@ public struct Order: Mappable {
         case userMiddleName
         case userDateOfBirth
         case userResidentialCountry
+        case billingState
         case userResidentialCity
         case userResidentialStreet
         case userResidentialAptSuite
@@ -55,13 +82,12 @@ public struct Order: Mappable {
         case userRuPassportIssuedBy
         case userRuPhone
         case billingCounty
-        case billingState
         case billingCity
         case billingStreet
         case billingZipCode
         case billingSsn
         
-        var errorMessage: String {
+        func errorMessage(country: String?) -> String {
             switch self {
             case .userFirstName:
                 return NSLocalizedString("Please enter first name", comment: "")
@@ -73,18 +99,25 @@ public struct Order: Mappable {
                 return NSLocalizedString("Please enter a valid date of birth", comment: "")
             case .userResidentialCountry:
                 return NSLocalizedString("Please enter a valid country", comment: "")
+            case .billingState:
+                return NSLocalizedString("Please enter a valid state", comment: "")
             case .userResidentialCity:
                 return NSLocalizedString("Please enter a valid city", comment: "")
             case .userResidentialStreet:
                 return NSLocalizedString("Please enter a valid street address", comment: "")
             case .userResidentialAptSuite:
-                return NSLocalizedString("Please enter a valid suite", comment: "")
+                return NSLocalizedString("Please enter a valid apt./suite", comment: "")
             case .userResidentialPostcode:
-                return NSLocalizedString("Please enter valid postcode", comment: "")
+                // Workaround for backend issues
+                if country == "US" {
+                    return NSLocalizedString("Please enter a valid ZIP code", comment: "")
+                } else {
+                    return NSLocalizedString("Please enter a valid postcode", comment: "")
+                }
             case .userResidentialPostcodeUK:
-                return NSLocalizedString("Please enter valid postcode", comment: "")
+                return NSLocalizedString("Please enter a valid postcode", comment: "")
             case .userRuPassport:
-                return NSLocalizedString("Please enter valid passport number", comment: "")
+                return NSLocalizedString("Please enter a valid passport number", comment: "")
             case .userRuPassportIssueDate:
                 return NSLocalizedString("Please enter a valid date", comment: "")
             case .userRuPassportIssuedBy:
@@ -93,16 +126,14 @@ public struct Order: Mappable {
                 return NSLocalizedString("Please enter a valid phone", comment: "")
             case .billingCounty:
                 return NSLocalizedString("Please enter a valid country", comment: "")
-            case .billingState:
-                return NSLocalizedString("Please enter a valid state", comment: "")
             case .billingCity:
                 return NSLocalizedString("Please enter a valid city", comment: "")
             case .billingStreet:
                 return NSLocalizedString("Please enter a valid street address", comment: "")
             case .billingZipCode:
-                return NSLocalizedString("Please enter a valid zipcode", comment: "")
+                return NSLocalizedString("Please enter a valid ZIP code", comment: "")
             case .billingSsn:
-                return NSLocalizedString("Please enter valid SSN", comment: "")
+                return NSLocalizedString("Please enter a valid SSN", comment: "")
             }
         }
     }

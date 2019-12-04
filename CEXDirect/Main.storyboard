@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E1c-nI-3Fx">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E1c-nI-3Fx">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +19,7 @@
         <!--Main View Controller-->
         <scene sceneID="MRD-05-dgH">
             <objects>
-                <viewController extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" id="E1c-nI-3Fx" customClass="MainViewController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="E1c-nI-3Fx" customClass="MainViewController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="75y-ID-TaG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -30,19 +28,19 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="guv-bd-OlE">
-                                        <rect key="frame" x="10" y="54" width="139" height="40"/>
+                                        <rect key="frame" x="10" y="14" width="278" height="80"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="TMd-YU-KXA">
-                                        <rect key="frame" x="360" y="55.5" width="44" height="37"/>
+                                        <rect key="frame" x="363" y="38" width="41" height="32"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Buy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="VI1-1y-38V">
-                                                <rect key="frame" x="22.5" y="0.0" width="21.5" height="16.5"/>
+                                                <rect key="frame" x="20" y="0.0" width="21" height="14"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OrderId" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="6" translatesAutoresizingMaskIntoConstraints="NO" id="hwQ-JX-TLb">
-                                                <rect key="frame" x="0.0" y="20.5" width="44" height="16.5"/>
+                                                <rect key="frame" x="0.0" y="18" width="41" height="14"/>
                                                 <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="12"/>
                                                 <color key="textColor" red="0.49019607840000001" green="0.57647058819999997" blue="0.70196078429999997" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -71,13 +69,13 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="438"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchase BTC for USD" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHZ-rs-DCr">
-                                                        <rect key="frame" x="10" y="2" width="204.5" height="27.5"/>
+                                                        <rect key="frame" x="10" y="2" width="206" height="23.5"/>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="20"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zgg-pb-3qS">
-                                                        <rect key="frame" x="0.0" y="52" width="414" height="48"/>
+                                                        <rect key="frame" x="0.0" y="48" width="414" height="48"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="48" id="GiO-bW-URW"/>
@@ -164,10 +162,10 @@
                                                         </connections>
                                                     </collectionView>
                                                     <containerView opaque="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="288" translatesAutoresizingMaskIntoConstraints="NO" id="5vK-nH-Xqo">
-                                                        <rect key="frame" x="0.0" y="150" width="414" height="288"/>
+                                                        <rect key="frame" x="0.0" y="146" width="414" height="292"/>
                                                     </containerView>
                                                     <view contentMode="scaleToFill" placeholderIntrinsicWidth="150" placeholderIntrinsicHeight="infinite" translatesAutoresizingMaskIntoConstraints="NO" id="dDZ-sU-qho" customClass="CDPageControl" customModule="CEXDirect" customModuleProvider="target">
-                                                        <rect key="frame" x="132" y="116" width="150" height="18"/>
+                                                        <rect key="frame" x="132" y="112" width="150" height="18"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="18" id="SXO-FW-qgD"/>
@@ -258,8 +256,8 @@
                     <connections>
                         <outlet property="buyLabel" destination="VI1-1y-38V" id="4DZ-bn-5DK"/>
                         <outlet property="contentView" destination="hCD-F0-W1m" id="px8-p9-PpK"/>
-                        <outlet property="errorInfoView" destination="Y3v-8U-E1S" id="zvp-My-zQk"/>
                         <outlet property="footerView" destination="73p-Ei-d9A" id="mrc-cM-4Fh"/>
+                        <outlet property="infoView" destination="Y3v-8U-E1S" id="eFj-Hr-v9E"/>
                         <outlet property="loadingView" destination="uXF-YE-GkW" id="gtA-XS-eW6"/>
                         <outlet property="logoImageLeftConstraint" destination="gcq-fg-8qR" id="0Fd-m8-Ka8"/>
                         <outlet property="nextButton" destination="6Ml-LP-oIz" id="ghe-4I-2cp"/>

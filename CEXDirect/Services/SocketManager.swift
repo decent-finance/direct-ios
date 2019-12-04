@@ -21,8 +21,9 @@ import CocoaLumberjack
 
 class SocketManager {
     
-    init() {
-        socket.disableSSLCertValidation = true
+    init(configuration: Configuration) {
+        socket = WebSocket(url: configuration.webSocketURL)
+        socket.disableSSLCertValidation = configuration.disableCertificateEvaluation
         socket.delegate = self
         socket.pongDelegate = self
     }
@@ -62,15 +63,8 @@ class SocketManager {
         case disconnected
     }
     
-    private let socket: WebSocket = {
-        if let configurationPath = Bundle(for: SocketManager.self).path(forResource: "Configuration", ofType: "plist"), let configuration = NSDictionary(contentsOfFile: configurationPath), let webSocketURL = configuration["WebSocketURL"] as? String {
-            return WebSocket(url: URL(string: webSocketURL)!)
-        } else {
-            DDLogError("Failed to find web socket URL")
-            return WebSocket(url: URL(string: "https://apple.com")!)
-        }
-    }()
-    
+    private let socket: WebSocket
+
     private let socketStatusSubject = BehaviorSubject<SocketStatus>(value: .disconnected)
     private let socketMessageSubject = PublishSubject<SocketMessage>()
     private let socketPongSubject = PublishSubject<Void>()

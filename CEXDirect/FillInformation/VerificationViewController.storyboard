@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="c1t-bK-aEj">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Bold.ttf">
+            <string>OpenSans-Bold</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Verification View Controller-->
+        <scene sceneID="6mw-Lu-djD">
+            <objects>
+                <viewController id="c1t-bK-aEj" customClass="VerificationViewController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="DCT-s0-dsU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="434"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" insetsLayoutMarginsFromSafeArea="NO" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2p-LW-34e">
+                                <rect key="frame" x="10" y="40" width="394" height="49.5"/>
+                                <string key="text">We are checking your documents,
+card data and wallet address</string>
+                                <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="18"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Please wait..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pcm-W0-UiI">
+                                <rect key="frame" x="10" y="117.5" width="394" height="22.5"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" red="0.047058823530000002" green="0.52941176469999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IDZ-57-KxO">
+                                <rect key="frame" x="87" y="190" width="240" height="240"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSh-pP-sc6" customClass="AnimationView" customModule="Lottie">
+                                        <rect key="frame" x="0.0" y="40" width="240" height="240"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="18Q-CR-VPu"/>
+                                    <constraint firstItem="aSh-pP-sc6" firstAttribute="leading" secondItem="IDZ-57-KxO" secondAttribute="leading" id="7H1-gV-qq4"/>
+                                    <constraint firstItem="aSh-pP-sc6" firstAttribute="top" secondItem="IDZ-57-KxO" secondAttribute="top" constant="40" id="BXB-7h-Lt3"/>
+                                    <constraint firstAttribute="height" constant="240" id="HJs-Nj-6LU"/>
+                                    <constraint firstItem="aSh-pP-sc6" firstAttribute="height" secondItem="IDZ-57-KxO" secondAttribute="height" id="RfQ-3j-YJX"/>
+                                    <constraint firstAttribute="trailing" secondItem="aSh-pP-sc6" secondAttribute="trailing" id="f8N-YE-dmO"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.87058823529411766" green="0.8784313725490196" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="120"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mAR-g9-TVX" customClass="CDProgressView" customModule="CEXDirect" customModuleProvider="target">
+                                <rect key="frame" x="83" y="186" width="248" height="248"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="248" id="grh-yC-Ztr"/>
+                                    <constraint firstAttribute="height" constant="248" id="qWs-bN-lZW"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="lineWidth">
+                                        <real key="value" value="6"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="animationDuration">
+                                        <real key="value" value="120"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="addReversePhase" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.050980392159999999" green="0.066666666669999999" blue="0.1019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Z2p-LW-34e" firstAttribute="leading" secondItem="zsH-aB-wh7" secondAttribute="leading" constant="10" id="0WF-WN-ynC"/>
+                            <constraint firstItem="Pcm-W0-UiI" firstAttribute="top" secondItem="Z2p-LW-34e" secondAttribute="bottom" constant="28" id="53Q-Ld-R0U"/>
+                            <constraint firstItem="IDZ-57-KxO" firstAttribute="top" secondItem="Pcm-W0-UiI" secondAttribute="bottom" constant="50" id="579-kx-3p6"/>
+                            <constraint firstItem="Z2p-LW-34e" firstAttribute="top" secondItem="DCT-s0-dsU" secondAttribute="top" constant="40" id="BUZ-tt-MhT"/>
+                            <constraint firstItem="IDZ-57-KxO" firstAttribute="centerY" secondItem="mAR-g9-TVX" secondAttribute="centerY" id="IYb-B4-SPM"/>
+                            <constraint firstItem="mAR-g9-TVX" firstAttribute="top" secondItem="Pcm-W0-UiI" secondAttribute="bottom" constant="46" id="L3f-kf-35k"/>
+                            <constraint firstItem="zsH-aB-wh7" firstAttribute="trailing" secondItem="Pcm-W0-UiI" secondAttribute="trailing" constant="10" id="Nhz-un-Z3s"/>
+                            <constraint firstItem="IDZ-57-KxO" firstAttribute="centerX" secondItem="zsH-aB-wh7" secondAttribute="centerX" id="OD7-Em-KZu"/>
+                            <constraint firstItem="Pcm-W0-UiI" firstAttribute="leading" secondItem="zsH-aB-wh7" secondAttribute="leading" constant="10" id="WGS-j1-wWw"/>
+                            <constraint firstItem="mAR-g9-TVX" firstAttribute="centerX" secondItem="zsH-aB-wh7" secondAttribute="centerX" id="Zga-98-aIX"/>
+                            <constraint firstAttribute="bottom" secondItem="mAR-g9-TVX" secondAttribute="bottom" id="gR0-rq-S8j"/>
+                            <constraint firstItem="zsH-aB-wh7" firstAttribute="trailing" secondItem="Z2p-LW-34e" secondAttribute="trailing" constant="10" id="xS6-cO-BBg"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zsH-aB-wh7"/>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="414" height="434"/>
+                    <connections>
+                        <outlet property="animationView" destination="aSh-pP-sc6" id="Cio-4j-cyL"/>
+                        <outlet property="progressView" destination="mAR-g9-TVX" id="iPf-yk-609"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mhf-iH-3bk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="186.95652173913044" y="162.72321428571428"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,33 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4MD-mo-Mbt">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4MD-mo-Mbt">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="OpenSans-ExtraBold.ttf">
-            <string>OpenSans-Extrabold</string>
-        </array>
         <array key="OpenSans-Regular.ttf">
             <string>OpenSans</string>
         </array>
     </customFonts>
     <scenes>
-        <!--Error Info View Controller-->
+        <!--Base Error View Controller-->
         <scene sceneID="A2L-dk-Sp9">
             <objects>
-                <viewController id="4MD-mo-Mbt" customClass="ErrorInfoViewController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4MD-mo-Mbt" customClass="BaseErrorViewController" customModule="CEXDirect" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aGY-kA-sov">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="550"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="466"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="kxE-9f-kqT">
-                                <rect key="frame" x="0.0" y="40" width="414" height="510"/>
+                                <rect key="frame" x="0.0" y="40" width="414" height="426"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XwS-KC-SRx">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="65.5"/>
@@ -38,27 +33,21 @@ completed</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wFY-zI-Hfo">
-                                        <rect key="frame" x="0.0" y="105.5" width="414" height="404.5"/>
+                                        <rect key="frame" x="0.0" y="105.5" width="414" height="320.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zTR-05-dMO">
-                                                <rect key="frame" x="10" y="0.0" width="394" height="404.5"/>
+                                                <rect key="frame" x="10" y="0.0" width="394" height="320.5"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQd-Sw-DW5">
-                                                        <rect key="frame" x="16" y="16" width="362" height="44"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQd-Sw-DW5">
+                                                        <rect key="frame" x="16" y="16" width="362" height="44.5"/>
                                                         <string key="text">We are sorry, but we could not process your
 order</string>
                                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Reason" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNg-V0-uaC">
-                                                        <rect key="frame" x="16" y="100" width="362" height="44.5"/>
-                                                        <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="16"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKJ-4P-fXk">
-                                                        <rect key="frame" x="16" y="184.5" width="362" height="104"/>
+                                                        <rect key="frame" x="16" y="100.5" width="362" height="104"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="If your card has been charged, your payment will be refunded." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gpH-ie-RjH">
                                                                 <rect key="frame" x="0.0" y="0.0" width="362" height="44"/>
@@ -84,53 +73,38 @@ order</string>
                                                             <constraint firstAttribute="trailing" secondItem="k9e-df-ei4" secondAttribute="trailing" id="heu-KA-QK4"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CNH-im-dUK">
-                                                        <rect key="frame" x="16" y="328.5" width="362" height="60"/>
-                                                        <subviews>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bes-G6-Qdu" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="0.0" width="362" height="60"/>
-                                                                <color key="backgroundColor" red="0.047058823530000002" green="0.52941176469999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="60" id="yRq-G3-Hy4"/>
-                                                                </constraints>
-                                                                <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="style" value="blue"/>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="TRY AGAIN!"/>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                        <real key="value" value="4"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                    <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
-                                                                        <real key="value" value="20"/>
-                                                                    </userDefinedRuntimeAttribute>
-                                                                </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="tryAgainButtonHandler:" destination="4MD-mo-Mbt" eventType="touchUpInside" id="T0S-rb-RH6"/>
-                                                                </connections>
-                                                            </view>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bes-G6-Qdu" customClass="CDButton" customModule="CEXDirect" customModuleProvider="target">
+                                                        <rect key="frame" x="16" y="244.5" width="362" height="60"/>
+                                                        <color key="backgroundColor" red="0.047058823530000002" green="0.52941176469999995" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
-                                                            <constraint firstItem="bes-G6-Qdu" firstAttribute="leading" secondItem="CNH-im-dUK" secondAttribute="leading" id="5Cz-cH-GIe"/>
-                                                            <constraint firstAttribute="trailing" secondItem="bes-G6-Qdu" secondAttribute="trailing" id="YxY-6C-xoQ"/>
-                                                            <constraint firstItem="bes-G6-Qdu" firstAttribute="top" secondItem="CNH-im-dUK" secondAttribute="top" id="lm5-wN-9g6"/>
-                                                            <constraint firstAttribute="bottom" secondItem="bes-G6-Qdu" secondAttribute="bottom" id="mh3-9F-tnI"/>
+                                                            <constraint firstAttribute="height" constant="60" id="yRq-G3-Hy4"/>
                                                         </constraints>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="style" value="blue"/>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="title" value="TRY AGAIN!"/>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="4"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="fontSize">
+                                                                <real key="value" value="20"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="tryAgainButtonHandler:" destination="4MD-mo-Mbt" eventType="touchUpInside" id="T0S-rb-RH6"/>
+                                                        </connections>
                                                     </view>
                                                 </subviews>
                                                 <color key="backgroundColor" red="0.14901960784313725" green="0.18823529411764706" blue="0.25098039215686274" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
+                                                    <constraint firstItem="JKJ-4P-fXk" firstAttribute="top" secondItem="BQd-Sw-DW5" secondAttribute="bottom" constant="40" id="6Vw-oS-Ky1"/>
+                                                    <constraint firstItem="bes-G6-Qdu" firstAttribute="top" secondItem="JKJ-4P-fXk" secondAttribute="bottom" constant="40" id="9If-DU-Rfs"/>
                                                     <constraint firstAttribute="trailing" secondItem="BQd-Sw-DW5" secondAttribute="trailing" constant="16" id="Aaz-LX-TEc"/>
                                                     <constraint firstItem="BQd-Sw-DW5" firstAttribute="top" secondItem="zTR-05-dMO" secondAttribute="top" constant="16" id="Azj-SL-MQ5"/>
-                                                    <constraint firstItem="JNg-V0-uaC" firstAttribute="leading" secondItem="zTR-05-dMO" secondAttribute="leading" constant="16" id="C1n-Ke-kto"/>
-                                                    <constraint firstAttribute="trailing" secondItem="CNH-im-dUK" secondAttribute="trailing" constant="16" id="JA0-n6-cmq"/>
-                                                    <constraint firstItem="CNH-im-dUK" firstAttribute="leading" secondItem="zTR-05-dMO" secondAttribute="leading" constant="16" id="Jvc-hl-DPg"/>
-                                                    <constraint firstAttribute="trailing" secondItem="JNg-V0-uaC" secondAttribute="trailing" constant="16" id="PeW-Pp-reo"/>
-                                                    <constraint firstItem="JKJ-4P-fXk" firstAttribute="top" secondItem="JNg-V0-uaC" secondAttribute="bottom" constant="40" id="Pru-g5-Toe"/>
+                                                    <constraint firstAttribute="trailing" secondItem="bes-G6-Qdu" secondAttribute="trailing" constant="16" id="DLd-Wy-pOj"/>
                                                     <constraint firstItem="JKJ-4P-fXk" firstAttribute="leading" secondItem="zTR-05-dMO" secondAttribute="leading" constant="16" id="Q7c-Jd-O3A"/>
-                                                    <constraint firstItem="JNg-V0-uaC" firstAttribute="top" secondItem="BQd-Sw-DW5" secondAttribute="bottom" constant="40" id="T9y-sd-dWL"/>
-                                                    <constraint firstItem="CNH-im-dUK" firstAttribute="top" secondItem="JKJ-4P-fXk" secondAttribute="bottom" constant="40" id="cNJ-Qz-GDB"/>
+                                                    <constraint firstAttribute="bottom" secondItem="bes-G6-Qdu" secondAttribute="bottom" constant="16" id="VJt-Dl-O3M"/>
                                                     <constraint firstItem="BQd-Sw-DW5" firstAttribute="leading" secondItem="zTR-05-dMO" secondAttribute="leading" constant="16" id="dtF-KV-1yq"/>
-                                                    <constraint firstAttribute="bottom" secondItem="CNH-im-dUK" secondAttribute="bottom" constant="16" id="wOs-5d-glt"/>
+                                                    <constraint firstItem="bes-G6-Qdu" firstAttribute="leading" secondItem="zTR-05-dMO" secondAttribute="leading" constant="16" id="v40-z6-QdV"/>
                                                     <constraint firstAttribute="trailing" secondItem="JKJ-4P-fXk" secondAttribute="trailing" constant="16" id="zxM-I7-LKC"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
@@ -160,10 +134,7 @@ order</string>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zos-uX-BU2"/>
                     </view>
-                    <size key="freeformSize" width="414" height="550"/>
-                    <connections>
-                        <outlet property="reasonErrorLabel" destination="JNg-V0-uaC" id="Cpk-IP-fSJ"/>
-                    </connections>
+                    <size key="freeformSize" width="414" height="466"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uDz-IY-orU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

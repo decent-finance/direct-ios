@@ -27,7 +27,7 @@ protocol EditEmailViewControllerDelegate: class {
 
 class EditEmailViewController: UIViewController, StoryboardView {
     
-    var delegate: EditEmailViewControllerDelegate?
+    weak var delegate: EditEmailViewControllerDelegate?
     
     var disposeBag = DisposeBag()
     
@@ -52,7 +52,8 @@ class EditEmailViewController: UIViewController, StoryboardView {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        saveButton.rx.tap.map { Reactor.Action.save }
+        saveButton.rx.tap.throttle(.milliseconds(200), latest: false, scheduler: MainScheduler.instance)
+            .map { Reactor.Action.save }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         

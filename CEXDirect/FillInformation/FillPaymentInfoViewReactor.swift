@@ -142,10 +142,10 @@ class FillPaymentInfoViewReactor: Reactor {
         let isSNNAvailable = orderStore.order.country == "US"
         let submitTitle = NSLocalizedString(isEditing ? "SAVE" : "NEXT", comment: "")
         
-#if PRODUCTION
-        initialState = State(cardNumber: nil, expiryDate: nil, cvv: nil, walletAddress: nil, cryptoCurrency:orderStore.order.cryptoCurrency, ssn: nil, isSNNAvailable: isSNNAvailable, areTermsAndPolicyAccepted: false, submitTitle: submitTitle, isEditable: !isEditing, isNextEnabled: false, validationErrors: [:], alert: nil, isFinished: false, isLoading: false, rules: rulesStore.rules, areAllImagesUploaded: false)
-#else
+#if DEVELOPMENT
         initialState = State(cardNumber: "5413330000000019".separate(), expiryDate: Date(timeIntervalSinceNow: 10000), cvv: "123", walletAddress: "2Mxx1zJPGfStpi8ANYfmQpAWL6eG9M8Erg1", cryptoCurrency:orderStore.order.cryptoCurrency, ssn: nil, isSNNAvailable: isSNNAvailable, areTermsAndPolicyAccepted: true, submitTitle: submitTitle, isEditable: !isEditing, isNextEnabled: false, validationErrors: [:], alert: nil, isFinished: false, isLoading: false, rules: rulesStore.rules, areAllImagesUploaded: false)
+#else
+        initialState = State(cardNumber: nil, expiryDate: nil, cvv: nil, walletAddress: nil, cryptoCurrency:orderStore.order.cryptoCurrency, ssn: nil, isSNNAvailable: isSNNAvailable, areTermsAndPolicyAccepted: false, submitTitle: submitTitle, isEditable: !isEditing, isNextEnabled: false, validationErrors: [:], alert: nil, isFinished: false, isLoading: false, rules: rulesStore.rules, areAllImagesUploaded: false)
 #endif
     }
     

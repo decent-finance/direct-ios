@@ -30,10 +30,11 @@ import RxSwift
         return apiBaseURL.appendingPathComponent("payments")
     }
     
-    init(session: Session, socketManager: SocketManager, placementID: String) {
+    init(session: Session, socketManager: SocketManager, placementID: String, configuration: Configuration) {
         self.session = session
         self.socketManager = socketManager
         self.placementID = placementID
+        super.init(configuration: configuration)
     }
     
     func loadCurrencies(success: @escaping ([CurrencyConversion]) -> Void, failure: @escaping (Error) -> Void) {
