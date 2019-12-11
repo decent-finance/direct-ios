@@ -1,4 +1,4 @@
-platform :ios, '11.4'
+platform :ios, '11.0'
 
 target 'CEXDirect' do
   use_frameworks!
