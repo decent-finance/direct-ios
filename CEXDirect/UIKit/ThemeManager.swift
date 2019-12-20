@@ -16,8 +16,9 @@
 
 import Foundation
 import RxSwift
+import RxRelay
 
 class ThemeManager {
     
-    var theme = Variable<Theme>(.dark)
+    var theme = BehaviorRelay<Theme>(value: .dark)
 }

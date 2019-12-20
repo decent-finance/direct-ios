@@ -89,7 +89,7 @@ import UIKit
                 return
         }
         
-        keyboardConstraint.constant = keyboardFrameValue.cgRectValue.height - bottomLayoutGuide.length
+        keyboardConstraint.constant = keyboardFrameValue.cgRectValue.height
         UIView.animate(withDuration: duration.doubleValue, animations: {
             self.view.layoutIfNeeded()
         })

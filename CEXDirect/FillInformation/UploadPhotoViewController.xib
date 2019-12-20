@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,11 +18,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UploadPhotoViewController" customModule="CEXDirect" customModuleProvider="target">
             <connections>
-                <outlet property="descriptionLabel" destination="4dD-jQ-wd3" id="WoF-ci-RCw"/>
                 <outlet property="documentBackErrorImageView" destination="jrM-Mn-tpE" id="6ki-qc-2hx"/>
                 <outlet property="documentBackErrorLabel" destination="tL7-ka-JOg" id="aZs-vR-jng"/>
                 <outlet property="documentBackImageView" destination="HM9-af-eAY" id="n0y-8e-xmO"/>
                 <outlet property="documentBackView" destination="9DE-6r-jdF" id="9uU-pm-xlO"/>
+                <outlet property="documentDescriptionLabel" destination="4dD-jQ-wd3" id="Lcf-r8-Of4"/>
                 <outlet property="documentDetailsView" destination="37Z-Hp-4oV" id="g4U-9p-geh"/>
                 <outlet property="documentErrorLabel" destination="MGR-hz-Vl2" id="HJp-wD-YZu"/>
                 <outlet property="documentFrontErrorImageView" destination="Zqa-Rp-6jW" id="21D-Jv-UJv"/>
@@ -33,6 +33,7 @@
                 <outlet property="driverLicenseButton" destination="Ymc-51-5MF" id="SmA-GS-Pfs"/>
                 <outlet property="idTypeButton" destination="jMU-l3-B6M" id="gfp-38-eWl"/>
                 <outlet property="passportTypeButton" destination="7VE-0v-yaP" id="odu-oK-C0U"/>
+                <outlet property="selfieDescriptionLabel" destination="xbW-D5-j9R" id="ajZ-d9-dtD"/>
                 <outlet property="selfieErrorImageView" destination="kA2-7p-Zbh" id="aJF-B3-aDh"/>
                 <outlet property="selfieErrorLabel" destination="t8i-bJ-0j7" id="h6q-CN-wka"/>
                 <outlet property="selfieImageView" destination="aXD-Kh-kh5" id="wVK-cC-PNz"/>
@@ -170,7 +171,7 @@
                                             <rect key="frame" x="8" y="8" width="359" height="184"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Front Side" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4w9-1w-cu7">
-                                                    <rect key="frame" x="143" y="0.0" width="73" height="19.5"/>
+                                                    <rect key="frame" x="147" y="0.0" width="65" height="19.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="19.5" id="zjL-Qn-qqV"/>
                                                     </constraints>
@@ -179,7 +180,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="id_photo_01_black" translatesAutoresizingMaskIntoConstraints="NO" id="Bil-cl-hRf">
-                                                    <rect key="frame" x="34.5" y="23.5" width="290" height="160.5"/>
+                                                    <rect key="frame" x="0.0" y="23.5" width="359" height="160.5"/>
                                                 </imageView>
                                             </subviews>
                                         </stackView>
@@ -296,7 +297,7 @@
                                             <rect key="frame" x="8" y="32" width="359" height="160"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Back Side" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFA-kW-gLw">
-                                            <rect key="frame" x="153" y="8" width="69" height="19.5"/>
+                                            <rect key="frame" x="155.5" y="8" width="64" height="16.5"/>
                                             <fontDescription key="fontDescription" name="OpenSans-Extrabold" family="Open Sans" pointSize="14"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>

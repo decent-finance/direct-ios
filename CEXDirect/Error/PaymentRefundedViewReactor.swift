@@ -41,7 +41,7 @@ class PaymentRefundedViewReactor: Reactor {
             state.returnedAmount = "\(amount) \(currency)"
         }
         
-        state.card = "**** **** **** \(orderStore.order.cardBin ?? "****")"
+        state.card = "**** \(orderStore.order.cardBin ?? "****")"
         
         initialState = state
     }

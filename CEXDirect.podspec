@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "CEXDirect"
-  s.version = "1.0.0-alpha4"
+  s.version = "1.0.0-alpha5"
   s.summary = "CEX Direct Client Framework"
   s.description = <<-DESC
 Provides easy access to crypto assets by handling all user verification and payment procedures, procurement and delivery, giving you freedom to do what you do best - engage with your users.

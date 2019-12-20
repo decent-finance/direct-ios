@@ -41,9 +41,9 @@ class FillBaseInfoViewReactor: Reactor {
         case setCountryName(String)
         case setState(String?)
         case setStateCode(String?)
-        case setAlert(String?)
+        case setError(Bool)
         case setFinished
-        case setLocationNotSupported
+        case setLocationNotSupported(Bool)
         case setLoading(Bool)
         case setValidationErrors([BaseInfoKey: String])
     }
@@ -59,7 +59,7 @@ class FillBaseInfoViewReactor: Reactor {
         var isStateAvailable = false
         var submitTitle: String
         var isEditable = true
-        var alert: String?
+        var error = false
         var isFinished = false
         var locationNotSupported = false
         var isLoading = false
@@ -87,8 +87,6 @@ class FillBaseInfoViewReactor: Reactor {
     
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
-        state.alert = nil
-        state.locationNotSupported = false
         
         switch mutation {
         case let .setEmail(email):
@@ -99,13 +97,13 @@ class FillBaseInfoViewReactor: Reactor {
             state.countryName = countryName
         case let .setState(countryState):
             state = reduceCountryState(state: state, countryState: countryState)
-        case let .setAlert(alert):
-            state.alert = alert
+        case let .setError(error):
+            state.error = error
         case .setFinished:
             state.isFinished = true
-        case .setLocationNotSupported:
-            state.locationNotSupported = true
-        case let .setLoading(isLoading):
+        case .setLocationNotSupported(let isSupported):
+            state.locationNotSupported = isSupported
+        case .setLoading(let isLoading):
             state.isLoading = isLoading
         case .setValidationErrors(let errors):
             state.validationErrors = errors
@@ -128,7 +126,7 @@ class FillBaseInfoViewReactor: Reactor {
             countryState.code == order.state
         })
         let submitTitle = NSLocalizedString(isEditing ? "SAVE" : "NEXT", comment: "")
-        initialState = State(email: order.email, countries: countriesStore.countries, countryStates: country.first?.states, country: order.country, countryName: country.first?.name, stateName: state?.first?.name, stateCode: order.state, isStateAvailable: order.country == "US" , submitTitle: submitTitle, isEditable: !isEditing, alert: nil, isFinished: false, locationNotSupported: false, isLoading: false, validationErrors: [:])
+        initialState = State(email: order.email, countries: countriesStore.countries, countryStates: country.first?.states, country: order.country, countryName: country.first?.name, stateName: state?.first?.name, stateCode: order.state, isStateAvailable: order.country == "US" , submitTitle: submitTitle, isEditable: !isEditing, error: false, isFinished: false, locationNotSupported: false, isLoading: false, validationErrors: [:])
     }
     
     // MARK: - Implementation
@@ -148,14 +146,14 @@ class FillBaseInfoViewReactor: Reactor {
             return .just(.setValidationErrors(errorDict()))
         }
         
-        return .concat(.just(.setLoading(true)),
+        return .concat(.of(.setLoading(true), .setLocationNotSupported(false)),
             orderService.rx.createOrder(order: order).do(onNext: { [weak self] order in
                 self?.orderStore.order = order
-            }).map { order in Mutation.setFinished }.catchError({ [weak self] error -> Observable<Mutation> in
+            }).map { order in Mutation.setFinished }.catchError({ error -> Observable<Mutation> in
                 if case ServiceError.locationNotSupported = error {
-                    return .just(.setLocationNotSupported)
+                    return .just(.setLocationNotSupported(true))
                 } else {
-                    return .just(.setAlert(NSLocalizedString("Failed to create order", comment: "")))
+                    return .just(.setError(true))
                 }
             }),
             .just(.setLoading(false)))
@@ -199,6 +197,7 @@ class FillBaseInfoViewReactor: Reactor {
             countryState.code == country
         }
         result.countryStates = countryState.first?.states
+        result.locationNotSupported = false
         
         return result
     }
@@ -220,6 +219,8 @@ class FillBaseInfoViewReactor: Reactor {
         }
         
         result.stateName = countryState
+        result.locationNotSupported = false
+        
         return result
     }
 }

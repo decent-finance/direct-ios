@@ -33,13 +33,13 @@ class FooterViewController: UIViewController, StoryboardView {
     var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
+        collectionView.register(UINib(nibName: FooterCollectionViewCell.classNameAsString(), bundle: Bundle(for: type(of: self))), forCellWithReuseIdentifier: FooterCollectionViewCell.reuseIdentifier())
+        
         super.viewDidLoad()
         
         let currentYear = Calendar.current.component(.year, from: Date())
         yearLabel.text = NSLocalizedString(String(format: "© 2013-%i CEX.IO Ltd (UK)", currentYear), comment: "")
         exitButtonContainerView.isHidden = isExitHidden
-        
-        collectionView.register(UINib(nibName: FooterCollectionViewCell.classNameAsString(), bundle: Bundle(for: type(of: self))), forCellWithReuseIdentifier: FooterCollectionViewCell.reuseIdentifier())
     }
     
     func bind(reactor: FooterViewReactor) {

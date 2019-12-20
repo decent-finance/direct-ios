@@ -41,6 +41,17 @@ enum DocumentType: String {
         }
     }
     
+    var selfieMessage: String {
+        switch self {
+        case .id:
+            return NSLocalizedString("Selfie with Your ID Card", comment: "")
+        case .driverLicense:
+            return NSLocalizedString("Selfie with Your Driver License", comment: "")
+        case .passport:
+            return NSLocalizedString("Selfie with Your Passport", comment: "")
+        }
+    }
+    
     var placeholderImage: UIImage? {
         let bundle = Bundle(for: UploadPhotoViewReactor.self)
         

@@ -28,7 +28,7 @@ class EditEmailViewReactor: Reactor {
     enum Mutation {
         case setEmail(String?)
         case setEmailError(String?)
-        case setAlert(String?)
+        case setError(Bool)
         case setFinished
         case setLoading(Bool)
     }
@@ -36,7 +36,7 @@ class EditEmailViewReactor: Reactor {
     struct State {
         var email: String?
         var emailError: String?
-        var alert: String?
+        var error = false
         var isFinished = false
         var isLoading = false
     }
@@ -52,7 +52,7 @@ class EditEmailViewReactor: Reactor {
                 return .concat(.just(.setLoading(true)),
                     orderService.rx.updateEmail(newEmail: newEmail, order: orderStore.order).do(onNext: { order in
                         self.orderStore.update(order: order)
-                    }).map { _ in .setFinished }.catchErrorJustReturn(.setAlert(NSLocalizedString("Failed to save email", comment: ""))),
+                    }).map { _ in .setFinished }.catchErrorJustReturn(.setError(true)),
                     .just(.setLoading(false)))
             } else {
                 return .just(.setEmailError(NSLocalizedString("Please enter a valid email", comment: "")))
@@ -62,15 +62,14 @@ class EditEmailViewReactor: Reactor {
     
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
-        state.alert = nil
         
         switch mutation {
         case .setEmail(let email):
             state.email = email
         case .setEmailError(let error):
             state.emailError = error
-        case .setAlert(let alert):
-            state.alert = alert
+        case .setError(let error):
+            state.error = error
         case .setFinished:
             state.isFinished = true
         case .setLoading(let isLoading):
@@ -84,7 +83,7 @@ class EditEmailViewReactor: Reactor {
         orderService = serviceProvider.orderService
         self.orderStore = orderStore
         
-        initialState = State(email: orderStore.order.email, emailError: nil, alert: nil, isFinished: false, isLoading: false)
+        initialState = State(email: orderStore.order.email, emailError: nil, error: false, isFinished: false, isLoading: false)
     }
     
     // MARK: - Implementation

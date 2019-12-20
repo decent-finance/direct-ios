@@ -52,7 +52,6 @@ class PurchaseSuccessViewReactor: Reactor {
         var fiatAmount: String
         var fiatCurrency: String
         var comission: String
-        var orderID: String
         var txID: String?
         var txIDLink: String?
         var isFinished = false
@@ -88,7 +87,7 @@ class PurchaseSuccessViewReactor: Reactor {
         self.orderStore = orderStore
         
         let order = orderStore.order
-        initialState = State(cryptoAmount: order.cryptoAmount ?? "", cryptoCurrency: order.cryptoCurrency ?? "", fiatAmount: order.fiatAmount ?? "", fiatCurrency: order.fiatCurrency ?? "", comission: "", orderID: order.orderID ?? "", txID: nil, txIDLink: nil, isFinished: false)
+        initialState = State(cryptoAmount: order.cryptoAmount ?? "", cryptoCurrency: order.cryptoCurrency ?? "", fiatAmount: order.fiatAmount ?? "", fiatCurrency: order.fiatCurrency ?? "", comission: "", txID: nil, txIDLink: nil, isFinished: false)
     }
     
     // MARK: - Implementation

@@ -28,7 +28,7 @@ class FillAdditionalInfoViewReactor: Reactor {
     enum Mutation {
         case set(property: Order.AdditionalInfoKey, value: String?)
         case setValidationErrors([String: String])
-        case setAlert(String?)
+        case setError(Bool)
         case update(Order)
         case setFinished
         case setLoading(Bool)
@@ -37,7 +37,7 @@ class FillAdditionalInfoViewReactor: Reactor {
     struct State {
         var additionalInfo: [String: Order.AdditionalInfo]
         var validationErrors: [String: String]
-        var alert: String?
+        var error: Bool
         var isFinished = false
         var isLoading = false
     }
@@ -60,7 +60,6 @@ class FillAdditionalInfoViewReactor: Reactor {
     
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
-        state.alert = nil
         
         switch mutation {
         case .set(let property, let value):
@@ -68,8 +67,8 @@ class FillAdditionalInfoViewReactor: Reactor {
             state.validationErrors.removeValue(forKey: property.rawValue)
         case .setValidationErrors(let errors):
             state.validationErrors = errors
-        case .setAlert(let alert):
-            state.alert = alert
+        case .setError(let error):
+            state.error = error
         case .update(let order):
             state = reduceUpdate(state: state, order: order)
         case .setFinished:
@@ -100,7 +99,7 @@ class FillAdditionalInfoViewReactor: Reactor {
             additionalInfo?[Order.AdditionalInfoKey.userResidentialAptSuite.rawValue]?.value = "-"
         }
         
-        initialState = State(additionalInfo: additionalInfo ?? [:], validationErrors: [:], alert: nil, isFinished: false, isLoading: false)
+        initialState = State(additionalInfo: additionalInfo ?? [:], validationErrors: [:], error: false, isFinished: false, isLoading: false)
     }
     
     // MARK: - Implementation
@@ -130,7 +129,7 @@ class FillAdditionalInfoViewReactor: Reactor {
             return .concat(.just(.setLoading(true)),
                 orderService.rx.updatePaymentData(order: order).do(onNext: { [weak self] order in
                     self?.orderStore.update(order: order)
-                }).map { _ in .setFinished }.catchErrorJustReturn(.setAlert(NSLocalizedString("Failed to send data", comment: ""))),
+                }).map { _ in .setFinished }.catchErrorJustReturn(.setError(true)),
                 .just(.setLoading(false)))
         }
     }

@@ -48,11 +48,13 @@ class UploadPhotoViewController: UIViewController, StoryboardView {
     func bind(reactor: Reactor) {
         reactor.state.subscribe(onNext: { [unowned self] state in
             self.selectDocumentType(state.documentType)
-            self.descriptionLabel.text = state.documentType?.message
+            self.documentDescriptionLabel.text = state.documentType?.message
             
             let documentImage = state.documentImage
             self.documentImageView.image = documentImage ?? state.documentType?.placeholderImage
             self.documentBackImageView.image = state.documentBackImage ?? state.documentType?.backPlaceholderImage
+            
+            self.selfieDescriptionLabel.text = state.documentType?.selfieMessage
             self.selfieImageView.image = state.selfieImage ?? UIImage(named: "pic_portrait_card_photo_black", in: Bundle(for: type(of: self)), compatibleWith: nil)
             
             self.changeUploadButtonStyle(isUploadButtonShow: documentImage == nil, type: .frontImage)
@@ -170,11 +172,12 @@ class UploadPhotoViewController: UIViewController, StoryboardView {
     
     @IBOutlet private weak var documentView: UIStackView!
     @IBOutlet private weak var documentBackView: UIStackView!
-    @IBOutlet private weak var descriptionLabel: UILabel!
+    @IBOutlet private weak var documentDescriptionLabel: UILabel!
     @IBOutlet private weak var documentImageView: UIImageView!
     @IBOutlet private weak var documentBackImageView: UIImageView!
     @IBOutlet private weak var documentErrorLabel: UILabel!
     @IBOutlet private weak var documentBackErrorLabel: UILabel!
+    @IBOutlet private weak var selfieDescriptionLabel: UILabel!
     @IBOutlet private weak var selfieErrorLabel: UILabel!
     @IBOutlet private weak var documentDetailsView: UIStackView!
     @IBOutlet private weak var documentFrontErrorImageView: UIImageView!

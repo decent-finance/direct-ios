@@ -25,9 +25,8 @@ protocol FillBaseInfoViewControllerDelegate: class {
     var nextTap: RxCocoa.ControlEvent<Void> { get }
     var submitionFinishedSubject: PublishSubject<Void> { get }
     var locationNotSupportedSubject: BehaviorSubject<Bool> { get }
+    var serviceDownErrorSubject: BehaviorSubject<Bool> { get }
     var loadingSubject: BehaviorSubject<Bool> { get }
-    
-    func showServiceDownError()
 }
 
 class FillBaseInfoViewController: UIViewController, StoryboardView {
@@ -84,10 +83,6 @@ class FillBaseInfoViewController: UIViewController, StoryboardView {
                 }
             }
         }).disposed(by: disposeBag)
-        
-        reactor.state.compactMap { $0.alert }.subscribe(onNext: { [unowned self] alert in
-            self.delegate?.showServiceDownError()
-        }).disposed(by: disposeBag)
 
         reactor.state.filter { $0.isFinished }.subscribe(onNext: { [unowned self] _ in
             self.delegate?.submitionFinishedSubject.onNext(())
@@ -120,8 +115,12 @@ class FillBaseInfoViewController: UIViewController, StoryboardView {
             .disposed(by: disposeBag)
         
         if let delegate = delegate {
-            reactor.state.map { $0.locationNotSupported }
+            reactor.state.map { $0.locationNotSupported }.distinctUntilChanged()
                 .bind(to: delegate.locationNotSupportedSubject)
+                .disposed(by: disposeBag)
+            
+            reactor.state.map { $0.error }.distinctUntilChanged()
+                .bind(to: delegate.serviceDownErrorSubject)
                 .disposed(by: disposeBag)
             
             reactor.state.map { $0.isLoading }.distinctUntilChanged()

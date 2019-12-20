@@ -58,6 +58,7 @@ class MainViewController: UIViewController, StoryboardView, FillBaseInfoViewCont
 
     let submitionFinishedSubject = PublishSubject<Void>()
     let locationNotSupportedSubject = BehaviorSubject<Bool>(value: false)
+    let serviceDownErrorSubject = BehaviorSubject<Bool>(value: false)
     let loadingSubject = BehaviorSubject<Bool>(value: false)
     
     func scrollToErrorField(field: UIView) {
@@ -112,12 +113,26 @@ class MainViewController: UIViewController, StoryboardView, FillBaseInfoViewCont
             .bind(to: orderIdLabel.rx.isHidden )
             .disposed(by: disposeBag)
         
-        reactor.state.map {$0.infoContent }.subscribe(onNext: { [unowned self] infoContent in
+        Observable.combineLatest(reactor.state.map { $0.infoContent }, locationNotSupportedSubject, serviceDownErrorSubject).map { (infoContent, isLocationNotSupported, isServiceDown) -> Reactor.InfoContent? in
+            if isServiceDown {
+                return .serviceDown
+            } else if isLocationNotSupported {
+                return .locationNotSupported
+            } else {
+                return infoContent
+            }
+        }.subscribe(onNext: { [unowned self] infoContent in
             if let infoContent = infoContent {
                 self.loadingView.isHidden = true
                 self.showInfo(content: infoContent)
+                if infoContent == .locationNotSupported {
+                    self.buyLabel.isHidden = true
+                    self.logoImageLeftConstraint?.isActive = false
+                }
             } else {
                 self.hideInfo()
+                self.buyLabel.isHidden = false
+                self.logoImageLeftConstraint?.isActive = true
             }
         }).disposed(by: disposeBag)
         
@@ -160,11 +175,11 @@ class MainViewController: UIViewController, StoryboardView, FillBaseInfoViewCont
             }
         }).disposed(by: disposeBag)
         
-        pageTitleCollectionView.rx.didScroll.map { [unowned self] in self.pageTitleCollectionView }
+        pageTitleCollectionView.rx.didScroll.compactMap { [weak self] in self?.pageTitleCollectionView }
             .map { $0.indexPathForItem(at: $0.convert($0.center, from: $0.superview))?.item ?? 0 }
             .skip(2)
-            .subscribe(onNext: { [unowned self] index in
-                self.pageControl.currentPage = index
+            .subscribe(onNext: { [weak self] index in
+                self?.pageControl.currentPage = index
             }).disposed(by: disposeBag)
         
         tapGesture.rx.event.bind(onNext: { [unowned self] recognizer in
@@ -174,7 +189,7 @@ class MainViewController: UIViewController, StoryboardView, FillBaseInfoViewCont
             }
         }).disposed(by: disposeBag)
         
-        reactor.state.map { $0.page }.distinctUntilChanged().delay(0.1, scheduler: MainScheduler.instance).subscribe(onNext: { [unowned self] page in
+        reactor.state.map { $0.page }.distinctUntilChanged().delay(.milliseconds(100), scheduler: MainScheduler.instance).subscribe(onNext: { [unowned self] page in
             self.pageControl.currentPage = page.rawValue
             self.pageControl.shownPage = page.rawValue
             self.pageTitleCollectionView.scrollToItem(at: IndexPath(row: page.rawValue, section: 0), at: [.centeredHorizontally], animated: false)
@@ -200,12 +215,6 @@ class MainViewController: UIViewController, StoryboardView, FillBaseInfoViewCont
                 return Observable.empty()
             }
         }.bind(to: reactor.action).disposed(by: disposeBag)
-        
-        locationNotSupportedSubject.filter { $0 }.subscribe(onNext: { [unowned self] _ in
-            self.showInfo(content: Reactor.InfoContent.locationNotSupported)
-            self.buyLabel.isHidden = true
-            self.logoImageLeftConstraint?.isActive = false
-        }).disposed(by: disposeBag)
         
         Observable.combineLatest(reactor.state.map { $0.isLoading }, loadingSubject).map { (isLoading, loadingSubject) -> Bool in
             return isLoading == false && loadingSubject == false
@@ -307,13 +316,15 @@ class MainViewController: UIViewController, StoryboardView, FillBaseInfoViewCont
             contentViewController.didMove(toParent: self)
         }
         
-        contentViewController.view.translatesAutoresizingMaskIntoConstraints = false
-        pageContentContainerView.addConstraints([
-            NSLayoutConstraint(item: contentViewController.view, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: pageContentContainerView, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: contentViewController.view, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: pageContentContainerView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: contentViewController.view, attribute: NSLayoutConstraint.Attribute.left, relatedBy: NSLayoutConstraint.Relation.equal, toItem: pageContentContainerView, attribute: NSLayoutConstraint.Attribute.left, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: contentViewController.view, attribute: NSLayoutConstraint.Attribute.right, relatedBy: NSLayoutConstraint.Relation.equal, toItem: pageContentContainerView, attribute: NSLayoutConstraint.Attribute.right, multiplier: 1, constant: 0)
-        ])
+        if let contentView = contentViewController.view {
+            contentViewController.view.translatesAutoresizingMaskIntoConstraints = false
+            pageContentContainerView.addConstraints([
+                NSLayoutConstraint(item: contentView, attribute: NSLayoutConstraint.Attribute.top, relatedBy: NSLayoutConstraint.Relation.equal, toItem: pageContentContainerView, attribute: NSLayoutConstraint.Attribute.top, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: contentView, attribute: NSLayoutConstraint.Attribute.bottom, relatedBy: NSLayoutConstraint.Relation.equal, toItem: pageContentContainerView, attribute: NSLayoutConstraint.Attribute.bottom, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: contentView, attribute: NSLayoutConstraint.Attribute.left, relatedBy: NSLayoutConstraint.Relation.equal, toItem: pageContentContainerView, attribute: NSLayoutConstraint.Attribute.left, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: contentView, attribute: NSLayoutConstraint.Attribute.right, relatedBy: NSLayoutConstraint.Relation.equal, toItem: pageContentContainerView, attribute: NSLayoutConstraint.Attribute.right, multiplier: 1, constant: 0)
+            ])
+        }
         
         scrollView.setContentOffset(CGPoint.zero, animated: false)
         currentPageContentViewController = contentViewController
@@ -393,8 +404,6 @@ extension MainViewController: BaseErrorViewControllerDelegate {
 extension MainViewController: LocationUnsupportedViewControllerDelegate {
     
     func locationUnsupportedViewControlleDidTapBack(_ controller: LocationUnsupportedViewController) {
-        hideInfo()
-        buyLabel.isHidden = false
-        logoImageLeftConstraint?.isActive = true
+        locationNotSupportedSubject.onNext(false)
     }
 }

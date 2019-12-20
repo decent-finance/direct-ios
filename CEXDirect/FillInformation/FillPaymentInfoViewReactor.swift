@@ -50,7 +50,7 @@ class FillPaymentInfoViewReactor: Reactor {
         case setWallet(String?)
         case setTermsAndPolicyAccepted(Bool)
         case setValidationErrors([PaymentInfoKey: String])
-        case setAlert(String?)
+        case setError(Bool)
         case update(Order)
         case setFinished
         case setLoading(Bool)
@@ -70,7 +70,7 @@ class FillPaymentInfoViewReactor: Reactor {
         var isEditable = true
         var isNextEnabled = false
         var validationErrors: [PaymentInfoKey: String]
-        var alert: String?
+        var error = false
         var isFinished = false
         var isLoading = false
         var rules: [Rule]
@@ -102,7 +102,6 @@ class FillPaymentInfoViewReactor: Reactor {
     
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
-        state.alert = nil
         
         switch mutation {
         case .setCardNumber(let cardNumber):
@@ -119,8 +118,8 @@ class FillPaymentInfoViewReactor: Reactor {
             state = reduceTermsAndPolicyAccepted(state: state, termsAndPolicyAccepted: accepted)
         case .setValidationErrors(let errors):
             state.validationErrors = errors
-        case .setAlert(let alert):
-            state.alert = alert
+        case .setError(let error):
+            state.error = error
         case .update(let order):
             state = reduceUpdate(state: state, order: order)
         case .setFinished:
@@ -143,9 +142,9 @@ class FillPaymentInfoViewReactor: Reactor {
         let submitTitle = NSLocalizedString(isEditing ? "SAVE" : "NEXT", comment: "")
         
 #if DEVELOPMENT
-        initialState = State(cardNumber: "5413330000000019".separate(), expiryDate: Date(timeIntervalSinceNow: 10000), cvv: "123", walletAddress: "2Mxx1zJPGfStpi8ANYfmQpAWL6eG9M8Erg1", cryptoCurrency:orderStore.order.cryptoCurrency, ssn: nil, isSNNAvailable: isSNNAvailable, areTermsAndPolicyAccepted: true, submitTitle: submitTitle, isEditable: !isEditing, isNextEnabled: false, validationErrors: [:], alert: nil, isFinished: false, isLoading: false, rules: rulesStore.rules, areAllImagesUploaded: false)
+        initialState = State(cardNumber: "5413330000000019".separate(), expiryDate: Date(timeIntervalSinceNow: 10000), cvv: "123", walletAddress: "2Mxx1zJPGfStpi8ANYfmQpAWL6eG9M8Erg1", cryptoCurrency:orderStore.order.cryptoCurrency, ssn: nil, isSNNAvailable: isSNNAvailable, areTermsAndPolicyAccepted: true, submitTitle: submitTitle, isEditable: !isEditing, isNextEnabled: false, validationErrors: [:], error: false, isFinished: false, isLoading: false, rules: rulesStore.rules, areAllImagesUploaded: false)
 #else
-        initialState = State(cardNumber: nil, expiryDate: nil, cvv: nil, walletAddress: nil, cryptoCurrency:orderStore.order.cryptoCurrency, ssn: nil, isSNNAvailable: isSNNAvailable, areTermsAndPolicyAccepted: false, submitTitle: submitTitle, isEditable: !isEditing, isNextEnabled: false, validationErrors: [:], alert: nil, isFinished: false, isLoading: false, rules: rulesStore.rules, areAllImagesUploaded: false)
+        initialState = State(cardNumber: nil, expiryDate: nil, cvv: nil, walletAddress: nil, cryptoCurrency:orderStore.order.cryptoCurrency, ssn: nil, isSNNAvailable: isSNNAvailable, areTermsAndPolicyAccepted: false, submitTitle: submitTitle, isEditable: !isEditing, isNextEnabled: false, validationErrors: [:], error: false, isFinished: false, isLoading: false, rules: rulesStore.rules, areAllImagesUploaded: false)
 #endif
     }
     
@@ -188,8 +187,8 @@ class FillPaymentInfoViewReactor: Reactor {
                 paymentService.rx.verifyWallet(order: order).flatMap { [unowned self] _ -> Observable<Mutation> in
                     return self.orderService.rx.sendPaymentData(order: order).do(onNext: { order in
                         self.orderStore.update(order: order)
-                    }).map { _ in .setFinished }.catchErrorJustReturn(.setAlert(NSLocalizedString("Failed to send payment data", comment: "")))
-                }.catchErrorJustReturn(.setAlert(NSLocalizedString("Wrong wallet", comment: ""))),
+                    }).map { _ in .setFinished }.catchErrorJustReturn(.setError(true))
+                }.catchErrorJustReturn(.setValidationErrors([.walletAddress: NSLocalizedString("Please enter a valid wallet address", comment: "")])),
                 .just(.setLoading(false)))
         }
     }
@@ -199,7 +198,7 @@ class FillPaymentInfoViewReactor: Reactor {
         
         let cardNumber = currentState.cardNumber?.replacingOccurrences(of: " ", with: "") ?? ""
         if cardNumber.count < Constant.Card.CardNumberLenght || cardNumber.count > Constant.Card.CardNumberLenght {
-            errorDict[.cardNumber] = NSLocalizedString("Please enter valid card number", comment: "")
+            errorDict[.cardNumber] = NSLocalizedString("Please enter a valid card number", comment: "")
         }
         
         let cvv = currentState.cvv ?? ""
@@ -208,7 +207,7 @@ class FillPaymentInfoViewReactor: Reactor {
         }
         
         if currentState.walletAddress?.isEmpty == true || currentState.walletAddress == nil {
-            errorDict[.walletAddress] = NSLocalizedString("Please enter valid wallet address", comment: "")
+            errorDict[.walletAddress] = NSLocalizedString("Please enter a valid wallet address", comment: "")
         }
         
         let expiryDate = currentState.expiryDate

@@ -30,7 +30,7 @@ class ConfirmEmailViewReactor: Reactor {
         case setEmail(String?)
         case setCode(String?)
         case setCodeError(String?)
-        case setAlert(String?)
+        case setError(Bool)
         case setFinished
         case setLoading(Bool)
         case setCodeResend(Bool)
@@ -40,7 +40,7 @@ class ConfirmEmailViewReactor: Reactor {
         var email: String?
         var code: String?
         var codeError: String?
-        var alert: String?
+        var error = false
         var isFinished = false
         var isLoading = false
         var isCodeResend: Bool?
@@ -68,7 +68,6 @@ class ConfirmEmailViewReactor: Reactor {
     
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
-        state.alert = nil
         state.isCodeResend = nil
         
         switch mutation {
@@ -79,8 +78,8 @@ class ConfirmEmailViewReactor: Reactor {
             state.codeError = nil
         case .setCodeError(let error):
             state.codeError = error
-        case .setAlert(let alert):
-            state.alert = alert
+        case .setError(let error):
+            state.error = error
         case .setFinished:
             state.isFinished = true
         case let .setLoading(isLoading):
@@ -96,7 +95,7 @@ class ConfirmEmailViewReactor: Reactor {
         orderService = serviceProvider.orderService
         self.orderStore = orderStore
         
-        initialState = State(email: orderStore.order.email, code: nil, codeError: nil, alert: nil, isFinished: false, isLoading: false, isCodeResend: nil)
+        initialState = State(email: orderStore.order.email, code: nil, codeError: nil, error: false, isFinished: false, isLoading: false, isCodeResend: nil)
     }
     
     // MARK: - Implementation
@@ -108,10 +107,10 @@ class ConfirmEmailViewReactor: Reactor {
         if let code = currentState.code, code.count > 0 {
             return .concat(.just(.setLoading(true)),
                 orderService.rx.checkConfirmationCode(code: code, order: orderStore.order).map { Mutation.setFinished }
-                    .catchErrorJustReturn(.setAlert(NSLocalizedString("Failed to check email confirmation", comment: ""))),
+                    .catchErrorJustReturn(.setCodeError(NSLocalizedString("Please enter valid code", comment: ""))),
                 .just(.setLoading(false)))
         } else {
-            return .just(.setCodeError(NSLocalizedString("Please enter a valid code", comment: "")))
+            return .just(.setCodeError(NSLocalizedString("Please enter valid code", comment: "")))
         }
     }
 }

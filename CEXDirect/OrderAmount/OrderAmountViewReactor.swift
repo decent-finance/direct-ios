@@ -44,8 +44,6 @@ class OrderAmountViewReactor: Reactor {
     }
     
     struct State {
-        var orderId: String? = nil
-        
         var isCryptoEditingEnabled = false
         var fiatCurrencyPrecision: Int? = nil
         var cryptoCurrencyPrecision: Int? = nil
@@ -131,7 +129,6 @@ class OrderAmountViewReactor: Reactor {
         
         var state = State()
         state.fiatAmount = orderStore.order.fiatAmount
-        state.orderId = orderStore.order.orderID
         
         initialState = state
         

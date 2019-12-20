@@ -16,6 +16,7 @@
 
 import Foundation
 import RxSwift
+import RxRelay
 
 public class OrderStore {
     
@@ -26,7 +27,7 @@ public class OrderStore {
         
         set {
             queue.sync { [weak self] in
-                self?.orderVariable.value = newValue
+                self?.orderVariable.accept(newValue)
             }
         }
     }
@@ -34,7 +35,7 @@ public class OrderStore {
     var rx_order: Observable<Order> { return orderVariable.asObservable() }
     
     init(order: Order) {
-        orderVariable = Variable(order)
+        orderVariable = BehaviorRelay(value: order)
     }
     
     func update(order: Order) {
@@ -48,5 +49,5 @@ public class OrderStore {
     // MARK: - Implementation
         
     private let queue = DispatchQueue(label: "com.cexdirect.OrderStoreQueue")
-    private let orderVariable: Variable<Order>
+    private let orderVariable: BehaviorRelay<Order>
 }

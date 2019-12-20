@@ -155,6 +155,7 @@ public struct Order: Mappable {
     }
     
     var orderID: String?
+    var merchantOrderID: String?
     var status: Status?
     
     var fiatAmount: String?
@@ -204,6 +205,7 @@ public struct Order: Mappable {
     
     mutating public func mapping(map: Map) {
         orderID <- map["orderId"]
+        merchantOrderID <- map["merchOrderId"]
         status <- map["orderStatus"]
         
         fiatAmount <- map["basic.fiat.amount"]
@@ -237,6 +239,10 @@ public struct Order: Mappable {
         
         if let orderID = order.orderID {
             result.orderID = orderID
+        }
+        
+        if let merchantOrderID = order.merchantOrderID {
+            result.merchantOrderID = merchantOrderID
         }
         
         if let status = order.status {
@@ -329,6 +335,7 @@ public struct Order: Mappable {
     func reset() -> Order {
         var result = self
         result.orderID = nil
+        result.merchantOrderID = nil
         
         result.state = nil
         result.ssn = nil

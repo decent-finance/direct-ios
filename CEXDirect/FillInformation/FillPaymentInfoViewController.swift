@@ -24,6 +24,7 @@ protocol FillPaymentInfoViewControllerDelegate: class {
     var nextEnabled: RxCocoa.Binder<Bool> { get }
     var nextTap: RxCocoa.ControlEvent<Void> { get }
     var submitionFinishedSubject: PublishSubject<Void> { get }
+    var serviceDownErrorSubject: BehaviorSubject<Bool> { get }
     var loadingSubject: BehaviorSubject<Bool> { get }
     
     func scrollToErrorField(field: UIView)
@@ -117,10 +118,6 @@ class FillPaymentInfoViewController: UIViewController, StoryboardView {
             self.nextButtonView.isHidden = !isEditable
         }).disposed(by: disposeBag)
         
-        reactor.state.compactMap { $0.alert }.subscribe(onNext: { [unowned self] alert in
-            self.delegate?.showServiceDownError()
-        }).disposed(by: disposeBag)
-        
         reactor.state.map { $0.validationErrors }.subscribe(onNext: { [unowned self] validationErrors in
             self.cardNumberTextField.error = nil
             self.cvvTextField.error = nil
@@ -207,6 +204,10 @@ class FillPaymentInfoViewController: UIViewController, StoryboardView {
             .disposed(by: disposeBag)
         
         if let delegate = delegate {
+            reactor.state.map { $0.error }.distinctUntilChanged()
+                .bind(to: delegate.serviceDownErrorSubject)
+                .disposed(by: disposeBag)
+            
             reactor.state.map { $0.isLoading }.distinctUntilChanged()
                 .bind(to: delegate.loadingSubject)
                 .disposed(by: disposeBag)

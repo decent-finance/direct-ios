@@ -23,6 +23,7 @@ protocol ConfirmEmailViewControllerDelegate: class {
     
     var nextTap: RxCocoa.ControlEvent<Void> { get }
     var submitionFinishedSubject: PublishSubject<Void> { get }
+    var serviceDownErrorSubject: BehaviorSubject<Bool> { get }
     var loadingSubject: BehaviorSubject<Bool> { get }
     
     func сonfirmEmailViewControllerDidTapEditEmail(_ controller: ConfirmEmailViewController)
@@ -86,10 +87,6 @@ class ConfirmEmailViewController: UIViewController, StoryboardView {
             self.codeTextField.error = error
         }).disposed(by: disposeBag)
         
-        reactor.state.map { $0.alert }.filter { $0 != nil }.subscribe(onNext: { [unowned self] alert in
-            self.cd_presentInfoAlert(message: alert)
-        }).disposed(by: disposeBag)
-        
         reactor.state.map { $0.isCodeResend }.filter { $0 != nil }.subscribe(onNext: { [unowned self] isCodeResend in
             if isCodeResend ?? false {
                 self.resendTimeButton.isHidden = false
@@ -122,9 +119,13 @@ class ConfirmEmailViewController: UIViewController, StoryboardView {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        if let loadingSubject = delegate?.loadingSubject {
+        if let delegate = delegate {
+            reactor.state.map { $0.error }.distinctUntilChanged()
+                .bind(to: delegate.serviceDownErrorSubject)
+                .disposed(by: disposeBag)
+            
             reactor.state.map { $0.isLoading }.distinctUntilChanged()
-                .bind(to: loadingSubject)
+                .bind(to: delegate.loadingSubject)
                 .disposed(by: disposeBag)
         }
     }

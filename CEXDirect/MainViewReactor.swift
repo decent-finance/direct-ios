@@ -140,7 +140,7 @@ class MainViewReactor: Reactor {
     
     func reduce(state: State, mutation: Mutation) -> State {
         var state = state
-        state.orderId = orderStore.order.orderID
+        state.orderId = orderStore.order.merchantOrderID
         
         switch mutation {
         case let .setPage(page):

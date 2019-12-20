@@ -46,15 +46,17 @@ import RxSwift
     }
     
     func verifyWallet(order: Order, success: @escaping () -> Void, failure: @escaping (Error) -> Void) {
+#if DEVELOPMENT
         success()
-        
-//        if let wallet = order.walletAddress, let currency = order.cryptoCurrency {
-//            session.cd_request(baseURL.appendingPathComponent("wallet/\(wallet)/\(currency)/verify"), success: { _ in
-//                success()
-//            }, failure: failure)
-//        } else {
-//            failure(ServiceError.incorrectParameters)
-//        }
+#else
+        if let wallet = order.walletAddress, let currency = order.cryptoCurrency {
+            session.cd_request(baseURL.appendingPathComponent("wallet/\(wallet)/\(currency)/verify"), success: { _ in
+                success()
+            }, failure: failure)
+        } else {
+            failure(ServiceError.incorrectParameters)
+        }
+#endif
     }
 }
 

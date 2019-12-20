@@ -21,6 +21,7 @@ import RxCocoa
 
 protocol EditEmailViewControllerDelegate: class {
     
+    var serviceDownErrorSubject: BehaviorSubject<Bool> { get }
     var loadingSubject: BehaviorSubject<Bool> { get }
 }
 
@@ -40,10 +41,6 @@ class EditEmailViewController: UIViewController, StoryboardView {
             self.emailTextField.error = error
         }).disposed(by: disposeBag)
         
-        reactor.state.map { $0.alert }.filter { $0 != nil }.subscribe(onNext: { [unowned self] alert in
-            self.cd_presentInfoAlert(message: alert)
-        }).disposed(by: disposeBag)
-        
         reactor.state.filter { $0.isFinished }.subscribe(onNext: { [unowned self] _ in
             self.dismiss(animated: true, completion: nil)
         }).disposed(by: disposeBag)
@@ -61,9 +58,13 @@ class EditEmailViewController: UIViewController, StoryboardView {
             self.dismiss(animated: true, completion: nil)
         }).disposed(by: disposeBag)
         
-        if let loadingSubject = delegate?.loadingSubject {
+        if let delegate = delegate {
+            reactor.state.map { $0.error }.distinctUntilChanged()
+                .bind(to: delegate.serviceDownErrorSubject)
+                .disposed(by: disposeBag)
+            
             reactor.state.map { $0.isLoading }.distinctUntilChanged()
-                .bind(to: loadingSubject)
+                .bind(to: delegate.loadingSubject)
                 .disposed(by: disposeBag)
         }
     }

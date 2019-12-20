@@ -35,8 +35,6 @@
 		58DA859822675B3B00942295 /* DocumentTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DA859622675B3B00942295 /* DocumentTypeCell.swift */; };
 		58DA859B226771E600942295 /* FillPaymentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DA8599226771E600942295 /* FillPaymentInfoViewController.swift */; };
 		58DA859E2267720300942295 /* FillPaymentInfoViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DA859D2267720300942295 /* FillPaymentInfoViewReactor.swift */; };
-		58DA85A02267881300942295 /* UploadPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DA859F2267881300942295 /* UploadPhotoView.swift */; };
-		58DA85A22267882800942295 /* DocumentSelectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 58DA85A12267882800942295 /* DocumentSelectionView.xib */; };
 		58DA85A4226798A200942295 /* UITextField+CD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58DA85A3226798A200942295 /* UITextField+CD.swift */; };
 		59038B0B22CE2DA20008EF9D /* FooterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59038B0922CE2DA20008EF9D /* FooterViewController.swift */; };
 		59038B0C22CE2DA20008EF9D /* FooterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 59038B0A22CE2DA20008EF9D /* FooterViewController.xib */; };
@@ -248,8 +246,6 @@
 		58DA859622675B3B00942295 /* DocumentTypeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentTypeCell.swift; sourceTree = "<group>"; };
 		58DA8599226771E600942295 /* FillPaymentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillPaymentInfoViewController.swift; sourceTree = "<group>"; };
 		58DA859D2267720300942295 /* FillPaymentInfoViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FillPaymentInfoViewReactor.swift; sourceTree = "<group>"; };
-		58DA859F2267881300942295 /* UploadPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotoView.swift; sourceTree = "<group>"; };
-		58DA85A12267882800942295 /* DocumentSelectionView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentSelectionView.xib; sourceTree = "<group>"; };
 		58DA85A3226798A200942295 /* UITextField+CD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+CD.swift"; sourceTree = "<group>"; };
 		59038B0922CE2DA20008EF9D /* FooterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterViewController.swift; sourceTree = "<group>"; };
 		59038B0A22CE2DA20008EF9D /* FooterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterViewController.xib; sourceTree = "<group>"; };
@@ -687,8 +683,6 @@
 				5834A78F2267A7F500D4F7B8 /* UploadPhotoViewController.xib */,
 				5834A78E2267A7F500D4F7B8 /* UploadPhotoViewController.swift */,
 				5834A7922267AC9B00D4F7B8 /* UploadPhotoViewReactor.swift */,
-				58DA859F2267881300942295 /* UploadPhotoView.swift */,
-				58DA85A12267882800942295 /* DocumentSelectionView.xib */,
 				58DA859422675B3B00942295 /* PaymentInfoCells */,
 				FD2D7CAB2382F2AE00D896AD /* VerificationViewController.storyboard */,
 				FD2D7CA72382F21200D896AD /* VerificationViewController.swift */,
@@ -717,8 +711,8 @@
 			children = (
 				FD363688224931B3004F1926 /* AppDelegate.swift */,
 				FD36368A224931B3004F1926 /* ViewController.swift */,
-				FD36368C224931B3004F1926 /* Main.storyboard */,
 				FD36368F224931BF004F1926 /* Assets.xcassets */,
+				FD36368C224931B3004F1926 /* Main.storyboard */,
 				FD363691224931BF004F1926 /* LaunchScreen.storyboard */,
 				FD363694224931BF004F1926 /* Info.plist */,
 				FD5DD242235733DA00ABDDFC /* Placement.plist */,
@@ -961,7 +955,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1120;
 				ORGANIZATIONNAME = "Ihor Vovk";
 				TargetAttributes = {
 					FD152A2822394C7A0026BE41 = {
@@ -1012,7 +1006,6 @@
 				592669D1229D43B100F61B1E /* CurrencyNames.plist in Resources */,
 				FDB9BBCE22CA297600780A7F /* RuleViewController.storyboard in Resources */,
 				FD5DD2512357567800ABDDFC /* Configuration.plist in Resources */,
-				58DA85A22267882800942295 /* DocumentSelectionView.xib in Resources */,
 				FDFFE0232372E30500E84627 /* VerificationRejectedViewController.storyboard in Resources */,
 				FDF7B7D02257CAE400C0C3E1 /* CDAmountTextField.xib in Resources */,
 				FDFA1895224CF6360060813B /* Main.storyboard in Resources */,
@@ -1285,7 +1278,6 @@
 				FDBA1CCA238850760052428E /* PaymentRefundedViewController.swift in Sources */,
 				593383C42382D31400B5FCCF /* String+CD.swift in Sources */,
 				FD3B677E224E5EF9002BE8E0 /* UIView+CD.swift in Sources */,
-				58DA85A02267881300942295 /* UploadPhotoView.swift in Sources */,
 				FD227F7F2292FB2B00CA2931 /* SocketMessage.swift in Sources */,
 				FDB9BBD422CA32B600780A7F /* RuleViewReactor.swift in Sources */,
 				FDFA18AA224D2D840060813B /* FillBaseInfoViewController.swift in Sources */,
@@ -1526,6 +1518,7 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -1538,6 +1531,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEVELOPMENT;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -1559,12 +1553,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Firebase",
-				);
 				INFOPLIST_FILE = CEXDirect/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1593,12 +1581,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Firebase",
-				);
 				INFOPLIST_FILE = CEXDirect/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1729,12 +1711,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Firebase",
-				);
 				INFOPLIST_FILE = CEXDirect/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1778,12 +1754,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2MF2YLGLKJ;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Firebase",
-				);
 				INFOPLIST_FILE = CEXDirectDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1878,12 +1848,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Firebase",
-				);
 				INFOPLIST_FILE = CEXDirect/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1926,12 +1890,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2MF2YLGLKJ;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Firebase",
-				);
 				INFOPLIST_FILE = CEXDirectDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1962,12 +1920,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2MF2YLGLKJ;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Firebase",
-				);
 				INFOPLIST_FILE = CEXDirectDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1989,12 +1941,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2MF2YLGLKJ;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Firebase",
-				);
 				INFOPLIST_FILE = CEXDirectDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2085,12 +2031,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Firebase",
-				);
 				INFOPLIST_FILE = CEXDirect/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2134,12 +2074,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2MF2YLGLKJ;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Firebase",
-				);
 				INFOPLIST_FILE = CEXDirectDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2234,12 +2168,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Firebase",
-				);
 				INFOPLIST_FILE = CEXDirect/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -2282,12 +2210,6 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2MF2YLGLKJ;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Frameworks",
-					"$(PROJECT_DIR)/Firebase",
-				);
 				INFOPLIST_FILE = CEXDirectDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
